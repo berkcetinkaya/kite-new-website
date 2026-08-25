@@ -242,6 +242,17 @@ const tr: SiteDictionary = {
       title: "LET'S WORK TOGETHER",
     },
   },
+  finalCta: {
+    folioNumber: "007",
+    mainStatement: ["BİRLİKTE", "İYİ BİR ŞEY", "YAPALIM."],
+    secondaryLine: ["Markanız nereye gitmek istiyorsa,", "rüzgârı oraya çevirelim."],
+    ctaLabel: "PROJE BAŞLAT",
+  },
+  footer: {
+    copyright: "© KITE GROWTH AGENCY",
+    privacy: "Privacy",
+    terms: "Terms",
+  },
   designSystemPreview: {
     eyebrow: "DAHİLİ ÖNİZLEME",
     title: "Tasarım Sistemi",

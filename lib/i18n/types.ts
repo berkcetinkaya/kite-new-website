@@ -148,6 +148,17 @@ export interface SiteDictionary {
       title: string;
     };
   };
+  finalCta: {
+    folioNumber: string;
+    mainStatement: string[];
+    secondaryLine: string[];
+    ctaLabel: string;
+  };
+  footer: {
+    copyright: string;
+    privacy: string;
+    terms: string;
+  };
   designSystemPreview: {
     eyebrow: string;
     title: string;

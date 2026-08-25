@@ -240,6 +240,17 @@ const en: SiteDictionary = {
       title: "LET'S WORK TOGETHER",
     },
   },
+  finalCta: {
+    folioNumber: "007",
+    mainStatement: ["LET'S BUILD", "SOMETHING", "GOOD TOGETHER."],
+    secondaryLine: ["Wherever your brand wants to go,", "let's turn the wind that way."],
+    ctaLabel: "START A PROJECT",
+  },
+  footer: {
+    copyright: "© KITE GROWTH AGENCY",
+    privacy: "Privacy",
+    terms: "Terms",
+  },
   designSystemPreview: {
     eyebrow: "INTERNAL PREVIEW",
     title: "Design System",

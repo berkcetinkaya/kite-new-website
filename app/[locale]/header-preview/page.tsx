@@ -5,10 +5,12 @@ import { Capabilities } from "@/components/site/Capabilities";
 import { Manifesto } from "@/components/site/Manifesto";
 import { Kite } from "@/components/site/Kite";
 import { Thinking } from "@/components/site/Thinking";
+import { FinalCta } from "@/components/site/FinalCta";
+import { Footer } from "@/components/site/Footer";
 
 /**
- * Internal QA harness for Phase 2 (Header) through Phase 8 (Thinking).
- * Not the homepage — sections below this are built and approved
+ * Internal QA harness for Phase 2 (Header) through Phase 9 (Final CTA +
+ * Footer). Not the homepage — sections below this are built and approved
  * separately.
  */
 export default async function HeaderPreviewPage() {
@@ -22,7 +24,9 @@ export default async function HeaderPreviewPage() {
         <Manifesto />
         <Kite />
         <Thinking />
+        <FinalCta />
       </main>
+      <Footer />
     </>
   );
 }
