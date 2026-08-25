@@ -211,6 +211,37 @@ const tr: SiteDictionary = {
       title: "THINKING",
     },
   },
+  thinking: {
+    mainStatement: ["FİKİRLER DE", "BÜYÜMENİN", "BİR PARÇASI."],
+    articles: [
+      {
+        number: "01",
+        title: ["STRATEJİ KREATİFTEN ÖNCE GELİR."],
+        dek: "Çünkü iyi tasarım, yanlış yönü kurtaramaz.",
+        category: "STRATEJİ",
+        readTime: "5 MIN",
+        slug: "strateji-kreatiften-once-gelir",
+      },
+      {
+        number: "02",
+        title: ["PERFORMANCE MARKETING'İN", "YENİ KURALLARI."],
+        category: "PERFORMANCE",
+        readTime: "7 MIN",
+        slug: "performance-marketingin-yeni-kurallari",
+      },
+      {
+        number: "03",
+        title: ["AI GELECEK DEĞİL.", "BUGÜNÜN ARACI."],
+        category: "AI & TECHNOLOGY",
+        readTime: "4 MIN",
+        slug: "ai-gelecek-degil-bugunun-araci",
+      },
+    ],
+    nextSectionHint: {
+      number: "007",
+      title: "LET'S WORK TOGETHER",
+    },
+  },
   designSystemPreview: {
     eyebrow: "DAHİLİ ÖNİZLEME",
     title: "Tasarım Sistemi",

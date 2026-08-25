@@ -209,6 +209,37 @@ const en: SiteDictionary = {
       title: "THINKING",
     },
   },
+  thinking: {
+    mainStatement: ["IDEAS ARE PART", "OF GROWTH", "TOO."],
+    articles: [
+      {
+        number: "01",
+        title: ["STRATEGY COMES BEFORE CREATIVE."],
+        dek: "Because good design can't save the wrong direction.",
+        category: "STRATEGY",
+        readTime: "5 MIN",
+        slug: "strategy-comes-before-creative",
+      },
+      {
+        number: "02",
+        title: ["THE NEW RULES OF", "PERFORMANCE MARKETING."],
+        category: "PERFORMANCE",
+        readTime: "7 MIN",
+        slug: "the-new-rules-of-performance-marketing",
+      },
+      {
+        number: "03",
+        title: ["AI ISN'T THE FUTURE.", "IT'S TODAY'S TOOL."],
+        category: "AI & TECHNOLOGY",
+        readTime: "4 MIN",
+        slug: "ai-isnt-the-future-its-todays-tool",
+      },
+    ],
+    nextSectionHint: {
+      number: "007",
+      title: "LET'S WORK TOGETHER",
+    },
+  },
   designSystemPreview: {
     eyebrow: "INTERNAL PREVIEW",
     title: "Design System",
