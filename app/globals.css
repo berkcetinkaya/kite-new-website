@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   KITE GROWTH AGENCY — DESIGN TOKENS
+   Editorial / Swiss-grid / neo-brutalist system.
+   All tokens are consumed via Tailwind (see tailwind.config.ts) so nothing
+   in component code should hard-code a raw color, spacing or font value.
+   ========================================================================== */
+
+:root {
+  /* ---- Color ---- */
+  --color-paper: #f2eee4;
+  --color-paper-dim: #e9e2d2;
+  --color-ink: #0b0b0b;
+  --color-ink-soft: rgba(11, 11, 11, 0.66);
+  --color-kite-yellow: #efb004;
+  --color-kite-yellow-dark: #d39c03;
+  --color-line: rgba(11, 11, 11, 0.92);
+  --color-line-soft: rgba(11, 11, 11, 0.14);
+
+  /* ---- Fluid type scale (clamp: min, preferred, max) ---- */
+  --fs-display-2xl: clamp(3.5rem, 1.6rem + 7.5vw, 8rem);
+  --fs-display-xl: clamp(2.75rem, 1.3rem + 5.6vw, 6rem);
+  --fs-display-lg: clamp(2.25rem, 1.2rem + 4vw, 4.5rem);
+  --fs-display-md: clamp(1.75rem, 1.1rem + 2.4vw, 3rem);
+  --fs-display-sm: clamp(1.375rem, 1.05rem + 1.2vw, 2rem);
+
+  --fs-body-lg: clamp(1.125rem, 1.03rem + 0.35vw, 1.375rem);
+  --fs-body-md: clamp(1rem, 0.94rem + 0.2vw, 1.125rem);
+  --fs-body-sm: clamp(0.875rem, 0.84rem + 0.12vw, 0.9375rem);
+  --fs-label: clamp(0.75rem, 0.72rem + 0.1vw, 0.8125rem);
+  --fs-eyebrow: clamp(0.6875rem, 0.665rem + 0.08vw, 0.75rem);
+
+  /* ---- Spacing (editorial pacing, not generic UI spacing) ---- */
+  --space-3xs: clamp(0.25rem, 0.21rem + 0.16vw, 0.375rem);
+  --space-2xs: clamp(0.5rem, 0.4rem + 0.32vw, 0.75rem);
+  --space-xs: clamp(0.75rem, 0.6rem + 0.56vw, 1.125rem);
+  --space-sm: clamp(1rem, 0.78rem + 0.8vw, 1.5rem);
+  --space-md: clamp(1.5rem, 1.14rem + 1.35vw, 2.25rem);
+  --space-lg: clamp(2.25rem, 1.5rem + 2.8vw, 3.75rem);
+  --space-xl: clamp(3.5rem, 2.2rem + 4.8vw, 6.25rem);
+  --space-2xl: clamp(5rem, 2.9rem + 7.8vw, 9.5rem);
+  --space-3xl: clamp(7rem, 3.8rem + 12vw, 13.5rem);
+  --space-4xl: clamp(9rem, 4.6rem + 16.5vw, 17.5rem);
+  --space-gutter: clamp(1.25rem, 0.85rem + 2vw, 3rem);
+
+  /* ---- Layout ---- */
+  --container-max: 1600px;
+}
+
+@media (prefers-color-scheme: dark) {
+  /* The KITE identity is a fixed print-paper system, not a dark UI —
+     we intentionally do not remap tokens here. Declared for clarity
+     and to document the decision for future contributors. */
+  :root {
+    color-scheme: light;
+  }
+}
+
+html {
+  background: var(--color-paper);
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: auto;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: var(--fs-body-md);
+  line-height: 1.62;
+  letter-spacing: -0.011em;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  position: relative;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+::selection {
+  background: var(--color-kite-yellow);
+  color: var(--color-ink);
+}
+
+/* ==========================================================================
+   PAPER / PRINT TEXTURE
+   A fixed, seeded SVG-noise overlay blended with `multiply`. Kept at a very
+   low opacity so it reads as tactile paper grain rather than visible noise,
+   and never interferes with text contrast. Pure CSS/SVG — no image request,
+   no JS, negligible paint cost, and respects prefers-reduced-motion trivially
+   because nothing here animates.
+   ========================================================================== */
+.paper-texture {
+  position: relative;
+  isolation: isolate;
+}
+
+.paper-texture::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.07;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+/* Local, non-fixed texture swatch used only on the design-system preview
+   page to let the grain be inspected up close. The production texture
+   above stays fixed + near-invisible at 0.07 opacity; this variant is
+   intentionally louder (0.14) for review purposes only. */
+.paper-texture-swatch {
+  position: relative;
+  overflow: hidden;
+}
+
+.paper-texture-swatch::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.14;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+/* ==========================================================================
+   PRIMITIVES
+   ========================================================================== */
+
+.hairline {
+  border: 1px solid var(--color-line);
+}
+
+.hairline-soft {
+  border: 1px solid var(--color-line-soft);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .transition-editorial {
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    transition-duration: 300ms;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
