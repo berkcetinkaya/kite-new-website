@@ -13,15 +13,15 @@ export async function SelectedWork() {
   const { work } = dict;
 
   return (
-    <section className="relative bg-paper pt-xl xl:pt-2xl">
+    <section id="work" className="relative scroll-mt-[var(--header-h)] bg-paper pt-xl xl:pt-2xl">
       <SiteContainer>
-        <p className="max-w-[22ch] font-display text-display-sm font-black uppercase leading-tight text-ink-soft">
+        <h2 className="max-w-[22ch] font-display text-display-sm font-black uppercase leading-tight text-ink-soft">
           {work.supportingLines.map((line, i) => (
             <span key={i} className="block">
               {line}
             </span>
           ))}
-        </p>
+        </h2>
 
         <div className="mt-xl xl:mt-2xl">
           <ProjectIndex

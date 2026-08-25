@@ -31,12 +31,18 @@ export async function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-paper">
+      <a
+        href="#content"
+        className="sr-only font-body text-label font-semibold uppercase tracking-wide text-ink focus:not-sr-only focus:fixed focus:left-gutter focus:top-sm focus:z-[100] focus:bg-kite focus:px-md focus:py-xs"
+      >
+        {dict.ui.skipToContent}
+      </a>
       <div className="mx-auto w-full max-w-container px-gutter">
         {/* Desktop / wide navigation — active from xl (1280px) up. Kept off
             below that so the tablet band (around 1024px) gets the clean
             mobile composition instead of a compressed desktop nav. */}
         <div className="hidden items-stretch justify-between xl:flex">
-          <div className="flex items-center gap-2xl py-sm">
+          <div className="flex items-center gap-xl py-sm">
             <Logo href={homeHref} size={48} alt={`${dict.brand.name} ${dict.brand.agencyType}`} />
             <nav aria-label="Main" className="flex items-center gap-xl">
               <NavLink href="#work">{dict.header.nav.work}</NavLink>

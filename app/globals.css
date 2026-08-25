@@ -50,6 +50,11 @@
 
   /* ---- Layout ---- */
   --container-max: 1600px;
+  /* Sticky header's rendered height (measured ~81-97px across breakpoints)
+     rounded up to a single safe value, used as scroll-margin-top on
+     anchor-jump targets so a nav click never tucks a section's top edge
+     under the sticky header. */
+  --header-h: 100px;
 }
 
 @media (prefers-color-scheme: dark) {

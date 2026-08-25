@@ -106,7 +106,7 @@ export async function Hero() {
         </div>
       </SiteContainer>
 
-      <div id="next-section-hint" className="border-t border-line">
+      <div id="next-section-hint" className="scroll-mt-[var(--header-h)] border-t border-line">
         <SiteContainer className="flex items-center justify-between py-xs">
           <span className="font-display text-display-sm font-extrabold uppercase tabular-nums leading-none text-ink-soft">
             {hero.nextSectionHint.number} / {hero.nextSectionHint.title}

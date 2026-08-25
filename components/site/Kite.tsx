@@ -16,7 +16,7 @@ export async function Kite() {
   const { kite, brand } = dict;
 
   return (
-    <section className="relative bg-paper pt-xl xl:pt-2xl">
+    <section id="about" className="relative scroll-mt-[var(--header-h)] bg-paper pt-xl xl:pt-2xl">
       <SiteContainer>
         <div className="flex items-center justify-between">
           <span className="font-body text-eyebrow font-semibold uppercase tracking-widest text-ink-soft">

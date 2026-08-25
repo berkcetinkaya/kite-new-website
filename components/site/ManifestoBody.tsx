@@ -78,13 +78,13 @@ function useLineReveal() {
 }
 
 export function ManifestoBody({ statement1, statement2 }: ManifestoBodyProps) {
-  const s1Ref = useRevealOnScroll<HTMLParagraphElement>();
+  const s1Ref = useRevealOnScroll<HTMLHeadingElement>();
   const lineRef = useLineReveal();
   const s2Ref = useRevealOnScroll<HTMLParagraphElement>();
 
   return (
     <>
-      <p
+      <h2
         ref={s1Ref}
         className="max-w-[22ch] font-display text-display-xl font-black uppercase leading-[0.95] text-paper xl:max-w-[16ch] xl:text-display-2xl"
       >
@@ -98,7 +98,7 @@ export function ManifestoBody({ statement1, statement2 }: ManifestoBodyProps) {
             {line}
           </span>
         ))}
-      </p>
+      </h2>
 
       <div
         ref={lineRef}

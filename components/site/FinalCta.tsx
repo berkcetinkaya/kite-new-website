@@ -16,7 +16,7 @@ export async function FinalCta() {
   const { finalCta } = dict;
 
   return (
-    <section className="relative overflow-hidden bg-kite py-2xl xl:py-4xl">
+    <section id="contact" className="relative scroll-mt-[var(--header-h)] overflow-hidden bg-kite py-2xl xl:py-4xl">
       <WindPath
         variant="desktop"
         className="pointer-events-none absolute inset-0 hidden opacity-30 xl:block"
@@ -27,13 +27,13 @@ export async function FinalCta() {
           {finalCta.folioNumber}
         </span>
 
-        <p className="mt-lg max-w-[16ch] font-display text-display-2xl font-black uppercase leading-[0.92] text-ink xl:mt-xl">
+        <h2 className="mt-lg max-w-[16ch] font-display text-display-2xl font-black uppercase leading-[0.92] text-ink xl:mt-xl">
           {finalCta.mainStatement.map((line, i) => (
             <span key={i} className="block">
               {line}
             </span>
           ))}
-        </p>
+        </h2>
 
         <p className="mt-lg max-w-[36ch] font-body text-body-lg text-ink-soft xl:mt-xl">
           {finalCta.secondaryLine.map((line, i) => (

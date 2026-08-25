@@ -66,6 +66,15 @@ export function MobileNav({
     document.body.style.overflow = "hidden";
     firstLinkRef.current?.focus();
 
+    // The panel is a fullscreen overlay, but the page behind it (main
+    // content, footer) isn't otherwise removed from the tab order — without
+    // this, keyboard focus can leave the visible menu and land on content
+    // hidden underneath it.
+    const main = document.getElementById("content");
+    const footer = document.querySelector("footer");
+    main?.setAttribute("inert", "");
+    footer?.setAttribute("inert", "");
+
     function onKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
         setOpen(false);
@@ -76,6 +85,8 @@ export function MobileNav({
 
     return () => {
       document.body.style.overflow = previousOverflow;
+      main?.removeAttribute("inert");
+      footer?.removeAttribute("inert");
       document.removeEventListener("keydown", onKeyDown);
     };
   }, [open]);

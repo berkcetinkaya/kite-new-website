@@ -13,15 +13,15 @@ export async function Thinking() {
   const { thinking } = dict;
 
   return (
-    <section className="relative bg-paper pt-xl xl:pt-2xl">
+    <section id="thinking" className="relative scroll-mt-[var(--header-h)] bg-paper pt-xl xl:pt-2xl">
       <SiteContainer>
-        <p className="max-w-[20ch] font-display text-display-lg font-black uppercase leading-[0.97] text-ink xl:text-display-xl">
+        <h2 className="max-w-[20ch] font-display text-display-lg font-black uppercase leading-[0.97] text-ink xl:text-display-xl">
           {thinking.mainStatement.map((line, i) => (
             <span key={i} className="block">
               {line}
             </span>
           ))}
-        </p>
+        </h2>
 
         <div className="mt-2xl xl:mt-3xl">
           <ArticleIndex articles={thinking.articles} />

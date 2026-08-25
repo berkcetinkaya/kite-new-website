@@ -50,28 +50,30 @@ export function CapabilityIndex({ items }: CapabilityIndexProps) {
 
         return (
           <li key={item.number} className="border-t border-line last:border-b">
-            <button
-              type="button"
-              aria-expanded={isOpen}
-              aria-controls={panelId}
-              onClick={() => setOpenIndex((prev) => (prev === i ? null : i))}
-              className="group flex w-full items-center justify-between gap-md py-md text-left transition-editorial xl:py-lg"
-            >
-              <div className="flex items-baseline gap-sm xl:gap-lg">
-                <span
-                  className={cn(
-                    "font-display text-display-sm font-extrabold uppercase tabular-nums leading-none transition-editorial",
-                    isOpen ? "text-kite-dark" : "text-ink-soft group-hover:text-kite-dark",
-                  )}
-                >
-                  {item.number}
-                </span>
-                <span className="font-display text-display-lg font-black uppercase leading-none text-ink transition-editorial group-hover:translate-x-2 xl:text-display-xl">
-                  {item.title}
-                </span>
-              </div>
-              <ToggleIndicator open={isOpen} />
-            </button>
+            <h3>
+              <button
+                type="button"
+                aria-expanded={isOpen}
+                aria-controls={panelId}
+                onClick={() => setOpenIndex((prev) => (prev === i ? null : i))}
+                className="group flex w-full items-center justify-between gap-md py-md text-left transition-editorial xl:py-lg"
+              >
+                <div className="flex items-baseline gap-sm xl:gap-lg">
+                  <span
+                    className={cn(
+                      "font-display text-display-sm font-extrabold uppercase tabular-nums leading-none transition-editorial",
+                      isOpen ? "text-kite-dark" : "text-ink-soft group-hover:text-kite-dark",
+                    )}
+                  >
+                    {item.number}
+                  </span>
+                  <span className="font-display text-display-lg font-black uppercase leading-none text-ink transition-editorial group-hover:translate-x-2 xl:text-display-xl">
+                    {item.title}
+                  </span>
+                </div>
+                <ToggleIndicator open={isOpen} />
+              </button>
+            </h3>
 
             <div
               id={panelId}
