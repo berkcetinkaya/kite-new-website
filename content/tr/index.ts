@@ -18,6 +18,199 @@ const tr: SiteDictionary = {
     languageSwitcherLabel: "Dili değiştir",
     back: "Geri",
   },
+  header: {
+    locationShort: "ISTANBUL & BALI",
+    nav: {
+      work: "İŞLER",
+      services: "HİZMETLER",
+      about: "HAKKIMIZDA",
+      thinking: "THINKING",
+    },
+    cta: "PROJE BAŞLAT",
+    mobileMenu: {
+      openLabel: "Menü",
+      closeLabel: "Kapat",
+      ariaLabel: "Ana menü",
+      menuEyebrow: "MENÜ",
+      nav: {
+        work: "İŞLER",
+        services: "HİZMETLER",
+        about: "HAKKIMIZDA",
+        thinking: "THINKING",
+        contact: "İLETİŞİM",
+      },
+      social: {
+        instagram: "Instagram",
+        linkedin: "LinkedIn",
+        behance: "Behance",
+        email: "E-posta",
+      },
+    },
+  },
+  hero: {
+    indexLabel: "HERO",
+    headline: [
+      [{ text: "MARKANIZ NEREYE" }],
+      [{ text: "GİTMEK İSTİYORSA," }],
+      [{ text: "RÜZGÂRI", accent: true }, { text: " ORAYA" }],
+      [{ text: "ÇEVİRİYORUZ." }],
+    ],
+    primaryCta: "PROJENİ KONUŞALIM",
+    secondaryCta: "SEÇİLİ İŞLER",
+    capabilities: ["CREATIVE", "MEDIA", "WEB", "AI", "CRM"],
+    showreelLabel: "SHOWREEL İZLE",
+    nextSectionHint: {
+      number: "002",
+      title: "SEÇİLİ İŞLER",
+    },
+  },
+  work: {
+    indexLabel: "SEÇİLİ İŞLER",
+    supportingLines: ["FARKLI SEKTÖRLER.", "AYNI MESELE:", "DOĞRU YÖN."],
+    featuredLabel: "ÖNE ÇIKAN",
+    statusOngoing: "DEVAM EDİYOR",
+    nextSectionHint: {
+      number: "003",
+      title: "NELER YAPIYORUZ",
+    },
+    projects: [
+      {
+        number: "01",
+        name: "DESETOUR",
+        services: ["Website", "Reklam Yönetimi", "Sosyal Medya Yönetimi", "CRM Sistemleri"],
+        featured: true,
+      },
+      {
+        number: "02",
+        name: "ECRUATELIER",
+        services: ["Reklam Yönetimi", "Sosyal Medya Yönetimi"],
+      },
+      {
+        number: "03",
+        name: "TITOCAR",
+        services: ["Reklam Yönetimi"],
+      },
+      {
+        number: "04",
+        name: "LYXASKIN",
+        services: ["Sosyal Medya Yönetimi", "Reklam Yönetimi"],
+        ongoing: true,
+      },
+      {
+        number: "05",
+        name: "PETCANVAS",
+        services: ["Reklam Yönetimi"],
+      },
+    ],
+  },
+  capabilities: {
+    indexLabel: "NELER YAPIYORUZ",
+    supportingLines: ["MARKANIZIN DİJİTALDE", "İHTİYAÇ DUYDUĞU", "SİSTEMİ KURUYORUZ."],
+    microCopy: "STRATEJİ, KREATİF VE TEKNOLOJİYİ AYNI YÖNDE ÇALIŞTIRIYORUZ.",
+    closingStatement: [
+      { lines: ["FİKİRDEN", "ALTYAPIYA."] },
+      { lines: ["KREATİFTEN", "BÜYÜMEYE."] },
+      { lines: ["TEK BİR", "YÖNDE."], accent: true },
+    ],
+    nextSectionHint: {
+      number: "004",
+      title: "MANİFESTO",
+    },
+    items: [
+      {
+        number: "01",
+        title: "STRATEJİ & KREATİF",
+        services: ["Marka Stratejisi", "Creative Direction", "Sosyal Medya", "İçerik Üretimi", "AI Görsel & Video"],
+      },
+      {
+        number: "02",
+        title: "MEDYA & PERFORMANS",
+        services: ["Meta Ads", "Google Ads", "TikTok Ads", "Medya Planlama", "Performans Optimizasyonu"],
+      },
+      {
+        number: "03",
+        title: "WEB & DİJİTAL DENEYİM",
+        services: ["Web Siteleri", "Landing Page'ler", "UI / UX", "Conversion Design", "Dijital Deneyimler"],
+      },
+      {
+        number: "04",
+        title: "AI & OTOMASYON",
+        services: [
+          "AI Asistanları",
+          "İçerik Sistemleri",
+          "İş Akışı Otomasyonları",
+          "Lead Otomasyonları",
+          "AI Destekli İş Sistemleri",
+        ],
+      },
+      {
+        number: "05",
+        title: "CRM & GROWTH SYSTEMS",
+        services: ["CRM Kurulumu", "Lead Yönetimi", "Otomatik Follow-up", "Müşteri Yolculukları", "Growth Infrastructure"],
+      },
+    ],
+  },
+  manifesto: {
+    folioNumber: "004",
+    statement1: {
+      desktop: ["DAHA FAZLA", "SES ÇIKARMAK İÇİN", "BURADA DEĞİLİZ."],
+      mobile: ["DAHA FAZLA", "SES ÇIKARMAK", "İÇİN BURADA", "DEĞİLİZ."],
+    },
+    statement2: {
+      desktop: [
+        [{ text: "MARKALARI" }],
+        [{ text: "İLERİ TAŞIMAK", accent: true }],
+        [{ text: "İÇİN BURADAYIZ." }],
+      ],
+      mobile: [
+        [{ text: "MARKALARI" }],
+        [{ text: "İLERİ", accent: true }],
+        [{ text: "TAŞIMAK", accent: true }, { text: " İÇİN" }],
+        [{ text: "BURADAYIZ." }],
+      ],
+    },
+    secondaryStatement: ["STRATEJİYİ, KREATİFİ", "VE TEKNOLOJİYİ", "AYNI YÖNDE ÇALIŞTIRIYORUZ."],
+    microAnnotations: ["ISTANBUL × BALI", "WORKING GLOBALLY"],
+    nextSectionHint: {
+      number: "005",
+      title: "KITE",
+    },
+  },
+  kite: {
+    folioNumber: "005",
+    microLabel: "INDEPENDENT CREATIVE GROWTH AGENCY",
+    primaryStatement: ["İKİ ŞEHİR.", "İKİ FARKLI ENERJİ.", "TEK BİR YÖN."],
+    citiesLabel: "ISTANBUL × BALI",
+    aboutCopy: [
+      "KITE, strateji, kreatif, medya ve teknolojiyi aynı masada buluşturan bağımsız bir growth ajansı.",
+      "Markaların yalnızca daha fazla görünmesini değil, daha doğru görünmesini, daha akıllı çalışmasını ve sürdürülebilir şekilde büyümesini hedefliyoruz.",
+    ],
+    cities: [
+      {
+        name: "ISTANBUL",
+        descriptors: ["Strateji.", "Tempo.", "Kültür.", "Hareket."],
+        coordinates: "41.0082° N / 28.9784° E",
+      },
+      {
+        name: "BALI",
+        descriptors: ["Perspektif.", "Yaratıcılık.", "Alan.", "Özgürlük."],
+        coordinates: "8.3405° S / 115.0920° E",
+      },
+    ],
+    microAnnotation: "UTC+3 / UTC+8",
+    processLabel: "NASIL ÇALIŞIYORUZ",
+    process: [
+      { number: "01", title: "ANLA" },
+      { number: "02", title: "YÖNÜ BELİRLE" },
+      { number: "03", title: "ÜRET" },
+      { number: "04", title: "YAYINA AL" },
+      { number: "05", title: "ÖLÇ & GELİŞTİR" },
+    ],
+    nextSectionHint: {
+      number: "006",
+      title: "THINKING",
+    },
+  },
   designSystemPreview: {
     eyebrow: "DAHİLİ ÖNİZLEME",
     title: "Tasarım Sistemi",

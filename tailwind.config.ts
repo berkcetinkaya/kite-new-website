@@ -16,12 +16,14 @@ const config: Config = {
       colors: {
         paper: "var(--color-paper)",
         "paper-dim": "var(--color-paper-dim)",
+        "paper-soft": "var(--color-paper-soft)",
         ink: "var(--color-ink)",
         "ink-soft": "var(--color-ink-soft)",
         kite: "var(--color-kite-yellow)",
         "kite-dark": "var(--color-kite-yellow-dark)",
         line: "var(--color-line)",
         "line-soft": "var(--color-line-soft)",
+        "line-inverse": "var(--color-line-inverse)",
       },
       fontFamily: {
         display: ["var(--font-display)"],

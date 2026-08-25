@@ -7,6 +7,10 @@ interface TextLinkProps {
   href: string;
   className?: string;
   arrow?: boolean;
+  /** Defaults to "↗". Override for directional variants, e.g. "↓" for a scroll-hint link. */
+  arrowGlyph?: string;
+  /** Hover drift direction for the arrow — should match arrowGlyph's direction. */
+  arrowHoverClassName?: string;
   target?: string;
   rel?: string;
 }
@@ -15,7 +19,16 @@ interface TextLinkProps {
  * Secondary CTA: transparent, text-based, restrained underline that draws
  * in on hover plus the ↗ arrow drift. No pill, no fill.
  */
-export function TextLink({ children, href, className, arrow = true, target, rel }: TextLinkProps) {
+export function TextLink({
+  children,
+  href,
+  className,
+  arrow = true,
+  arrowGlyph = "↗",
+  arrowHoverClassName = "group-hover:translate-x-0.5 group-hover:-translate-y-0.5",
+  target,
+  rel,
+}: TextLinkProps) {
   return (
     <Link
       href={href}
@@ -34,11 +47,8 @@ export function TextLink({ children, href, className, arrow = true, target, rel 
         />
       </span>
       {arrow && (
-        <span
-          aria-hidden
-          className="inline-block transition-editorial group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-        >
-          ↗
+        <span aria-hidden className={cn("inline-block transition-editorial", arrowHoverClassName)}>
+          {arrowGlyph}
         </span>
       )}
     </Link>

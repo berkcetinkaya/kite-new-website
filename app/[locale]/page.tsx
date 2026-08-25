@@ -94,7 +94,7 @@ export default async function DesignSystemPreviewPage() {
           <SiteContainer>
             <SectionLabel number="001" title={p.sectionLabels.typography} rule className="mb-lg" />
 
-            <p className="mb-2xs text-label font-semibold uppercase tracking-widest text-ink-soft">
+            <p lang="en" className="mb-2xs text-label font-semibold uppercase tracking-widest text-ink-soft">
               Display — Big Shoulders Display / 700–900
             </p>
             <div className="mb-xl border border-line divide-y divide-line-soft">
@@ -113,14 +113,14 @@ export default async function DesignSystemPreviewPage() {
                   >
                     {sample}
                   </span>
-                  <span className="shrink-0 font-body text-eyebrow uppercase tracking-widest text-ink-soft">
+                  <span lang="en" className="shrink-0 font-body text-eyebrow uppercase tracking-widest text-ink-soft">
                     {token}
                   </span>
                 </div>
               ))}
             </div>
 
-            <p className="mb-2xs text-label font-semibold uppercase tracking-widest text-ink-soft">
+            <p lang="en" className="mb-2xs text-label font-semibold uppercase tracking-widest text-ink-soft">
               Body / UI — Inter / 400–700
             </p>
             <div className="border border-line divide-y divide-line-soft">
@@ -159,7 +159,7 @@ export default async function DesignSystemPreviewPage() {
               ].map((c) => (
                 <div key={c.name}>
                   <div className={`aspect-square border border-line ${c.className}`} />
-                  <p className="mt-2xs text-label font-semibold uppercase tracking-widest text-ink">
+                  <p lang="en" className="mt-2xs text-label font-semibold uppercase tracking-widest text-ink">
                     {c.name}
                   </p>
                   <p className="text-body-sm text-ink-soft">{c.hex}</p>
@@ -179,7 +179,7 @@ export default async function DesignSystemPreviewPage() {
             <SectionLabel number="003" title={p.sectionLabels.texture} rule className="mb-lg" />
             <div className="grid gap-sm md:grid-cols-2">
               <div className="border border-line bg-paper p-md">
-                <p className="text-label font-semibold uppercase tracking-widest text-ink">
+                <p lang="en" className="text-label font-semibold uppercase tracking-widest text-ink">
                   Active site-wide · 0.07 opacity
                 </p>
                 <p className="mt-2xs text-body-sm text-ink-soft">
@@ -189,7 +189,7 @@ export default async function DesignSystemPreviewPage() {
                 </p>
               </div>
               <div className="paper-texture-swatch border border-line bg-paper p-md">
-                <p className="text-label font-semibold uppercase tracking-widest text-ink">
+                <p lang="en" className="text-label font-semibold uppercase tracking-widest text-ink">
                   Magnified for review · 0.14 opacity
                 </p>
                 <p className="mt-2xs text-body-sm text-ink-soft">
@@ -266,11 +266,11 @@ export default async function DesignSystemPreviewPage() {
             <div className="mb-lg flex flex-wrap items-center gap-lg">
               <div className="flex items-center gap-xs">
                 <div className="h-16 w-16 border border-line" />
-                <span className="text-label uppercase tracking-widest text-ink-soft">Line</span>
+                <span lang="en" className="text-label uppercase tracking-widest text-ink-soft">Line</span>
               </div>
               <div className="flex items-center gap-xs">
                 <div className="h-16 w-16 border border-line-soft" />
-                <span className="text-label uppercase tracking-widest text-ink-soft">Line Soft</span>
+                <span lang="en" className="text-label uppercase tracking-widest text-ink-soft">Line Soft</span>
               </div>
               <div className="flex items-center gap-xs">
                 <div className="h-16 w-16 border-2 border-line" />
@@ -280,14 +280,14 @@ export default async function DesignSystemPreviewPage() {
             <div className="grid gap-sm md:grid-cols-2">
               <EditorialFrame caption="KITE GROWTH AGENCY / IMAGE PLACEHOLDER" captionVariant="dashed">
                 <div className="flex aspect-[4/3] items-center justify-center bg-paper-dim">
-                  <span className="text-label uppercase tracking-widest text-ink-soft">
+                  <span lang="en" className="text-label uppercase tracking-widest text-ink-soft">
                     Media placeholder
                   </span>
                 </div>
               </EditorialFrame>
               <EditorialFrame caption="SOLID CAPTION" captionVariant="solid">
                 <div className="flex aspect-[4/3] items-center justify-center bg-paper-dim">
-                  <span className="text-label uppercase tracking-widest text-ink-soft">
+                  <span lang="en" className="text-label uppercase tracking-widest text-ink-soft">
                     Media placeholder
                   </span>
                 </div>
@@ -339,7 +339,7 @@ export default async function DesignSystemPreviewPage() {
             <p className="text-body-sm text-ink-soft">
               {dict.brand.location} · {dict.brand.globalNote}
             </p>
-            <p className="text-eyebrow uppercase tracking-widest text-ink-soft">
+            <p lang="en" className="text-eyebrow uppercase tracking-widest text-ink-soft">
               Foundation phase — homepage sections to follow
             </p>
           </SiteContainer>

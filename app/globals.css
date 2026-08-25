@@ -13,12 +13,14 @@
   /* ---- Color ---- */
   --color-paper: #f2eee4;
   --color-paper-dim: #e9e2d2;
+  --color-paper-soft: rgba(242, 238, 228, 0.66);
   --color-ink: #0b0b0b;
   --color-ink-soft: rgba(11, 11, 11, 0.66);
   --color-kite-yellow: #efb004;
   --color-kite-yellow-dark: #d39c03;
   --color-line: rgba(11, 11, 11, 0.92);
   --color-line-soft: rgba(11, 11, 11, 0.14);
+  --color-line-inverse: rgba(242, 238, 228, 0.16);
 
   /* ---- Fluid type scale (clamp: min, preferred, max) ---- */
   --fs-display-2xl: clamp(3.5rem, 1.6rem + 7.5vw, 8rem);
@@ -86,6 +88,11 @@ p {
   color: var(--color-ink);
 }
 
+:focus-visible {
+  outline: 2px solid var(--color-kite-yellow);
+  outline-offset: 2px;
+}
+
 /* ==========================================================================
    PAPER / PRINT TEXTURE
    A fixed, seeded SVG-noise overlay blended with `multiply`. Kept at a very
@@ -131,6 +138,28 @@ p {
   background-repeat: repeat;
 }
 
+/* Dark-surface counterpart to .paper-texture. `multiply` (used sitewide,
+   fixed on <body>) is mathematically invisible over near-black, so a
+   black section needs its own local, non-fixed overlay with a blend mode
+   that actually shows against dark — `screen` lightens instead of
+   darkening. Same grain, same low-key intent, just re-derived for the
+   surface it sits on. */
+.paper-texture-dark {
+  position: relative;
+  isolation: isolate;
+}
+
+.paper-texture-dark::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.05;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
 /* ==========================================================================
    PRIMITIVES
    ========================================================================== */
@@ -155,6 +184,42 @@ p {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
+    transition-delay: 0ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* ==========================================================================
+   HERO — headline reveal + ambient mobile wind sway.
+   Both are plain CSS animations, so the prefers-reduced-motion override
+   above already neutralizes them without any extra JS.
+   ========================================================================== */
+@keyframes hero-line-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(0.4em);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-line {
+  animation: hero-line-reveal 640ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes wind-ambient {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(2px, -3px) rotate(0.6deg);
+  }
+}
+
+.wind-path-ambient {
+  animation: wind-ambient 9s ease-in-out infinite;
+  transform-origin: center;
 }
