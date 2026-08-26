@@ -10,8 +10,8 @@ export async function Hero() {
   return (
     <section className="relative overflow-hidden bg-paper pt-md xl:pt-lg">
       <SiteContainer>
-        <div className="flex flex-col gap-lg xl:grid xl:grid-cols-12 xl:gap-x-md xl:gap-y-xl">
-          <div className="xl:col-span-7">
+        <div className="flex flex-col gap-lg xl:grid xl:grid-cols-12 xl:gap-x-sm xl:gap-y-xl">
+          <div className="xl:col-span-6">
             <div className="flex items-start gap-xs xl:gap-sm">
               <div className="flex shrink-0 items-center gap-2xs pt-[0.3em]">
                 <span className="font-display text-body-lg font-extrabold uppercase tabular-nums leading-none text-ink">
@@ -20,7 +20,7 @@ export async function Hero() {
                 <span aria-hidden className="h-px w-6 bg-line" />
               </div>
 
-              <h1 className="font-display text-display-2xl font-black uppercase leading-[1.05] text-ink">
+              <h1 className="font-display text-[clamp(3rem,1.4rem+6.4vw,6.9rem)] font-black uppercase leading-[1.08] text-ink">
                 {hero.headline.map((line, i) => (
                   <span key={i} className="hero-line block" style={{ animationDelay: `${i * 90}ms` }}>
                     {line.map((segment, j) => (
@@ -34,7 +34,7 @@ export async function Hero() {
             </div>
           </div>
 
-          <div className="flex items-start gap-xs xl:col-span-5 xl:col-start-8 xl:row-span-2">
+          <div className="flex items-start gap-xs xl:col-span-6 xl:col-start-7 xl:row-span-2">
             <div className="min-w-0 flex-1">
               <HeroArtwork
                 agencyLine={`${brand.name} ${brand.agencyType}`}
@@ -59,7 +59,7 @@ export async function Hero() {
             </div>
           </div>
 
-          <div className="xl:col-span-7">
+          <div className="xl:col-span-6">
             <div className="border-t border-line pt-lg xl:pt-xl">
               <div className="grid grid-cols-1 gap-md sm:grid-cols-2 sm:gap-lg">
                 <p className="font-display text-display-md font-black uppercase leading-[0.95] text-ink">

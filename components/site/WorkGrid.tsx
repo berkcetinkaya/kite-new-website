@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { cn } from "@/lib/cn";
 
 interface Project {
@@ -6,6 +7,7 @@ interface Project {
   services: string[];
   ongoing?: boolean;
   featured?: boolean;
+  image?: string;
 }
 
 interface WorkGridProps {
@@ -15,29 +17,46 @@ interface WorkGridProps {
 }
 
 /**
- * A contact-sheet / portfolio-index grid, not a card grid: zero border
- * radius, no shadow, no card padding — each panel is a flush rectangular
- * frame with the project number in yellow, a large condensed title, its
- * real services list, and a small yellow arrow tucked in the corner. Five
- * real projects don't divide evenly into the mockup's 4-across layout, so
- * the first three share a 3-wide row and the last two share a 2-wide row
- * beneath it (both built on the same 6-column track for shared alignment).
- * No real project photography exists yet, so each panel uses a plain dark
- * (ink) field instead of inventing stock imagery.
+ * Desktop column span per project (12-col track): DESETOUR gets extra
+ * width for its "featured" prominence, the rest of row one splits the
+ * remainder, row two is an even two-up split. Auto-flow wraps the row
+ * automatically since each row's spans sum to 12 — no explicit row index
+ * needed. Tailwind's class scanner needs literal strings, not runtime-built
+ * ones (see EditorialGrid.tsx), hence the explicit lookup instead of
+ * `xl:col-span-${n}`.
+ */
+const DESKTOP_SPAN_CLASSES = ["xl:col-span-5", "xl:col-span-4", "xl:col-span-3", "xl:col-span-6", "xl:col-span-6"];
+
+/**
+ * An editorial contact-sheet grid: each project is a flush image panel
+ * (zero radius, zero shadow) with a permanent dark-to-transparent scrim
+ * for caption legibility over any future photo. Real artwork isn't
+ * supplied yet, so panels without a resolved `image` fall back to a dark
+ * textured placeholder — never a grey skeleton box — and nothing about
+ * the layout needs to change once real images land in /public/work.
  */
 export function WorkGrid({ projects, featuredLabel, statusOngoing }: WorkGridProps) {
   return (
-    <div className="grid grid-cols-1 gap-px bg-line sm:grid-cols-2 xl:grid-cols-6">
+    <div className="grid grid-cols-1 gap-px bg-line sm:grid-cols-2 xl:grid-cols-12 xl:auto-rows-[clamp(260px,22vw,380px)]">
       {projects.map((project, i) => (
         <button
           key={project.number}
           type="button"
           className={cn(
-            "group relative flex aspect-[16/10] flex-col justify-end bg-ink p-sm text-left transition-editorial hover:bg-ink/90",
-            i < 3 ? "xl:col-span-2" : "xl:col-span-3",
+            "group relative flex aspect-[3/2] w-full flex-col justify-end overflow-hidden bg-ink p-sm text-left transition-editorial xl:aspect-auto xl:h-full",
+            DESKTOP_SPAN_CLASSES[i],
           )}
         >
-          <div className="flex items-center gap-xs">
+          <div className="absolute inset-0">
+            {project.image ? (
+              <Image src={project.image} alt="" fill sizes="(min-width: 1280px) 45vw, 100vw" className="object-cover" />
+            ) : (
+              <div className="paper-texture-dark absolute inset-0 bg-gradient-to-br from-[#232323] via-ink to-black" />
+            )}
+            <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/25 to-transparent transition-editorial group-hover:from-ink/95" />
+          </div>
+
+          <div className="relative flex items-center gap-xs">
             <span className="font-display text-label font-semibold uppercase tabular-nums leading-none text-kite">
               {project.number}
             </span>
@@ -48,11 +67,11 @@ export function WorkGrid({ projects, featuredLabel, statusOngoing }: WorkGridPro
             )}
           </div>
 
-          <span className="mt-2xs block font-display text-display-md font-black uppercase leading-[0.95] text-paper transition-editorial group-hover:translate-x-1">
+          <span className="relative mt-2xs block font-display text-display-md font-black uppercase leading-[0.95] text-paper transition-editorial group-hover:translate-x-1">
             {project.name}
           </span>
 
-          <div className="mt-2xs flex flex-wrap items-center gap-x-2xs gap-y-3xs font-body text-label font-semibold uppercase tracking-wide text-paper-soft">
+          <div className="relative mt-2xs flex flex-wrap items-center gap-x-2xs gap-y-3xs font-body text-label font-semibold uppercase tracking-wide text-paper-soft">
             {project.services.map((service, si) => (
               <span key={service} className="flex items-center gap-2xs">
                 {si > 0 && (
