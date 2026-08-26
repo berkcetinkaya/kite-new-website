@@ -1,7 +1,7 @@
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { SiteContainer } from "@/components/ui";
 import { cn } from "@/lib/cn";
-import { CapabilityIndex } from "./CapabilityIndex";
+import { CapabilitiesBody } from "./CapabilitiesBody";
 
 /**
  * Selected Work's own bottom hint ("003 / NELER YAPIYORUZ") is this
@@ -15,17 +15,7 @@ export async function Capabilities() {
   return (
     <section id="services" className="relative scroll-mt-[var(--header-h)] bg-paper pt-xl xl:pt-2xl">
       <SiteContainer>
-        <h2 className="max-w-[24ch] font-display text-display-sm font-black uppercase leading-tight text-ink-soft">
-          {capabilities.supportingLines.map((line, i) => (
-            <span key={i} className="block">
-              {line}
-            </span>
-          ))}
-        </h2>
-
-        <div className="mt-xl xl:mt-2xl">
-          <CapabilityIndex items={capabilities.items} />
-        </div>
+        <CapabilitiesBody supportingLines={capabilities.supportingLines} items={capabilities.items} />
 
         <div className="mt-2xl border-t border-line pt-xl xl:mt-3xl xl:pt-2xl">
           <p className="max-w-[46ch] font-body text-label font-semibold uppercase tracking-wide text-ink-soft">
