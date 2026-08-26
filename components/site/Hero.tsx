@@ -1,31 +1,28 @@
 import { getDictionary } from "@/lib/i18n/get-dictionary";
-import { SiteContainer, EditorialGrid, SectionLabel, PrimaryButton, TextLink } from "@/components/ui";
-import { WindPath } from "./WindPath";
+import { SiteContainer, PrimaryButton, TextLink } from "@/components/ui";
+import { cn } from "@/lib/cn";
+import { HeroArtwork } from "./HeroArtwork";
 
 export async function Hero() {
   const dict = await getDictionary();
-  const { hero, brand } = dict;
+  const { hero, brand, kite } = dict;
 
   return (
-    <section className="relative flex min-h-[85vh] flex-col overflow-hidden bg-paper pt-lg xl:pt-xl">
-      <SiteContainer className="flex flex-1 flex-col">
-        <SectionLabel number="001" title={hero.indexLabel} rule className="mb-lg xl:mb-2xl" />
+    <section className="relative overflow-hidden bg-paper pt-md xl:pt-lg">
+      <SiteContainer>
+        <div className="flex flex-col gap-lg xl:grid xl:grid-cols-12 xl:gap-x-md xl:gap-y-xl">
+          <div className="xl:col-span-7">
+            <div className="flex items-start gap-xs xl:gap-sm">
+              <div className="flex shrink-0 items-center gap-2xs pt-[0.3em]">
+                <span className="font-display text-body-lg font-extrabold uppercase tabular-nums leading-none text-ink">
+                  001
+                </span>
+                <span aria-hidden className="h-px w-6 bg-line" />
+              </div>
 
-        <div className="relative">
-          <WindPath
-            variant="desktop"
-            className="pointer-events-none absolute -inset-x-gutter -top-md bottom-0 hidden xl:block"
-          />
-
-          <EditorialGrid columns={{ base: 4, md: 6, xl: 12 }} className="relative">
-            <div className="col-span-4 md:col-span-6 xl:col-span-8">
-              <h1 className="font-display text-display-2xl font-black uppercase leading-none text-ink">
+              <h1 className="font-display text-display-2xl font-black uppercase leading-[0.92] text-ink">
                 {hero.headline.map((line, i) => (
-                  <span
-                    key={i}
-                    className="hero-line block"
-                    style={{ animationDelay: `${i * 90}ms` }}
-                  >
+                  <span key={i} className="hero-line block" style={{ animationDelay: `${i * 90}ms` }}>
                     {line.map((segment, j) => (
                       <span key={j} className={segment.accent ? "text-kite" : undefined}>
                         {segment.text}
@@ -34,86 +31,74 @@ export async function Hero() {
                   </span>
                 ))}
               </h1>
-
-              <div className="mt-lg flex flex-wrap items-center gap-lg">
-                <PrimaryButton href="#contact">{hero.primaryCta}</PrimaryButton>
-                <TextLink
-                  href="#next-section-hint"
-                  arrowGlyph="↓"
-                  arrowHoverClassName="group-hover:translate-y-0.5"
-                >
-                  {hero.secondaryCta}
-                </TextLink>
-              </div>
             </div>
-
-            <div className="col-span-4 mt-xl md:col-span-6 xl:col-span-3 xl:col-start-10 xl:mt-2xs">
-              <p
-                lang="en"
-                className="max-w-[26ch] border-l border-line pl-sm text-label font-semibold uppercase tracking-wide text-ink-soft xl:ml-auto xl:text-right xl:border-l-0 xl:border-r xl:pl-0 xl:pr-sm"
-              >
-                {brand.statement}
-              </p>
-            </div>
-          </EditorialGrid>
-
-          <WindPath
-            variant="mobile"
-            className="pointer-events-none mx-auto mt-xl h-[220px] max-w-[280px] xl:hidden"
-          />
-        </div>
-
-        <div className="mt-2xl flex flex-col gap-sm pb-lg md:flex-row md:items-end md:justify-between">
-          <div className="flex flex-wrap items-center gap-x-sm gap-y-2xs font-body text-label font-semibold uppercase tracking-wide text-ink-soft">
-            <span className="flex items-center gap-2xs">
-              <span aria-hidden className="h-1.5 w-1.5 shrink-0 rounded-full bg-kite" />
-              {brand.location}
-            </span>
-            <span>{brand.globalNote}</span>
           </div>
 
-          <div className="flex flex-wrap items-center gap-x-2xs font-body text-label font-semibold uppercase tracking-wide text-ink-soft">
-            {hero.capabilities.map((capability, i) => (
-              <span key={capability} className="flex items-center gap-2xs">
-                {i > 0 && (
-                  <span aria-hidden className="text-line">
-                    /
-                  </span>
-                )}
-                {capability}
-              </span>
-            ))}
-          </div>
+          <div className="flex items-stretch gap-xs xl:col-span-5 xl:col-start-8 xl:row-span-2">
+            <div className="min-w-0 flex-1">
+              <HeroArtwork
+                agencyLine={`${brand.name} ${brand.agencyType}`}
+                locationLine={brand.location}
+                coordinates={[kite.cities[0]?.coordinates ?? "", kite.cities[1]?.coordinates ?? ""]}
+                stampLines={hero.stampLines}
+              />
+            </div>
 
-          <button
-            type="button"
-            className="group inline-flex w-fit items-center gap-2xs font-body text-label font-semibold uppercase tracking-wide text-ink-soft transition-editorial hover:text-ink"
-          >
-            <span className="relative">
-              {hero.showreelLabel}
+            <div className="hidden w-6 shrink-0 flex-col items-center justify-between py-xs xl:flex">
               <span
                 aria-hidden
-                className="absolute -bottom-[2px] left-0 h-px w-full origin-left scale-x-0 bg-kite-dark transition-editorial group-hover:scale-x-100"
-              />
-            </span>
-            <span
-              aria-hidden
-              className="inline-block transition-editorial group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-            >
-              ↗
-            </span>
-          </button>
+                className="font-body text-eyebrow font-semibold uppercase tracking-widest text-ink-soft"
+                style={{ writingMode: "vertical-rl" }}
+              >
+                {hero.scrollLabel}
+              </span>
+              <span aria-hidden className="my-2xs w-px flex-1 bg-line" />
+              <span aria-hidden className="text-ink-soft">
+                ↓
+              </span>
+            </div>
+          </div>
+
+          <div className="xl:col-span-7">
+            <div className="border-t border-line pt-lg xl:pt-xl">
+              <div className="grid grid-cols-1 gap-md sm:grid-cols-2 sm:gap-lg">
+                <p className="font-display text-display-md font-black uppercase leading-[0.95] text-ink">
+                  {hero.secondaryStatement.map((line, i) => (
+                    <span key={i} className={cn("block", line.accent && "text-kite")}>
+                      {line.text}
+                    </span>
+                  ))}
+                </p>
+
+                <div>
+                  <div className="font-body text-body-md text-ink-soft">
+                    {hero.supportingCopy.map((line, i) => (
+                      <p key={i} className={i > 0 ? "mt-2xs" : undefined}>
+                        {line}
+                      </p>
+                    ))}
+                  </div>
+                  <div className="mt-sm">
+                    <PrimaryButton href="#work">{hero.secondaryCta}</PrimaryButton>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </SiteContainer>
 
-      <div id="next-section-hint" className="scroll-mt-[var(--header-h)] border-t border-line">
+      <div id="next-section-hint" className="mt-lg scroll-mt-[var(--header-h)] border-t border-line xl:mt-xl">
         <SiteContainer className="flex items-center justify-between py-xs">
-          <span className="font-display text-display-sm font-extrabold uppercase tabular-nums leading-none text-ink-soft">
-            {hero.nextSectionHint.number} / {hero.nextSectionHint.title}
+          <span className="flex items-baseline gap-sm">
+            <span className="font-display text-display-sm font-extrabold uppercase tabular-nums leading-none text-ink-soft">
+              {hero.nextSectionHint.number}
+            </span>
+            <span className="font-body text-label font-semibold uppercase tracking-wide text-ink-soft">
+              {hero.nextSectionHint.title}
+            </span>
           </span>
-          <span aria-hidden className="text-ink-soft">
-            ↓
-          </span>
+          <TextLink href="#work">{hero.nextSectionHint.viewAllLabel}</TextLink>
         </SiteContainer>
       </div>
     </section>

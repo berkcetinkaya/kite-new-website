@@ -1,38 +1,25 @@
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { SiteContainer } from "@/components/ui";
-import { ProjectIndex } from "./ProjectIndex";
+import { WorkGrid } from "./WorkGrid";
 
 /**
- * The hero's own bottom hint ("002 / SEÇİLİ İŞLER") is this section's
- * opening marker — see Hero.tsx's #next-section-hint. Deliberately no
- * second SectionLabel here: repeating the same number/title immediately
- * below it read as a duplicated intro rather than one continuous chapter.
+ * The hero's own bottom hint ("002 / SEÇİLİ İŞLER ... TÜM PROJELERİ GÖR")
+ * is this section's heading row — see Hero.tsx's #next-section-hint. The
+ * grid sits immediately beneath it with minimal top padding, matching the
+ * master reference's dense, no-gap transition rather than a separate
+ * intro block.
  */
 export async function SelectedWork() {
   const dict = await getDictionary();
   const { work } = dict;
 
   return (
-    <section id="work" className="relative scroll-mt-[var(--header-h)] bg-paper pt-xl xl:pt-2xl">
+    <section id="work" className="relative scroll-mt-[var(--header-h)] bg-paper pt-lg xl:pt-xl">
       <SiteContainer>
-        <h2 className="max-w-[22ch] font-display text-display-sm font-black uppercase leading-tight text-ink-soft">
-          {work.supportingLines.map((line, i) => (
-            <span key={i} className="block">
-              {line}
-            </span>
-          ))}
-        </h2>
-
-        <div className="mt-xl xl:mt-2xl">
-          <ProjectIndex
-            projects={work.projects}
-            featuredLabel={work.featuredLabel}
-            statusOngoing={work.statusOngoing}
-          />
-        </div>
+        <WorkGrid projects={work.projects} />
       </SiteContainer>
 
-      <div className="mt-xl border-t border-line xl:mt-2xl">
+      <div className="border-t border-line">
         <SiteContainer className="flex items-center justify-between py-xs">
           <span className="font-display text-display-sm font-extrabold uppercase tabular-nums leading-none text-ink-soft">
             {work.nextSectionHint.number} / {work.nextSectionHint.title}

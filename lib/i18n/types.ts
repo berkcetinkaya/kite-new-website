@@ -53,21 +53,27 @@ export interface SiteDictionary {
     indexLabel: string;
     /** Each line is a list of segments so a single word within a line can be accented in yellow without altering the copy. */
     headline: Array<Array<{ text: string; accent?: boolean }>>;
+    /** Short two-line couplet under the primary headline's rule — each line is fully one color, unlike headline's per-segment accents. */
+    secondaryStatement: Array<{ text: string; accent?: boolean }>;
+    supportingCopy: string[];
     primaryCta: string;
     secondaryCta: string;
     capabilities: string[];
     showreelLabel: string;
+    /** Vertical "scroll to explore" edge label beside the artwork. */
+    scrollLabel: string;
+    /** Two-line circular stamp overlaid on the artwork. */
+    stampLines: string[];
     nextSectionHint: {
       number: string;
       title: string;
+      viewAllLabel: string;
     };
   };
   work: {
     indexLabel: string;
     /** Small supporting line, kept as separate lines like the hero headline. */
     supportingLines: string[];
-    featuredLabel: string;
-    statusOngoing: string;
     nextSectionHint: {
       number: string;
       title: string;
@@ -75,9 +81,7 @@ export interface SiteDictionary {
     projects: Array<{
       number: string;
       name: string;
-      services: string[];
-      ongoing?: boolean;
-      featured?: boolean;
+      category: string;
     }>;
   };
   capabilities: {
