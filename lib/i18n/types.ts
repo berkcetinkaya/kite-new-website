@@ -74,6 +74,8 @@ export interface SiteDictionary {
     indexLabel: string;
     /** Small supporting line, kept as separate lines like the hero headline. */
     supportingLines: string[];
+    featuredLabel: string;
+    statusOngoing: string;
     nextSectionHint: {
       number: string;
       title: string;
@@ -81,7 +83,9 @@ export interface SiteDictionary {
     projects: Array<{
       number: string;
       name: string;
-      category: string;
+      services: string[];
+      ongoing?: boolean;
+      featured?: boolean;
     }>;
   };
   capabilities: {

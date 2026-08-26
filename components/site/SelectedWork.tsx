@@ -16,7 +16,11 @@ export async function SelectedWork() {
   return (
     <section id="work" className="relative scroll-mt-[var(--header-h)] bg-paper pt-lg xl:pt-xl">
       <SiteContainer>
-        <WorkGrid projects={work.projects} />
+        <WorkGrid
+          projects={work.projects}
+          featuredLabel={work.featuredLabel}
+          statusOngoing={work.statusOngoing}
+        />
       </SiteContainer>
 
       <div className="border-t border-line">

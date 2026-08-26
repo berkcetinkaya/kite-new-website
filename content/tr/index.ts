@@ -75,15 +75,40 @@ const tr: SiteDictionary = {
   work: {
     indexLabel: "SEÇİLİ İŞLER",
     supportingLines: ["FARKLI SEKTÖRLER.", "AYNI MESELE:", "DOĞRU YÖN."],
+    featuredLabel: "ÖNE ÇIKAN",
+    statusOngoing: "DEVAM EDİYOR",
     nextSectionHint: {
       number: "003",
       title: "NELER YAPIYORUZ",
     },
     projects: [
-      { number: "01", name: "DESE TOUR", category: "TRAVEL EXPERIENCE COMPANY" },
-      { number: "02", name: "ECRU ATELIER", category: "JEWELRY BRAND" },
-      { number: "03", name: "ORAKL ASTROLOGY", category: "EDUCATION PLATFORM" },
-      { number: "04", name: "REVO FITNESS", category: "FITNESS BRAND" },
+      {
+        number: "01",
+        name: "DESETOUR",
+        services: ["Website", "Reklam Yönetimi", "Sosyal Medya Yönetimi", "CRM Sistemleri"],
+        featured: true,
+      },
+      {
+        number: "02",
+        name: "ECRUATELIER",
+        services: ["Reklam Yönetimi", "Sosyal Medya Yönetimi"],
+      },
+      {
+        number: "03",
+        name: "TITOCAR",
+        services: ["Reklam Yönetimi"],
+      },
+      {
+        number: "04",
+        name: "LYXASKIN",
+        services: ["Sosyal Medya Yönetimi", "Reklam Yönetimi"],
+        ongoing: true,
+      },
+      {
+        number: "05",
+        name: "PETCANVAS",
+        services: ["Reklam Yönetimi"],
+      },
     ],
   },
   capabilities: {

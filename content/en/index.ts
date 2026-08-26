@@ -74,15 +74,40 @@ const en: SiteDictionary = {
   work: {
     indexLabel: "SELECTED WORK",
     supportingLines: ["DIFFERENT INDUSTRIES.", "ONE QUESTION:", "THE RIGHT DIRECTION."],
+    featuredLabel: "FEATURED",
+    statusOngoing: "ONGOING",
     nextSectionHint: {
       number: "003",
       title: "WHAT WE DO",
     },
     projects: [
-      { number: "01", name: "DESE TOUR", category: "TRAVEL EXPERIENCE COMPANY" },
-      { number: "02", name: "ECRU ATELIER", category: "JEWELRY BRAND" },
-      { number: "03", name: "ORAKL ASTROLOGY", category: "EDUCATION PLATFORM" },
-      { number: "04", name: "REVO FITNESS", category: "FITNESS BRAND" },
+      {
+        number: "01",
+        name: "DESETOUR",
+        services: ["Website", "Advertising", "Social Media", "CRM Systems"],
+        featured: true,
+      },
+      {
+        number: "02",
+        name: "ECRUATELIER",
+        services: ["Advertising", "Social Media"],
+      },
+      {
+        number: "03",
+        name: "TITOCAR",
+        services: ["Advertising"],
+      },
+      {
+        number: "04",
+        name: "LYXASKIN",
+        services: ["Social Media", "Advertising"],
+        ongoing: true,
+      },
+      {
+        number: "05",
+        name: "PETCANVAS",
+        services: ["Advertising"],
+      },
     ],
   },
   capabilities: {

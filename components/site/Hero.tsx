@@ -20,7 +20,7 @@ export async function Hero() {
                 <span aria-hidden className="h-px w-6 bg-line" />
               </div>
 
-              <h1 className="font-display text-display-2xl font-black uppercase leading-[0.92] text-ink">
+              <h1 className="font-display text-display-2xl font-black uppercase leading-[1.05] text-ink">
                 {hero.headline.map((line, i) => (
                   <span key={i} className="hero-line block" style={{ animationDelay: `${i * 90}ms` }}>
                     {line.map((segment, j) => (
@@ -34,7 +34,7 @@ export async function Hero() {
             </div>
           </div>
 
-          <div className="flex items-stretch gap-xs xl:col-span-5 xl:col-start-8 xl:row-span-2">
+          <div className="flex items-start gap-xs xl:col-span-5 xl:col-start-8 xl:row-span-2">
             <div className="min-w-0 flex-1">
               <HeroArtwork
                 agencyLine={`${brand.name} ${brand.agencyType}`}
@@ -44,7 +44,7 @@ export async function Hero() {
               />
             </div>
 
-            <div className="hidden w-6 shrink-0 flex-col items-center justify-between py-xs xl:flex">
+            <div className="hidden w-6 shrink-0 flex-col items-center justify-between py-xs xl:flex xl:self-stretch">
               <span
                 aria-hidden
                 className="font-body text-eyebrow font-semibold uppercase tracking-widest text-ink-soft"
