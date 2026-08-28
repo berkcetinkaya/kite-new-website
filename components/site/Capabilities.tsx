@@ -33,7 +33,7 @@ export async function Capabilities() {
     <section id="services" className="relative scroll-mt-[var(--header-h)] bg-paper pt-lg xl:pt-xl">
       <SiteContainer>
         <div className="grid grid-cols-1 gap-sm xl:grid-cols-12 xl:gap-x-lg">
-          <h2 className="font-display text-display-lg font-black uppercase leading-[0.95] text-ink xl:col-span-8 xl:text-display-2xl">
+          <h2 className="font-display text-display-lg font-black uppercase leading-[1.0] text-ink xl:col-span-8 xl:text-display-2xl xl:leading-[1.03]">
             {capabilities.introStatement}
           </h2>
           <p className="font-body text-body-md text-ink-soft xl:col-span-4 xl:col-start-9 xl:self-start xl:pt-2xs">

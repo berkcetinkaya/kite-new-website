@@ -363,8 +363,8 @@ const en: SiteDictionary = {
         label: "OPTIMISATION",
       },
     ],
-    ending: [{ text: "If the answers aren't clear," }, { text: "we don't touch the budget.", accent: true }],
-    endingNote: "Now we can start.",
+    ending: [{ text: "If we can answer 4 of the 13," }, { text: "that's half the job done.", accent: true }],
+    endingNote: "Data handles the rest.",
   },
   kite: {
     folioNumber: "005",

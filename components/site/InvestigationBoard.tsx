@@ -93,7 +93,7 @@ export function InvestigationBoard({
             <span className="font-body text-label font-semibold uppercase tracking-widest text-paper-soft">{title}</span>
           </div>
 
-          <h2 className="mt-md max-w-[26ch] font-display text-display-md font-black uppercase leading-[0.95] text-paper xl:text-display-xl">
+          <h2 className="mt-md max-w-[26ch] font-display text-display-md font-black uppercase leading-[1.08] text-paper xl:text-display-xl xl:leading-[1.12]">
             {introLines.map((line, i) => (
               <span key={i} className="block">
                 {line}

@@ -365,8 +365,8 @@ const tr: SiteDictionary = {
         label: "OPTIMISATION",
       },
     ],
-    ending: [{ text: "Cevaplar net değilse," }, { text: "bütçeye dokunmuyoruz.", accent: true }],
-    endingNote: "Şimdi başlayabiliriz.",
+    ending: [{ text: "13 sorudan 4'üne cevap verebiliyorsak," }, { text: "işin yarısı tamam.", accent: true }],
+    endingNote: "Geri kalanı data halleder.",
   },
   kite: {
     folioNumber: "005",

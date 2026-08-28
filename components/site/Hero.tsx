@@ -28,7 +28,7 @@ export async function Hero() {
                 <span aria-hidden className="h-px w-6 bg-line" />
               </div>
 
-              <h1 className="font-display text-[clamp(2.5rem,7vw,6.15rem)] font-black uppercase leading-[0.9] tracking-tight text-ink">
+              <h1 className="font-display text-[clamp(2.5rem,7vw,6.15rem)] font-black uppercase leading-[0.96] tracking-tight text-ink xl:leading-[1.02]">
                 {hero.headline.map((line, i) => (
                   <span key={i} className="hero-line block" style={{ animationDelay: `${i * 90}ms` }}>
                     {line.map((segment, j) => (
@@ -43,7 +43,7 @@ export async function Hero() {
 
             <div className="mt-[22px] border-t border-line pt-[22px] xl:mt-[24px] xl:pt-[24px]">
               <div className="grid grid-cols-1 gap-md xl:grid-cols-[42%_38%_1fr] xl:gap-x-lg xl:items-start">
-                <p className="font-display text-[clamp(2rem,3.4vw,3.15rem)] font-black uppercase leading-[0.88] text-ink">
+                <p className="font-display text-[clamp(2rem,3.4vw,3.15rem)] font-black uppercase leading-[0.93] text-ink xl:leading-[0.97]">
                   {hero.secondaryStatement.map((line, i) => (
                     <span key={i} className={cn("block", line.accent && "text-kite")}>
                       {line.text}
