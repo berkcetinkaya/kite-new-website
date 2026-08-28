@@ -25,6 +25,7 @@ const tr: SiteDictionary = {
       services: "HİZMETLER",
       about: "HAKKIMIZDA",
       thinking: "THINKING",
+      contact: "İLETİŞİM",
     },
     cta: "PROJE BAŞLAT",
     mobileMenu: {
@@ -50,18 +51,18 @@ const tr: SiteDictionary = {
   hero: {
     indexLabel: "HERO",
     headline: [
-      [{ text: "MARKANIZ NEREYE" }],
-      [{ text: "GİTMEK İSTİYORSA," }],
-      [{ text: "RÜZGÂRI", accent: true }, { text: " ORAYA" }],
-      [{ text: "ÇEVİRİYORUZ." }],
+      [{ text: "İYİ MARKALARIN" }],
+      [{ text: "FAZLA GÜRÜLTÜYE" }],
+      [{ text: "İHTİYACI YOK." }],
     ],
-    secondaryStatement: [{ text: "GEREKEN TEK ŞEY" }, { text: "YÖN.", accent: true }],
+    secondaryStatement: [{ text: "GEREKEN TEK" }, { text: "ŞEY" }, { text: "YÖN.", accent: true }],
     supportingCopy: [
-      "Markaların yönünü bulan, büyümesini hızlandıran bağımsız bir growth ajansıyız.",
-      "Strateji. Kreatif. Teknoloji.",
+      "Hareket eden, bağ kuran ve büyüyen markalar inşa eden kreatif bir growth ajansıyız.",
+      "—",
+      "Strateji. Kreatiflik. Teknoloji. Büyüme.",
     ],
     primaryCta: "PROJENİ KONUŞALIM",
-    secondaryCta: "SEÇİLİ İŞLER",
+    secondaryCta: "İŞLERİMİZİ GÖR",
     capabilities: ["CREATIVE", "MEDIA", "WEB", "AI", "CRM"],
     showreelLabel: "SHOWREEL İZLE",
     scrollLabel: "KEŞFETMEK İÇİN KAYDIR",
@@ -85,13 +86,12 @@ const tr: SiteDictionary = {
       {
         number: "01",
         name: "DESETOUR",
-        services: ["Website", "Reklam Yönetimi", "Sosyal Medya Yönetimi", "CRM Sistemleri"],
-        featured: true,
+        services: ["Website", "Reklam", "Sosyal Medya", "CRM"],
       },
       {
         number: "02",
-        name: "ECRUATELIER",
-        services: ["Reklam Yönetimi", "Sosyal Medya Yönetimi"],
+        name: "ECRU ATELIER",
+        services: ["Reklam", "Sosyal Medya"],
       },
       {
         number: "03",
@@ -101,7 +101,7 @@ const tr: SiteDictionary = {
       {
         number: "04",
         name: "LYXASKIN",
-        services: ["Sosyal Medya Yönetimi", "Reklam Yönetimi"],
+        services: ["Sosyal Medya", "Reklam"],
         ongoing: true,
       },
       {
@@ -115,6 +115,7 @@ const tr: SiteDictionary = {
     indexLabel: "NELER YAPIYORUZ",
     supportingLines: ["MARKANIZIN DİJİTALDE", "İHTİYAÇ DUYDUĞU", "SİSTEMİ KURUYORUZ."],
     microCopy: "STRATEJİ, KREATİF VE TEKNOLOJİYİ AYNI YÖNDE ÇALIŞTIRIYORUZ.",
+    tagLine: "TEK SİSTEM. ÇOKLU DİSİPLİN.",
     closingStatement: [
       { lines: ["FİKİRDEN", "ALTYAPIYA."] },
       { lines: ["KREATİFTEN", "BÜYÜMEYE."] },

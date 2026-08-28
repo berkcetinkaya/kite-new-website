@@ -17,39 +17,30 @@ interface WorkGridProps {
 }
 
 /**
- * Desktop column span per project (12-col track): DESETOUR gets extra
- * width for its "featured" prominence, the rest of row one splits the
- * remainder, row two is an even two-up split. Auto-flow wraps the row
- * automatically since each row's spans sum to 12 — no explicit row index
- * needed. Tailwind's class scanner needs literal strings, not runtime-built
- * ones (see EditorialGrid.tsx), hence the explicit lookup instead of
- * `xl:col-span-${n}`.
- */
-const DESKTOP_SPAN_CLASSES = ["xl:col-span-5", "xl:col-span-4", "xl:col-span-3", "xl:col-span-6", "xl:col-span-6"];
-
-/**
- * An editorial contact-sheet grid: each project is a flush image panel
- * (zero radius, zero shadow) with a permanent dark-to-transparent scrim
- * for caption legibility over any future photo. Real artwork isn't
- * supplied yet, so panels without a resolved `image` fall back to a dark
- * textured placeholder — never a grey skeleton box — and nothing about
- * the layout needs to change once real images land in /public/work.
+ * An editorial contact-sheet strip: every project shares one flush image
+ * panel treatment (zero radius, zero shadow) with a permanent
+ * dark-to-transparent scrim for caption legibility over any future photo.
+ * Five real projects don't divide evenly into one row at full card width,
+ * so desktop uses a 3-column track and lets the fifth card wrap to its own
+ * row rather than shrinking every card to fit five across — same
+ * dimensions for all, an intentional asymmetric last row instead of
+ * cramped proportions. Real artwork isn't supplied for any project yet, so
+ * panels without a resolved `image` fall back to a dark textured
+ * placeholder — never a grey skeleton box — and nothing about the layout
+ * needs to change once real images land in /public/work.
  */
 export function WorkGrid({ projects, featuredLabel, statusOngoing }: WorkGridProps) {
   return (
-    <div className="grid grid-cols-1 gap-px bg-line sm:grid-cols-2 xl:grid-cols-12 xl:auto-rows-[clamp(260px,22vw,380px)]">
-      {projects.map((project, i) => (
+    <div className="grid grid-cols-1 gap-px bg-line sm:grid-cols-2 xl:grid-cols-3">
+      {projects.map((project) => (
         <button
           key={project.number}
           type="button"
-          className={cn(
-            "group relative flex aspect-[3/2] w-full flex-col justify-end overflow-hidden bg-ink p-sm text-left transition-editorial xl:aspect-auto xl:h-full",
-            DESKTOP_SPAN_CLASSES[i],
-          )}
+          className="group relative flex aspect-[3/2] w-full flex-col justify-end overflow-hidden bg-ink p-sm text-left transition-editorial xl:aspect-auto xl:h-[200px]"
         >
           <div className="absolute inset-0">
             {project.image ? (
-              <Image src={project.image} alt="" fill sizes="(min-width: 1280px) 45vw, 100vw" className="object-cover" />
+              <Image src={project.image} alt="" fill sizes="(min-width: 1280px) 34vw, 100vw" className="object-cover" />
             ) : (
               <div className="paper-texture-dark absolute inset-0 bg-gradient-to-br from-[#232323] via-ink to-black" />
             )}
@@ -76,7 +67,7 @@ export function WorkGrid({ projects, featuredLabel, statusOngoing }: WorkGridPro
               <span key={service} className="flex items-center gap-2xs">
                 {si > 0 && (
                   <span aria-hidden className="text-paper-soft">
-                    /
+                    ·
                   </span>
                 )}
                 {service}

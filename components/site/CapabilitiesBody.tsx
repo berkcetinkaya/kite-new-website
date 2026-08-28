@@ -1,8 +1,4 @@
-"use client";
-
-import { useState } from "react";
-import { EditorialGrid } from "@/components/ui";
-import { CapabilityMap, CapabilityMapMobile } from "./CapabilityMap";
+import { CapabilityCollage, CapabilityCollageMobile, HangingTag, deriveCards } from "./CapabilityCollage";
 import { CapabilityIndex } from "./CapabilityIndex";
 
 interface CapabilityItem {
@@ -14,38 +10,53 @@ interface CapabilityItem {
 interface CapabilitiesBodyProps {
   supportingLines: string[];
   items: CapabilityItem[];
+  agencyLine: string;
+  locationLine: string;
+  tagLine: string;
 }
 
-/**
- * Bridges hover state between the capability map and the accordion below —
- * they're visual siblings (the map sits beside the statement, the
- * accordion spans full width beneath both), so the shared "which row is
- * active" state has to live above both rather than in either one.
- */
-export function CapabilitiesBody({ supportingLines, items }: CapabilitiesBodyProps) {
-  const [highlightIndex, setHighlightIndex] = useState<number | null>(null);
+export function CapabilitiesBody({
+  supportingLines,
+  items,
+  agencyLine,
+  locationLine,
+  tagLine,
+}: CapabilitiesBodyProps) {
+  const disciplineNames = deriveCards(items)
+    .map((card) => card.name)
+    .filter(Boolean);
 
   return (
     <>
-      <EditorialGrid columns={{ base: 4, md: 6, xl: 12 }} className="items-start">
-        <div className="col-span-4 md:col-span-6 xl:col-span-5">
-          <h2 className="max-w-[24ch] font-display text-display-sm font-black uppercase leading-tight text-ink-soft">
+      <div className="flex flex-col xl:flex-row xl:items-start xl:gap-2xl">
+        <div className="xl:w-[280px] xl:shrink-0">
+          <h2 className="max-w-[22ch] font-display text-display-sm font-black uppercase leading-tight text-ink-soft">
             {supportingLines.map((line, i) => (
               <span key={i} className="block">
                 {line}
               </span>
             ))}
           </h2>
+
+          <div className="mt-lg xl:mt-2xl">
+            <p className="font-body text-label font-semibold uppercase tracking-wide text-ink">
+              {agencyLine}
+              <span aria-hidden className="mt-3xs block h-[2px] w-10 bg-kite" />
+            </p>
+            <p className="mt-2xs max-w-[20ch] font-body text-label text-ink-soft">{disciplineNames.join(" • ")}</p>
+          </div>
+
+          <HangingTag names={disciplineNames} tagLine={tagLine} className="mt-2xl hidden xl:block" />
         </div>
 
-        <div className="col-span-4 mt-xl md:col-span-6 xl:col-span-7 xl:col-start-6 xl:mt-0">
-          <CapabilityMap onActiveChange={setHighlightIndex} />
-          <CapabilityMapMobile />
+        <div className="mt-xl xl:mt-0 xl:min-w-0 xl:flex-1">
+          <CapabilityCollage items={items} agencyLine={agencyLine} locationLine={locationLine} />
+          <CapabilityCollageMobile items={items} agencyLine={agencyLine} locationLine={locationLine} />
         </div>
-      </EditorialGrid>
+      </div>
 
       <div className="mt-xl xl:mt-2xl">
-        <CapabilityIndex items={items} highlightIndex={highlightIndex} />
+        <CapabilityIndex items={items} />
       </div>
     </>
   );

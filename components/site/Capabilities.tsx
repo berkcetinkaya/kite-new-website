@@ -10,12 +10,18 @@ import { CapabilitiesBody } from "./CapabilitiesBody";
  */
 export async function Capabilities() {
   const dict = await getDictionary();
-  const { capabilities } = dict;
+  const { capabilities, brand, header } = dict;
 
   return (
     <section id="services" className="relative scroll-mt-[var(--header-h)] bg-paper pt-xl xl:pt-2xl">
       <SiteContainer>
-        <CapabilitiesBody supportingLines={capabilities.supportingLines} items={capabilities.items} />
+        <CapabilitiesBody
+          supportingLines={capabilities.supportingLines}
+          items={capabilities.items}
+          agencyLine={`${brand.name} ${brand.agencyType}`}
+          locationLine={header.locationShort}
+          tagLine={capabilities.tagLine}
+        />
 
         <div className="mt-2xl border-t border-line pt-xl xl:mt-3xl xl:pt-2xl">
           <p className="max-w-[46ch] font-body text-label font-semibold uppercase tracking-wide text-ink-soft">

@@ -27,6 +27,7 @@ export interface SiteDictionary {
       services: string;
       about: string;
       thinking: string;
+      contact: string;
     };
     cta: string;
     mobileMenu: {
@@ -92,6 +93,8 @@ export interface SiteDictionary {
     indexLabel: string;
     supportingLines: string[];
     microCopy: string;
+    /** Caption on the hanging specimen tag in the capability collage. */
+    tagLine: string;
     /** Each group is one couplet of the closing statement; only one is typically accented. */
     closingStatement: Array<{ lines: string[]; accent?: boolean }>;
     nextSectionHint: {

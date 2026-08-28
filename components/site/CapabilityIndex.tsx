@@ -12,8 +12,6 @@ interface CapabilityItem {
 
 interface CapabilityIndexProps {
   items: CapabilityItem[];
-  /** Row to visually nudge in response to hovering the capability map above — never auto-opens it. */
-  highlightIndex?: number | null;
 }
 
 function ToggleIndicator({ open }: { open: boolean }) {
@@ -41,24 +39,17 @@ function ToggleIndicator({ open }: { open: boolean }) {
   );
 }
 
-export function CapabilityIndex({ items, highlightIndex = null }: CapabilityIndexProps) {
+export function CapabilityIndex({ items }: CapabilityIndexProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
     <ul>
       {items.map((item, i) => {
         const isOpen = openIndex === i;
-        const isHighlighted = !isOpen && highlightIndex === i;
         const panelId = `capability-panel-${item.number}`;
 
         return (
-          <li
-            key={item.number}
-            className={cn(
-              "border-t border-line last:border-b transition-editorial",
-              isHighlighted && "bg-paper-dim",
-            )}
-          >
+          <li key={item.number} className="border-t border-line last:border-b">
             <h3>
               <button
                 type="button"
@@ -71,17 +62,12 @@ export function CapabilityIndex({ items, highlightIndex = null }: CapabilityInde
                   <span
                     className={cn(
                       "font-display text-display-sm font-extrabold uppercase tabular-nums leading-none transition-editorial",
-                      isOpen || isHighlighted ? "text-kite-dark" : "text-ink-soft group-hover:text-kite-dark",
+                      isOpen ? "text-kite-dark" : "text-ink-soft group-hover:text-kite-dark",
                     )}
                   >
                     {item.number}
                   </span>
-                  <span
-                    className={cn(
-                      "font-display text-display-lg font-black uppercase leading-none text-ink transition-editorial group-hover:translate-x-2 xl:text-display-xl",
-                      isHighlighted && "translate-x-2",
-                    )}
-                  >
+                  <span className="font-display text-display-lg font-black uppercase leading-none text-ink transition-editorial group-hover:translate-x-2 xl:text-display-xl">
                     {item.title}
                   </span>
                 </div>

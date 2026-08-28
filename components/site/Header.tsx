@@ -29,6 +29,10 @@ export async function Header() {
   const dict = await getDictionary();
   const homeHref = `/${locale}`;
 
+  const locationWords = dict.brand.location.split(" ");
+  const locationLine2 = locationWords.pop();
+  const locationLine1 = locationWords.join(" ");
+
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-paper">
       <a
@@ -41,30 +45,35 @@ export async function Header() {
         {/* Desktop / wide navigation — active from xl (1280px) up. Kept off
             below that so the tablet band (around 1024px) gets the clean
             mobile composition instead of a compressed desktop nav. */}
-        <div className="hidden items-stretch justify-between xl:flex">
-          <div className="flex items-center gap-xl py-sm">
-            <Logo href={homeHref} size={48} alt={`${dict.brand.name} ${dict.brand.agencyType}`} />
-            <nav aria-label="Main" className="flex items-center gap-xl">
-              <NavLink href="#work">{dict.header.nav.work}</NavLink>
-              <NavLink href="#services">{dict.header.nav.services}</NavLink>
-              <NavLink href="#about">{dict.header.nav.about}</NavLink>
-              <NavLink href="#thinking">{dict.header.nav.thinking}</NavLink>
-            </nav>
+        <div className="hidden grid-cols-[auto_minmax(0,1fr)_auto] items-stretch gap-x-lg xl:grid">
+          <div className="flex items-center py-[20px]">
+            <Logo href={homeHref} size={64} alt={`${dict.brand.name} ${dict.brand.agencyType}`} />
           </div>
 
+          <nav aria-label="Main" className="flex items-center justify-center gap-lg py-[20px]">
+            <NavLink href="#work">{dict.header.nav.work}</NavLink>
+            <NavLink href="#services">{dict.header.nav.services}</NavLink>
+            <NavLink href="#about">{dict.header.nav.about}</NavLink>
+            <NavLink href="#thinking">{dict.header.nav.thinking}</NavLink>
+            <NavLink href="#contact">{dict.header.nav.contact}</NavLink>
+          </nav>
+
           <div className="flex items-stretch gap-lg">
-            <div className="flex items-center gap-2xs py-sm font-body text-label font-semibold uppercase tracking-wide text-ink-soft">
-              <span>{dict.header.locationShort}</span>
-              <span aria-hidden className="h-1.5 w-1.5 shrink-0 rounded-full bg-kite" />
+            <div className="flex flex-col items-end justify-center gap-3xs py-[20px] font-body text-label font-semibold uppercase tracking-wide text-ink-soft">
+              <span>{locationLine1}</span>
+              <span className="flex items-center gap-2xs">
+                {locationLine2}
+                <span aria-hidden className="h-1.5 w-1.5 shrink-0 rounded-full bg-kite" />
+              </span>
             </div>
 
-            <div className="flex items-center py-sm">
+            <div className="flex items-center py-[20px]">
               <LanguageSwitcher currentLocale={locale} />
             </div>
 
             <Link
               href="#contact"
-              className="group relative -my-sm -mr-gutter flex shrink-0 items-center gap-2xs self-stretch bg-ink px-lg font-body text-label font-semibold uppercase tracking-wide text-paper transition-editorial hover:bg-kite hover:text-ink"
+              className="group relative -my-[20px] -mr-gutter flex shrink-0 items-center justify-center gap-2xs self-stretch bg-ink px-lg font-body text-label font-semibold uppercase tracking-wide text-paper transition-editorial hover:bg-kite hover:text-ink xl:min-w-[15vw]"
             >
               <span>{dict.header.cta}</span>
               <span

@@ -7,16 +7,17 @@ import { WorkGrid } from "./WorkGrid";
 const IMAGE_EXTENSIONS = ["jpg", "jpeg", "png", "webp"];
 
 /**
- * Looks for a real project image at /public/work/{slug}.{ext}. Until final
- * artwork is supplied, this resolves to undefined and WorkGrid renders its
+ * Looks for a real project image at /public/brand/{slug}.{ext} (the brand
+ * asset roster lives there, not /public/work). Until artwork is supplied
+ * for a given project, this resolves to undefined and WorkGrid renders its
  * dark editorial placeholder instead — dropping a file in later needs no
  * code change on either side.
  */
 function resolveWorkImage(name: string): string | undefined {
   const slug = name.toLowerCase().replace(/[^a-z0-9]/g, "");
   for (const ext of IMAGE_EXTENSIONS) {
-    if (fs.existsSync(path.join(process.cwd(), "public", "work", `${slug}.${ext}`))) {
-      return `/work/${slug}.${ext}`;
+    if (fs.existsSync(path.join(process.cwd(), "public", "brand", `${slug}.${ext}`))) {
+      return `/brand/${slug}.${ext}`;
     }
   }
   return undefined;
@@ -39,12 +40,12 @@ export async function SelectedWork() {
   }));
 
   return (
-    <section id="work" className="relative scroll-mt-[var(--header-h)] bg-paper pt-lg xl:pt-xl">
+    <section id="work" className="relative scroll-mt-[var(--header-h)] bg-paper pt-[48px] xl:pt-[65px]">
       <SiteContainer>
         <WorkGrid projects={projects} featuredLabel={work.featuredLabel} statusOngoing={work.statusOngoing} />
       </SiteContainer>
 
-      <div className="border-t border-line">
+      <div className="mt-[24px] border-t border-line xl:mt-[26px]">
         <SiteContainer className="flex items-center justify-between py-xs">
           <span className="font-display text-display-sm font-extrabold uppercase tabular-nums leading-none text-ink-soft">
             {work.nextSectionHint.number} / {work.nextSectionHint.title}
