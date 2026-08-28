@@ -2,7 +2,6 @@ import { Header } from "@/components/site/Header";
 import { Hero } from "@/components/site/Hero";
 import { SelectedWork } from "@/components/site/SelectedWork";
 import { Capabilities } from "@/components/site/Capabilities";
-import { Manifesto } from "@/components/site/Manifesto";
 import { Kite } from "@/components/site/Kite";
 import { Thinking } from "@/components/site/Thinking";
 import { FinalCta } from "@/components/site/FinalCta";
@@ -21,7 +20,6 @@ export default async function HeaderPreviewPage() {
         <Hero />
         <SelectedWork />
         <Capabilities />
-        <Manifesto />
         <Kite />
         <Thinking />
         <FinalCta />

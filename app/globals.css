@@ -244,3 +244,25 @@ p {
   animation: wind-ambient 9s ease-in-out infinite;
   transform-origin: center;
 }
+
+/* ==========================================================================
+   INVESTIGATION (004 / SORUŞTURMA) — the answer panel remounts (via a
+   React `key` on the active question) each time the active question
+   changes, replaying this small enter animation. No exit animation: the
+   instant swap plus this reads as "fast and precise" without needing
+   unmount-delay machinery for an exit fade.
+   ========================================================================== */
+@keyframes answer-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.answer-reveal {
+  animation: answer-reveal 260ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}

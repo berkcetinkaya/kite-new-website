@@ -113,77 +113,260 @@ const tr: SiteDictionary = {
   },
   capabilities: {
     indexLabel: "NELER YAPIYORUZ",
-    supportingLines: ["MARKANIZIN DİJİTALDE", "İHTİYAÇ DUYDUĞU", "SİSTEMİ KURUYORUZ."],
-    microCopy: "STRATEJİ, KREATİF VE TEKNOLOJİYİ AYNI YÖNDE ÇALIŞTIRIYORUZ.",
-    tagLine: "TEK SİSTEM. ÇOKLU DİSİPLİN.",
-    closingStatement: [
-      { lines: ["FİKİRDEN", "ALTYAPIYA."] },
-      { lines: ["KREATİFTEN", "BÜYÜMEYE."] },
-      { lines: ["TEK BİR", "YÖNDE."], accent: true },
-    ],
-    nextSectionHint: {
-      number: "004",
-      title: "MANİFESTO",
-    },
+    introStatement: "Büyümeyi tek bir hizmet olarak görmüyoruz.",
+    introSupport:
+      "Markanın ne söylediğinden reklamın kime ulaştığına, kullanıcının hangi sayfaya indiğinden sonrasında CRM'de ne olduğuna kadar bütün yolculuğu birlikte ele alıyoruz.",
+    systemLine: ["STRATEGY", "CREATIVE", "MEDIA", "WEB", "DATA", "CRM"],
     items: [
       {
         number: "01",
-        title: "STRATEJİ & KREATİF",
-        services: ["Marka Stratejisi", "Creative Direction", "Sosyal Medya", "İçerik Üretimi", "AI Görsel & Video"],
+        title: "STRATEJİ & GROWTH",
+        statement: [
+          { text: "Ne söyleyeceğimizi, kime söyleyeceğimizi ve hangi noktada " },
+          { text: "neyi test edeceğimizi", accent: true },
+          { text: " belirliyoruz." },
+        ],
+        groups: [
+          {
+            items: [
+              "Growth Audit",
+              "Pazar ve Rakip Analizi",
+              "Audience Research",
+              "Positioning",
+              "Messaging",
+              "Offer Strategy",
+              "Campaign Planning",
+              "Channel Strategy",
+              "Testing Roadmap",
+            ],
+          },
+        ],
+        secondary: {
+          label: "ORTAYA ÇIKANLAR",
+          items: ["Growth Roadmap", "Campaign Architecture", "Messaging Framework", "Test Planı", "Channel Planı"],
+        },
       },
       {
         number: "02",
-        title: "MEDYA & PERFORMANS",
-        services: ["Meta Ads", "Google Ads", "TikTok Ads", "Medya Planlama", "Performans Optimizasyonu"],
+        title: "PERFORMANCE MEDIA",
+        statement: [
+          { text: "Bütçeyi harcamak değil, " },
+          { text: "doğru yere", accent: true },
+          { text: " yönlendirmek." },
+        ],
+        supportingCopy: "Her kampanyayı tek başına değil, funnel'ın bir parçası olarak değerlendiriyoruz.",
+        groups: [
+          {
+            items: [
+              "Meta Ads",
+              "Google Ads",
+              "TikTok Ads",
+              "YouTube",
+              "Search",
+              "Performance Max",
+              "Retargeting",
+              "Lookalike Audiences",
+              "Audience Testing",
+              "Creative Testing",
+              "Budget Optimisation",
+              "Campaign Scaling",
+            ],
+          },
+        ],
+        secondary: {
+          label: "ÖLÇTÜĞÜMÜZ NOKTALAR",
+          items: ["CPA", "CAC", "ROAS", "CTR", "Conversion Rate", "Creative Performance", "Audience Saturation"],
+        },
       },
       {
         number: "03",
-        title: "WEB & DİJİTAL DENEYİM",
-        services: ["Web Siteleri", "Landing Page'ler", "UI / UX", "Conversion Design", "Dijital Deneyimler"],
+        title: "CREATIVE & CONTENT",
+        statement: [
+          { text: "İyi creative sadece güzel görünmez. " },
+          { text: "Bir şey yaptırır.", accent: true },
+        ],
+        groups: [
+          {
+            label: "BRAND CONTENT",
+            items: [
+              "Social Content",
+              "Campaign Concepts",
+              "Editorial Content",
+              "Product Storytelling",
+              "Reels",
+              "Short Form Video",
+              "Motion Design",
+            ],
+          },
+          {
+            label: "PERFORMANCE CREATIVE",
+            items: [
+              "Static Ads",
+              "Motion Ads",
+              "Video Ads",
+              "Creative Variations",
+              "Multiple Hooks",
+              "Multiple Angles",
+              "Retargeting Creative",
+              "UGC Concepts",
+            ],
+          },
+        ],
+        secondary: {
+          label: "AI DESTEKLİ ÜRETİM",
+          items: ["AI Imagery", "AI Video", "Rapid Prototyping", "Creative Variation", "Concept Development"],
+          note: "AI üretim kapasitesini büyütür. Kararı hâlâ fikir verir.",
+        },
       },
       {
         number: "04",
-        title: "AI & OTOMASYON",
-        services: [
-          "AI Asistanları",
-          "İçerik Sistemleri",
-          "İş Akışı Otomasyonları",
-          "Lead Otomasyonları",
-          "AI Destekli İş Sistemleri",
+        title: "WEB & CONVERSION",
+        statement: [
+          { text: "Tıklamadan sonrası da " },
+          { text: "reklamın bir parçası.", accent: true },
+        ],
+        supportingCopy: "Reklamın getirdiği ilgiyi, tasarlanmış bir kullanıcı yolculuğu ile dönüşüme çeviriyoruz.",
+        groups: [
+          {
+            items: [
+              "Website",
+              "Landing Page",
+              "E-Commerce",
+              "Campaign Page",
+              "Product Page",
+              "UX Architecture",
+              "Conversion Copy",
+              "CTA Hierarchy",
+              "Lead Forms",
+              "Checkout Flow",
+              "CRO",
+              "A/B Testing",
+              "Responsive Design",
+            ],
+          },
         ],
       },
       {
         number: "05",
-        title: "CRM & GROWTH SYSTEMS",
-        services: ["CRM Kurulumu", "Lead Yönetimi", "Otomatik Follow-up", "Müşteri Yolculukları", "Growth Infrastructure"],
+        title: "DATA, CRM & LIFECYCLE",
+        statement: [
+          { text: "Tıklamanın sonrasında ne olduğunu göremiyorsak, öncesini " },
+          { text: "sağlıklı şekilde büyütemeyiz.", accent: true },
+        ],
+        groups: [
+          { label: "MEASUREMENT", items: ["GA4", "Google Tag Manager", "Meta Pixel", "Conversions API", "Event Tracking"] },
+          { label: "CRM", items: ["CRM Setup", "Lead Routing", "Customer Segmentation", "CRM Integrations"] },
+          { label: "LIFECYCLE", items: ["Email Flows", "Retargeting Audiences", "Lead Nurturing", "Customer Reactivation"] },
+          {
+            label: "REPORTING",
+            items: ["Performance Dashboards", "Channel Reporting", "Funnel Visibility", "Campaign Learning"],
+          },
+        ],
       },
     ],
   },
-  manifesto: {
+  investigation: {
     folioNumber: "004",
-    statement1: {
-      desktop: ["DAHA FAZLA", "SES ÇIKARMAK İÇİN", "BURADA DEĞİLİZ."],
-      mobile: ["DAHA FAZLA", "SES ÇIKARMAK", "İÇİN BURADA", "DEĞİLİZ."],
-    },
-    statement2: {
-      desktop: [
-        [{ text: "MARKALARI" }],
-        [{ text: "İLERİ TAŞIMAK", accent: true }],
-        [{ text: "İÇİN BURADAYIZ." }],
-      ],
-      mobile: [
-        [{ text: "MARKALARI" }],
-        [{ text: "İLERİ", accent: true }],
-        [{ text: "TAŞIMAK", accent: true }, { text: " İÇİN" }],
-        [{ text: "BURADAYIZ." }],
-      ],
-    },
-    secondaryStatement: ["STRATEJİYİ, KREATİFİ", "VE TEKNOLOJİYİ", "AYNI YÖNDE ÇALIŞTIRIYORUZ."],
-    microAnnotations: ["ISTANBUL × BALI", "WORKING GLOBALLY"],
-    nextSectionHint: {
-      number: "005",
-      title: "KITE",
-    },
+    title: "SORUŞTURMA",
+    introLines: ["BİR MARKAYLA KARŞI KARŞIYA GELDİĞİMİZDE,", "ÖNCE ŞU 13 SORUYU SORARIZ."],
+    investigationDetails: ["DURUM: İNCELENİYOR", "KANIT: DATA", "NOT: HİS YETERLİ DEĞİL"],
+    questions: [
+      {
+        number: "01",
+        question: "KİM?",
+        answerLines: [[{ text: "Marka kim?" }], [{ text: "Gerçekten kim?" }]],
+        label: "BRAND / POSITIONING",
+      },
+      {
+        number: "02",
+        question: "KİME?",
+        answerLines: [
+          [{ text: "Kime konuşuyoruz?" }],
+          [{ text: "'Herkese'", accent: true }, { text: " cevap sayılmıyor." }],
+        ],
+        label: "AUDIENCE",
+      },
+      {
+        number: "03",
+        question: "NEYİ?",
+        answerLines: [[{ text: "Aslında ne satıyoruz?" }], [{ text: "Ürünü mü, fikri mi?" }]],
+        label: "OFFER",
+      },
+      {
+        number: "04",
+        question: "NİYE?",
+        answerLines: [
+          [{ text: "Niye senden alsın?" }],
+          [{ text: "'Kaliteliyiz'", accent: true }, { text: " cevap sayılmıyor." }],
+        ],
+        label: "VALUE PROPOSITION",
+      },
+      {
+        number: "05",
+        question: "NEREDE?",
+        answerLines: [[{ text: "Nerede karşısına çıkıyoruz?" }], [{ text: "Her yerde olmak strateji değil." }]],
+        label: "CHANNEL",
+      },
+      {
+        number: "06",
+        question: "NEYLE?",
+        answerLines: [
+          [{ text: "Hangi creative ile?" }],
+          [{ text: "Güzel olanla değil, " }, { text: "çalışanla.", accent: true }],
+        ],
+        label: "CREATIVE",
+      },
+      {
+        number: "07",
+        question: "NE ZAMAN?",
+        answerLines: [[{ text: "Ne zaman karşısına çıkıyoruz?" }], [{ text: "Sürekli çıkmak cevap değil." }]],
+        label: "TIMING / FREQUENCY",
+      },
+      {
+        number: "08",
+        question: "KAÇA?",
+        answerLines: [
+          [{ text: "Bir müşteriyi kaça getiriyoruz?" }],
+          [{ text: "'Bütçe gidiyor'", accent: true }, { text: " metrik değil." }],
+        ],
+        label: "CAC / CPA",
+      },
+      {
+        number: "09",
+        question: "NEREYE?",
+        answerLines: [[{ text: "Tıklayınca nereye gidiyor?" }], [{ text: "Ve orada neden kalıyor?" }]],
+        label: "LANDING / CONVERSION",
+      },
+      {
+        number: "10",
+        question: "NERDE KOPTU?",
+        answerLines: [[{ text: "Nerede vazgeçiyor?" }], [{ text: "Bir yerde kesin kopuyor." }]],
+        label: "FUNNEL",
+      },
+      {
+        number: "11",
+        question: "KİM DÖNDÜ?",
+        answerLines: [[{ text: "Kim geri geldi?" }], [{ text: "İlk satış dosyayı kapatmıyor." }]],
+        label: "RETENTION / CRM",
+      },
+      {
+        number: "12",
+        question: "NE TUTTU?",
+        answerLines: [[{ text: "Gerçekte ne çalıştı?" }], [{ text: "Hissettiğimiz değil.", accent: true }]],
+        label: "PERFORMANCE / DATA",
+      },
+      {
+        number: "13",
+        question: "ŞİMDİ NE?",
+        answerLines: [
+          [{ text: "Sırada neyi değiştiriyoruz?" }],
+          [{ text: "'Biraz daha bütçe'", accent: true }, { text: " tek cevap değil." }],
+        ],
+        label: "OPTIMISATION",
+      },
+    ],
+    ending: [{ text: "Cevaplar net değilse," }, { text: "bütçeye dokunmuyoruz.", accent: true }],
+    endingNote: "Şimdi başlayabiliriz.",
   },
   kite: {
     folioNumber: "005",

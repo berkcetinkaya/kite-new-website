@@ -113,76 +113,258 @@ const en: SiteDictionary = {
   },
   capabilities: {
     indexLabel: "WHAT WE DO",
-    supportingLines: ["WE BUILD THE SYSTEM", "YOUR BRAND NEEDS", "TO GROW DIGITALLY."],
-    microCopy: "WE RUN STRATEGY, CREATIVE AND TECHNOLOGY IN ONE DIRECTION.",
-    tagLine: "ONE SYSTEM. MULTIPLE DISCIPLINES.",
-    closingStatement: [
-      { lines: ["FROM IDEA", "TO INFRASTRUCTURE."] },
-      { lines: ["FROM CREATIVE", "TO GROWTH."] },
-      { lines: ["ONE SINGLE", "DIRECTION."], accent: true },
-    ],
-    nextSectionHint: {
-      number: "004",
-      title: "MANIFESTO",
-    },
+    introStatement: "We don't treat growth as a single service.",
+    introSupport:
+      "From what your brand says, to who your ads reach, to which page users land on, to what happens next in your CRM — we take on the whole journey together.",
+    systemLine: ["STRATEGY", "CREATIVE", "MEDIA", "WEB", "DATA", "CRM"],
     items: [
       {
         number: "01",
-        title: "STRATEGY & CREATIVE",
-        services: ["Brand Strategy", "Creative Direction", "Social Media", "Content Production", "AI Image & Video"],
+        title: "STRATEGY & GROWTH",
+        statement: [
+          { text: "We decide what to say, who to say it to, and " },
+          { text: "what to test at every stage.", accent: true },
+        ],
+        groups: [
+          {
+            items: [
+              "Growth Audit",
+              "Market & Competitor Analysis",
+              "Audience Research",
+              "Positioning",
+              "Messaging",
+              "Offer Strategy",
+              "Campaign Planning",
+              "Channel Strategy",
+              "Testing Roadmap",
+            ],
+          },
+        ],
+        secondary: {
+          label: "OUTPUTS",
+          items: ["Growth Roadmap", "Campaign Architecture", "Messaging Framework", "Test Plan", "Channel Plan"],
+        },
       },
       {
         number: "02",
-        title: "MEDIA & PERFORMANCE",
-        services: ["Meta Ads", "Google Ads", "TikTok Ads", "Media Planning", "Performance Optimization"],
+        title: "PERFORMANCE MEDIA",
+        statement: [
+          { text: "Not spending the budget — directing it to " },
+          { text: "the right place.", accent: true },
+        ],
+        supportingCopy: "We evaluate every campaign as part of the funnel, not on its own.",
+        groups: [
+          {
+            items: [
+              "Meta Ads",
+              "Google Ads",
+              "TikTok Ads",
+              "YouTube",
+              "Search",
+              "Performance Max",
+              "Retargeting",
+              "Lookalike Audiences",
+              "Audience Testing",
+              "Creative Testing",
+              "Budget Optimisation",
+              "Campaign Scaling",
+            ],
+          },
+        ],
+        secondary: {
+          label: "WHAT WE MEASURE",
+          items: ["CPA", "CAC", "ROAS", "CTR", "Conversion Rate", "Creative Performance", "Audience Saturation"],
+        },
       },
       {
         number: "03",
-        title: "WEB & DIGITAL EXPERIENCE",
-        services: ["Websites", "Landing Pages", "UI / UX", "Conversion Design", "Digital Experiences"],
+        title: "CREATIVE & CONTENT",
+        statement: [
+          { text: "Good creative doesn't just look good. " },
+          { text: "It makes people act.", accent: true },
+        ],
+        groups: [
+          {
+            label: "BRAND CONTENT",
+            items: [
+              "Social Content",
+              "Campaign Concepts",
+              "Editorial Content",
+              "Product Storytelling",
+              "Reels",
+              "Short Form Video",
+              "Motion Design",
+            ],
+          },
+          {
+            label: "PERFORMANCE CREATIVE",
+            items: [
+              "Static Ads",
+              "Motion Ads",
+              "Video Ads",
+              "Creative Variations",
+              "Multiple Hooks",
+              "Multiple Angles",
+              "Retargeting Creative",
+              "UGC Concepts",
+            ],
+          },
+        ],
+        secondary: {
+          label: "AI-ASSISTED PRODUCTION",
+          items: ["AI Imagery", "AI Video", "Rapid Prototyping", "Creative Variation", "Concept Development"],
+          note: "AI scales production capacity. The idea still makes the decision.",
+        },
       },
       {
         number: "04",
-        title: "AI & AUTOMATION",
-        services: [
-          "AI Assistants",
-          "Content Systems",
-          "Workflow Automations",
-          "Lead Automations",
-          "AI-Powered Business Systems",
+        title: "WEB & CONVERSION",
+        statement: [
+          { text: "What happens after the click is " },
+          { text: "still part of the ad.", accent: true },
+        ],
+        supportingCopy: "We turn the attention an ad earns into conversion through a deliberately designed user journey.",
+        groups: [
+          {
+            items: [
+              "Website",
+              "Landing Page",
+              "E-Commerce",
+              "Campaign Page",
+              "Product Page",
+              "UX Architecture",
+              "Conversion Copy",
+              "CTA Hierarchy",
+              "Lead Forms",
+              "Checkout Flow",
+              "CRO",
+              "A/B Testing",
+              "Responsive Design",
+            ],
+          },
         ],
       },
       {
         number: "05",
-        title: "CRM & GROWTH SYSTEMS",
-        services: ["CRM Setup", "Lead Management", "Automated Follow-up", "Customer Journeys", "Growth Infrastructure"],
+        title: "DATA, CRM & LIFECYCLE",
+        statement: [
+          { text: "If we can't see what happens after the click, we can't " },
+          { text: "grow what happens before it in a healthy way.", accent: true },
+        ],
+        groups: [
+          { label: "MEASUREMENT", items: ["GA4", "Google Tag Manager", "Meta Pixel", "Conversions API", "Event Tracking"] },
+          { label: "CRM", items: ["CRM Setup", "Lead Routing", "Customer Segmentation", "CRM Integrations"] },
+          { label: "LIFECYCLE", items: ["Email Flows", "Retargeting Audiences", "Lead Nurturing", "Customer Reactivation"] },
+          {
+            label: "REPORTING",
+            items: ["Performance Dashboards", "Channel Reporting", "Funnel Visibility", "Campaign Learning"],
+          },
+        ],
       },
     ],
   },
-  manifesto: {
+  investigation: {
     folioNumber: "004",
-    statement1: {
-      desktop: ["WE'RE NOT HERE", "TO MAKE MORE", "NOISE."],
-      mobile: ["WE'RE NOT", "HERE TO MAKE", "MORE NOISE."],
-    },
-    statement2: {
-      desktop: [
-        [{ text: "WE'RE HERE TO" }],
-        [{ text: "MOVE BRANDS", accent: true }],
-        [{ text: "FORWARD." }],
-      ],
-      mobile: [
-        [{ text: "WE'RE HERE" }],
-        [{ text: "TO MOVE", accent: true }],
-        [{ text: "BRANDS", accent: true }, { text: " FORWARD." }],
-      ],
-    },
-    secondaryStatement: ["WE RUN STRATEGY, CREATIVE", "AND TECHNOLOGY", "IN ONE DIRECTION."],
-    microAnnotations: ["ISTANBUL × BALI", "WORKING GLOBALLY"],
-    nextSectionHint: {
-      number: "005",
-      title: "KITE",
-    },
+    title: "INVESTIGATION",
+    introLines: ["WHEN WE MEET A BRAND FOR THE FIRST TIME,", "WE ASK THESE 13 QUESTIONS FIRST."],
+    investigationDetails: ["STATUS: UNDER REVIEW", "EVIDENCE: DATA", "NOTE: A FEELING ISN'T ENOUGH"],
+    questions: [
+      {
+        number: "01",
+        question: "WHO?",
+        answerLines: [[{ text: "Who is the brand?" }], [{ text: "Really, who?" }]],
+        label: "BRAND / POSITIONING",
+      },
+      {
+        number: "02",
+        question: "TO WHOM?",
+        answerLines: [
+          [{ text: "Who are we talking to?" }],
+          [{ text: "'Everyone'", accent: true }, { text: " doesn't count." }],
+        ],
+        label: "AUDIENCE",
+      },
+      {
+        number: "03",
+        question: "WHAT?",
+        answerLines: [[{ text: "What are we actually selling?" }], [{ text: "The product, or the idea?" }]],
+        label: "OFFER",
+      },
+      {
+        number: "04",
+        question: "WHY?",
+        answerLines: [
+          [{ text: "Why buy from you?" }],
+          [{ text: "'We're better quality'", accent: true }, { text: " doesn't count." }],
+        ],
+        label: "VALUE PROPOSITION",
+      },
+      {
+        number: "05",
+        question: "WHERE?",
+        answerLines: [[{ text: "Where do we show up?" }], [{ text: "Being everywhere isn't a strategy." }]],
+        label: "CHANNEL",
+      },
+      {
+        number: "06",
+        question: "WITH WHAT?",
+        answerLines: [
+          [{ text: "With which creative?" }],
+          [{ text: "Not the pretty one — " }, { text: "the one that works.", accent: true }],
+        ],
+        label: "CREATIVE",
+      },
+      {
+        number: "07",
+        question: "WHEN?",
+        answerLines: [[{ text: "When do we show up?" }], [{ text: "Showing up constantly isn't an answer." }]],
+        label: "TIMING / FREQUENCY",
+      },
+      {
+        number: "08",
+        question: "AT WHAT COST?",
+        answerLines: [
+          [{ text: "What does one customer cost us?" }],
+          [{ text: "'The budget's going'", accent: true }, { text: " isn't a metric." }],
+        ],
+        label: "CAC / CPA",
+      },
+      {
+        number: "09",
+        question: "TO WHERE?",
+        answerLines: [[{ text: "Where does the click go?" }], [{ text: "And why does it stay there?" }]],
+        label: "LANDING / CONVERSION",
+      },
+      {
+        number: "10",
+        question: "WHERE DID IT BREAK?",
+        answerLines: [[{ text: "Where do they give up?" }], [{ text: "Somewhere, it always breaks." }]],
+        label: "FUNNEL",
+      },
+      {
+        number: "11",
+        question: "WHO CAME BACK?",
+        answerLines: [[{ text: "Who came back?" }], [{ text: "The first sale doesn't close the file." }]],
+        label: "RETENTION / CRM",
+      },
+      {
+        number: "12",
+        question: "WHAT ACTUALLY WORKED?",
+        answerLines: [[{ text: "What actually worked?" }], [{ text: "Not what it felt like.", accent: true }]],
+        label: "PERFORMANCE / DATA",
+      },
+      {
+        number: "13",
+        question: "NOW WHAT?",
+        answerLines: [
+          [{ text: "What do we change next?" }],
+          [{ text: "'A bit more budget'", accent: true }, { text: " isn't the only answer." }],
+        ],
+        label: "OPTIMISATION",
+      },
+    ],
+    ending: [{ text: "If the answers aren't clear," }, { text: "we don't touch the budget.", accent: true }],
+    endingNote: "Now we can start.",
   },
   kite: {
     folioNumber: "005",

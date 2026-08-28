@@ -91,37 +91,51 @@ export interface SiteDictionary {
   };
   capabilities: {
     indexLabel: string;
-    supportingLines: string[];
-    microCopy: string;
-    /** Caption on the hanging specimen tag in the capability collage. */
-    tagLine: string;
-    /** Each group is one couplet of the closing statement; only one is typically accented. */
-    closingStatement: Array<{ lines: string[]; accent?: boolean }>;
-    nextSectionHint: {
-      number: string;
-      title: string;
-    };
+    /** Large editorial opening statement — the transition from Selected Work into the capability index. */
+    introStatement: string;
+    introSupport: string;
+    /** Small system/index line under the intro — discipline tokens, not a slogan. */
+    systemLine: string[];
+    /**
+     * One editorial "chapter" per discipline. `groups` holds the capability
+     * list — a single unlabelled group for a flat list, or several labelled
+     * groups when a discipline splits internally (e.g. Creative's Brand
+     * Content vs Performance Creative). `secondary` is the smaller layer
+     * some chapters carry beneath the main list (outputs, what's measured,
+     * the AI production note) — omitted entirely where there isn't one.
+     */
     items: Array<{
       number: string;
       title: string;
-      services: string[];
+      /** Segmented like the hero headline — one fragment per chapter may carry the kite accent, the rest stays plain. */
+      statement: Array<{ text: string; accent?: boolean }>;
+      supportingCopy?: string;
+      groups: Array<{ label?: string; items: string[] }>;
+      secondary?: { label: string; items: string[]; note?: string };
     }>;
   };
-  manifesto: {
+  /**
+   * "004 / SORUŞTURMA" — the interrogation board replacing the old closing
+   * manifesto block at the bottom of the capabilities section. Tonally
+   * distinct from the rest of the homepage on purpose: dry, blunt, fast.
+   */
+  investigation: {
     folioNumber: string;
-    /** Plain lines (no accent) — desktop and mobile recompose the breaks differently. */
-    statement1: { desktop: string[]; mobile: string[] };
-    /** Segmented per line so a whole line/word can be accented, same shape as hero.headline. */
-    statement2: {
-      desktop: Array<Array<{ text: string; accent?: boolean }>>;
-      mobile: Array<Array<{ text: string; accent?: boolean }>>;
-    };
-    secondaryStatement: string[];
-    microAnnotations: string[];
-    nextSectionHint: {
+    title: string;
+    /** Explicit line breaks, like the hero headline — not left to wrap. */
+    introLines: string[];
+    /** Two or three tiny annotations scattered sparingly around the layout — never all at once. */
+    investigationDetails: string[];
+    questions: Array<{
       number: string;
-      title: string;
-    };
+      question: string;
+      /** Two short lines, each segmented so a punchline fragment can carry the kite accent — same shape as hero.headline. */
+      answerLines: Array<Array<{ text: string; accent?: boolean }>>;
+      label: string;
+    }>;
+    /** Two lines; only the second is typically accented. */
+    ending: Array<{ text: string; accent?: boolean }>;
+    endingNote: string;
   };
   kite: {
     folioNumber: string;
