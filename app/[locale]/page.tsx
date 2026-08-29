@@ -4,6 +4,12 @@ import { Header } from "@/components/site/Header";
 import { Hero } from "@/components/site/Hero";
 import { SelectedWork } from "@/components/site/SelectedWork";
 import { Capabilities } from "@/components/site/Capabilities";
+import { Diagnosis } from "@/components/site/Diagnosis";
+import { System } from "@/components/site/System";
+import { FirstMonth } from "@/components/site/FirstMonth";
+import { CaseStudies } from "@/components/site/CaseStudies";
+import { Collaboration } from "@/components/site/Collaboration";
+import { Principles } from "@/components/site/Principles";
 import { Kite } from "@/components/site/Kite";
 import { Thinking } from "@/components/site/Thinking";
 import { FinalCta } from "@/components/site/FinalCta";
@@ -32,6 +38,12 @@ export default async function HomePage() {
         <Hero />
         <SelectedWork />
         <Capabilities />
+        <Diagnosis />
+        <System />
+        <FirstMonth />
+        <CaseStudies />
+        <Collaboration />
+        <Principles />
         <Kite />
         <Thinking />
         <FinalCta />

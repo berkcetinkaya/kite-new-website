@@ -137,6 +137,222 @@ export interface SiteDictionary {
     ending: Array<{ text: string; accent?: boolean }>;
     endingNote: string;
   };
+  /**
+   * "005 / TEŞHİS" — the perspective shift after Soruşturma: not what Kite
+   * does or how Kite thinks, but the six business problems that actually
+   * bring a brand in the door. Back on the paper surface after 004's black
+   * interruption. Six diagnosis rows, each carrying its own optional fields
+   * (`stages`, `diagnosticQuestions`, `supportingLines`, `systemLine`) so a
+   * single shared type covers every row's real content without forcing rows
+   * that don't need a field to fake one — see DiagnosisRow.tsx for which
+   * variant renders which combination.
+   */
+  diagnosis: {
+    folioNumber: string;
+    title: string;
+    /** Explicit line breaks, like the hero headline — not left to wrap. */
+    introLines: string[];
+    introSupport: string;
+    problems: Array<{
+      number: string;
+      /** Sparse diagnostic tag — most rows don't carry one. */
+      label?: string;
+      /** Two lines, segmented so a punch fragment can carry the kite accent. */
+      statement: Array<Array<{ text: string; accent?: boolean }>>;
+      secondaryLine?: string;
+      /** Possible causes / diagnostic terms — absent on the finale row (06), which uses `supportingLines` + `systemLine` instead. */
+      causes?: string[];
+      /** Row 02 only: the DİKKAT → İLGİ → AKSİYON stage line. */
+      stages?: string[];
+      /** Row 05 only: small diagnostic questions under the data sources. */
+      diagnosticQuestions?: string[];
+      /** Row 06 only: the disconnected-systems checklist replacing a secondary line. */
+      supportingLines?: string[];
+      /** Row 06 only: the Creative/Media/Web/Data/CRM signal line. */
+      systemLine?: string[];
+      /** One or two lines, segmented like `statement`. */
+      conclusion: Array<Array<{ text: string; accent?: boolean }>>;
+    }>;
+  };
+  /**
+   * "006 / SİSTEM" — answers 005's closing problem (disconnected disciplines)
+   * with the operating loop that connects them: ANLA → KONUMLANDIR → ÜRET →
+   * DAĞIT → DÖNÜŞTÜR → ÖĞREN, then back to ANLA. `canvasDetails` is the same
+   * sparse scattered-metadata pattern as investigation.investigationDetails —
+   * 1–2 tiny technical annotations on the black canvas, never more.
+   */
+  system: {
+    folioNumber: string;
+    title: string;
+    /** Explicit line breaks, like the hero headline — not left to wrap. */
+    introLines: string[];
+    introSupport: string;
+    canvasDetails: string[];
+    stages: Array<{
+      number: string;
+      name: string;
+      term: string;
+      question: string;
+      details: string[];
+      outcome: string;
+    }>;
+    /** Small mobile-only note marking the 06 → 01 loop, e.g. "↳ 01'e döner." */
+    loopNote: string;
+    /** Three lines; only the last is typically accented. */
+    closing: Array<{ text: string; accent?: boolean }>;
+    closingNote: string;
+  };
+  /**
+   * "007 / İlk 30 Gün" — what actually happens in the first month of a Kite
+   * engagement, as one continuous editorial timeline rather than four cards.
+   * Phases 01–03 share a shape (areas/output/note); phase 04 ("Döngü
+   * Başlıyor") is structurally different on purpose — no areas or output,
+   * just the loop sequence and the four standing questions — and is the
+   * one deliberate black interruption, so its fields are optional rather
+   * than forcing every phase into one rigid template.
+   */
+  firstMonth: {
+    folioNumber: string;
+    title: string;
+    /** Two statements back to back, four lines total; one fragment carries the kite accent. */
+    introLines: Array<Array<{ text: string; accent?: boolean }>>;
+    introSupport: string;
+    phases: Array<{
+      number: string;
+      timeLabel: string;
+      title: string;
+      statement: string;
+      /** Absent on phase 04. */
+      areasLabel?: string;
+      areas?: string[];
+      outputLabel?: string;
+      output?: string;
+      note?: string;
+      /** Sparse operational tag — only two of the four phases carry one. */
+      microLabel?: string;
+      /** Phase 04 only: DATA → HİPOTEZ → CREATIVE → TEST → SONUÇ → YENİ KARAR. */
+      loopSequence?: string[];
+      /** Phase 04 only: the four standing questions, kept visually prominent. */
+      questions?: string[];
+    }>;
+    /** Four lines; only the last is typically accented. */
+    closing: Array<{ text: string; accent?: boolean }>;
+  };
+  /**
+   * "008 / İşin Arkasındaki İş" — not another portfolio grid (Selected Work
+   * already shows the work visually); three real client engagements shown
+   * as full editorial features, one per case, alternating image side and
+   * with Ecru Atelier as the section's one dark interruption. Shared field
+   * labels (`scopeLabel` etc.) live once at the section level since the
+   * same word heads that field on every case. No case carries invented
+   * performance numbers — where hard data isn't available the content
+   * stays about scope, system and what was actually built.
+   */
+  caseStudies: {
+    folioNumber: string;
+    title: string;
+    /** Two statements back to back, four lines total; one fragment carries the kite accent. */
+    introLines: Array<Array<{ text: string; accent?: boolean }>>;
+    introSupport: string;
+    scopeLabel: string;
+    contextLabel: string;
+    workLabel: string;
+    systemLabel: string;
+    ongoingLabel: string;
+    cases: Array<{
+      number: string;
+      client: string;
+      category: string;
+      /** Two lines, segmented so a punch fragment can carry the kite accent. */
+      statement: Array<{ text: string; accent?: boolean }>;
+      context: string;
+      scope: string[];
+      workItems: string[];
+      systemSequence: string[];
+      /** "arrow" for a linear/looping flow, "plus" for parts that combine rather than proceed in sequence (Ecru). */
+      systemJoiner: "arrow" | "plus";
+      /** Loops the sequence's last step back to its first (Lyxaskin). */
+      systemLoop?: boolean;
+      /** Short editorial punch line — Desetour and Ecru only. */
+      smallLine?: Array<{ text: string; accent?: boolean }>;
+      /** Two-line close — Lyxaskin only. */
+      closingLine?: Array<{ text: string; accent?: boolean }>;
+      ongoing?: boolean;
+      /** Ecru only — the section's one dark case. */
+      dark?: boolean;
+      imageAlign: "left" | "right";
+    }>;
+    /** Five lines across two statements; one fragment carries the kite accent. */
+    closing: Array<{ text: string; accent?: boolean }>;
+  };
+  /**
+   * "009 / Bizimle Nasıl Çalışabilirsiniz?" — four collaboration models, not
+   * pricing tiers: no price, no "starting from", no packages. Model 01
+   * (Growth Partnership) carries `priority` for its slightly stronger
+   * visual treatment; model 02 (Creative Performance) carries `dark` for
+   * the section's one inversion. Shared field labels live once at the
+   * section level, same reasoning as caseStudies.
+   */
+  collaboration: {
+    folioNumber: string;
+    title: string;
+    /** Two statements back to back, four lines total. */
+    introLines: Array<Array<{ text: string; accent?: boolean }>>;
+    introSupport: string;
+    /** Small tag shown only on the priority model, e.g. "EN KAPSAMLI MODEL". */
+    priorityLabel: string;
+    bestForLabel: string;
+    scopeLabel: string;
+    workingModelLabel: string;
+    models: Array<{
+      number: string;
+      title: string;
+      description: string;
+      bestFor: string[];
+      scope: string[];
+      workingModel: string;
+      /** Two lines, segmented so a punch fragment can carry the kite accent. */
+      smallLine: Array<{ text: string; accent?: boolean }>;
+      /** Model 01 only. */
+      priority?: boolean;
+      /** Model 02 only — the section's one dark inversion. */
+      dark?: boolean;
+    }>;
+    /** Three lines; only the last is typically accented. */
+    ctaHeadline: Array<{ text: string; accent?: boolean }>;
+    ctaSupport: string;
+    ctaLabel: string;
+  };
+  /**
+   * "010 / Bazı Şeylere İnanıyoruz" — eight editorial principles, not a
+   * values page. `variant` gives each of three controlled treatments
+   * ("A" left-statement/right-copy, "B" full-width statement, "C" dark
+   * inversion) so eight rows don't read as eight identical rectangles;
+   * exactly two (01, 04) carry `dark`. `tinyLine` is the small aside some
+   * principles carry and others don't — optional rather than padded out
+   * with empty strings on the rest.
+   */
+  principles: {
+    folioNumber: string;
+    title: string;
+    /** Four lines, no accent. */
+    introLines: string[];
+    introSupport: string;
+    items: Array<{
+      number: string;
+      /** Two or three lines, segmented so a punch line/fragment can carry the kite accent. */
+      statement: Array<Array<{ text: string; accent?: boolean }>>;
+      supportingCopy: string;
+      technicalLabel: string;
+      /** One to three short lines — present on about half the principles. */
+      tinyLine?: string[];
+      variant: "A" | "B" | "C";
+      /** Principles 01 and 04 only — the section's two dark inversions. */
+      dark?: boolean;
+    }>;
+    /** Five lines across two statements; one fragment (spanning a line break) carries the kite accent. */
+    closing: Array<Array<{ text: string; accent?: boolean }>>;
+  };
   kite: {
     folioNumber: string;
     microLabel: string;
