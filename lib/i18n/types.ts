@@ -353,6 +353,45 @@ export interface SiteDictionary {
     /** Five lines across two statements; one fragment (spanning a line break) carries the kite accent. */
     closing: Array<Array<{ text: string; accent?: boolean }>>;
   };
+  /**
+   * "011 / Neye Bakıyoruz?" — five measurement layers (Media → Creative →
+   * Website → Conversion → Customer) connected by one continuous kite-
+   * yellow rail, with a text loop-back note after Customer rather than a
+   * literal diagram, same restraint as system.stages' return path. Each
+   * layer's `variant` gives it its own visual treatment (grid / typographic
+   * / journey / metric / lifecycle) so five layers don't read as five
+   * identical rows; layer 04 (Conversion) is the section's one dark
+   * inversion. No fake metric values anywhere — metric names are graphic
+   * content, never attached to invented numbers.
+   */
+  measurement: {
+    folioNumber: string;
+    title: string;
+    /** Three lines, no accent. */
+    introLines: string[];
+    introSupport: string;
+    layers: Array<{
+      number: string;
+      name: string;
+      /** Two lines. */
+      mainQuestion: string[];
+      signals: string[];
+      meaning: string;
+      diagnosticQuestions: string[];
+      /** Two lines, segmented so a punch fragment can carry the kite accent. */
+      smallLine: Array<{ text: string; accent?: boolean }>;
+      variant: "grid" | "typographic" | "journey" | "metric" | "lifecycle";
+      /** Layer 04 only — the section's one dark inversion. */
+      dark?: boolean;
+    }>;
+    /** Small note after the Customer layer marking the loop back into Media — text, not a literal diagram. */
+    loopNote: string;
+    /** Four lines across two statements; the last two are typically accented. */
+    keyStatement: Array<{ text: string; accent?: boolean }>;
+    /** Two lines; only the second is typically accented. */
+    ending: Array<{ text: string; accent?: boolean }>;
+    endingNote: string;
+  };
   kite: {
     folioNumber: string;
     microLabel: string;

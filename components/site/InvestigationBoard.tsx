@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { SiteContainer } from "@/components/ui";
 import { cn } from "@/lib/cn";
 
@@ -65,6 +66,25 @@ export function InvestigationBoard({
   const total = questions.length;
   const progress = total > 1 ? active / (total - 1) : 0;
 
+  const [artworkRevealed, setArtworkRevealed] = useState(false);
+  const artworkRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = artworkRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting) {
+          setArtworkRevealed(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="relative bg-ink">
       {investigationDetails[0] && (
@@ -75,15 +95,6 @@ export function InvestigationBoard({
           {investigationDetails[0]}
         </span>
       )}
-      {investigationDetails[2] && (
-        <span
-          aria-hidden
-          className="absolute bottom-lg right-gutter hidden font-body text-[9px] uppercase tracking-widest text-[rgba(242,238,228,0.25)] xl:block"
-        >
-          {investigationDetails[2]}
-        </span>
-      )}
-
       <SiteContainer>
         <div className="py-2xl xl:py-3xl">
           <div className="flex items-baseline gap-sm">
@@ -228,15 +239,64 @@ export function InvestigationBoard({
             </ul>
           </div>
 
+          {/* Closing frame: statement and note stay in their own left column (both
+              anchored to xl:col-span-7 via explicit row placement) while the agent
+              artwork occupies a tall right column that's free to bleed toward the
+              section's true edge — reads as one asymmetric composition rather than
+              a portrait dropped beside text. Explicit col/row placement (not DOM
+              order) is what lets mobile stack as statement → artwork → note while
+              desktop keeps the note directly under the statement. */}
           <div className="mt-2xl border-t border-[rgba(242,238,228,0.15)] pt-xl xl:mt-3xl">
-            <p className="font-display text-display-md font-black uppercase leading-[0.95] text-paper xl:text-display-lg">
-              {ending.map((segment, i) => (
-                <span key={i} className={cn("block", segment.accent && "text-kite")}>
-                  {segment.text}
-                </span>
-              ))}
-            </p>
-            <p className="mt-xs font-body text-[10px] uppercase tracking-widest text-[rgba(242,238,228,0.5)]">{endingNote}</p>
+            <div className="grid grid-cols-1 gap-y-lg xl:grid-cols-12 xl:gap-x-lg">
+              <p className="font-display text-display-md font-black uppercase leading-[0.95] text-paper xl:col-span-6 xl:col-start-1 xl:row-start-1 xl:text-display-lg">
+                {ending.map((segment, i) => (
+                  <span key={i} className={cn("block", segment.accent && "text-kite")}>
+                    {segment.text}
+                  </span>
+                ))}
+              </p>
+
+              <div
+                ref={artworkRef}
+                className="relative h-[360px] sm:h-[440px] xl:col-span-6 xl:col-start-7 xl:row-span-2 xl:row-start-1 xl:h-full xl:min-h-[560px] xl:-mb-xl xl:-mr-gutter xl:-mt-lg"
+              >
+                {investigationDetails[2] && (
+                  <span
+                    aria-hidden
+                    className="absolute left-0 top-0 font-body text-[9px] uppercase tracking-widest text-[rgba(242,238,228,0.25)]"
+                  >
+                    {investigationDetails[2]}
+                  </span>
+                )}
+
+                <div
+                  className="absolute inset-0 transition-[opacity,transform] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
+                  style={{
+                    opacity: artworkRevealed ? 1 : 0,
+                    transform: artworkRevealed ? "translateY(0)" : "translateY(16px)",
+                  }}
+                >
+                  <Image
+                    src="/brand/ajan.png"
+                    alt=""
+                    fill
+                    sizes="(min-width: 1280px) 48vw, 90vw"
+                    className="object-contain object-right-bottom mix-blend-screen"
+                  />
+                </div>
+
+                {/* The section's one restrained yellow detail — a tiny evidence
+                    crosshair floating in the empty dark space beside the figure
+                    (not on the face or coat), so it reads as a marker in the
+                    scene rather than decoration on the illustration itself. */}
+                <span aria-hidden className="absolute left-[8%] top-[16%] h-3 w-px bg-kite" />
+                <span aria-hidden className="absolute left-[calc(8%-5px)] top-[calc(16%+5px)] h-px w-3 bg-kite" />
+              </div>
+
+              <p className="font-body text-[10px] uppercase tracking-widest text-[rgba(242,238,228,0.5)] xl:col-span-6 xl:col-start-1 xl:row-start-2">
+                {endingNote}
+              </p>
+            </div>
           </div>
         </div>
       </SiteContainer>

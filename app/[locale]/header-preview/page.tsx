@@ -8,6 +8,7 @@ import { FirstMonth } from "@/components/site/FirstMonth";
 import { CaseStudies } from "@/components/site/CaseStudies";
 import { Collaboration } from "@/components/site/Collaboration";
 import { Principles } from "@/components/site/Principles";
+import { Measurement } from "@/components/site/Measurement";
 import { Kite } from "@/components/site/Kite";
 import { Thinking } from "@/components/site/Thinking";
 import { FinalCta } from "@/components/site/FinalCta";
@@ -32,6 +33,7 @@ export default async function HeaderPreviewPage() {
         <CaseStudies />
         <Collaboration />
         <Principles />
+        <Measurement />
         <Kite />
         <Thinking />
         <FinalCta />
