@@ -2,49 +2,53 @@ import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { SiteContainer, EditorialGrid } from "@/components/ui";
 import { cn } from "@/lib/cn";
 import { CityLine } from "./CityLine";
-import { ProcessSequence } from "./ProcessSequence";
 
 /**
- * Manifesto's own bottom hint ("005 / KITE") is this chapter's opening
- * marker. A quiet folio number still appears at the very top — same
- * reasoning as Manifesto's own folio mark: this is a genuine background
- * change (black → paper), so a small page-folio reads as a new spread
- * rather than a duplicated intro.
+ * "012 / Kite Hakkında" — the one deliberate breather in the page. After
+ * eleven sections of system, process and measurement, this is a short,
+ * human paragraph rather than another framework: one headline, two
+ * sentences, and the Istanbul ↔ Bali motif (coordinates + a single thin
+ * line) standing in for every "about us" cliché this chapter skips —
+ * no team photo, no literal map, no service list.
  */
 export async function Kite() {
   const dict = await getDictionary();
-  const { kite, brand } = dict;
+  const { kite } = dict;
 
   return (
-    <section id="about" className="relative scroll-mt-[var(--header-h)] bg-paper pt-xl xl:pt-2xl">
+    <section id="about" className="relative scroll-mt-[var(--header-h)] bg-paper py-2xl xl:py-4xl">
       <SiteContainer>
-        <div className="flex items-center justify-between">
-          <span className="font-body text-eyebrow font-semibold uppercase tracking-widest text-ink-soft">
+        <div className="flex items-baseline gap-sm">
+          <span className="font-display text-display-sm font-extrabold uppercase tabular-nums leading-none text-ink-soft">
             {kite.folioNumber}
           </span>
-          <span className="font-body text-eyebrow font-semibold uppercase tracking-widest text-ink-soft">
+          <span className="font-body text-label font-semibold uppercase tracking-widest text-ink-soft">
             {kite.microLabel}
           </span>
         </div>
 
-        <h2 className="mt-2xl font-display text-display-2xl font-black uppercase leading-none text-ink xl:mt-4xl">
-          {brand.name}
-        </h2>
-
-        <p className="mt-lg max-w-[20ch] font-display text-display-lg font-black uppercase leading-[0.97] text-ink xl:mt-xl xl:text-display-xl">
+        <h2 className="mt-md max-w-[20ch] font-display text-display-lg font-black uppercase leading-[0.97] text-ink xl:mt-lg xl:text-display-2xl">
           {kite.primaryStatement.map((line, i) => (
             <span key={i} className="block">
               {line}
             </span>
           ))}
-        </p>
+        </h2>
 
-        <p className="mt-lg font-display text-display-md font-black uppercase leading-none text-ink xl:ml-[24%] xl:mt-xl xl:text-display-lg">
-          {kite.citiesLabel}
-        </p>
+        <div className="mt-lg max-w-[52ch] xl:mt-xl">
+          {kite.aboutCopy.map((paragraph, i) => (
+            <p key={i} className={cn("font-body text-body-lg text-ink-soft", i > 0 && "mt-sm")}>
+              {paragraph}
+            </p>
+          ))}
+        </div>
 
-        <div className="mt-2xl xl:mt-3xl">
-          <EditorialGrid columns={{ base: 4, md: 6, xl: 12 }} className="items-start">
+        <div className="mt-3xl xl:mt-4xl">
+          <p className="font-body text-eyebrow font-semibold uppercase tracking-widest text-ink-soft">
+            {kite.citiesLabel}
+          </p>
+
+          <EditorialGrid columns={{ base: 4, md: 6, xl: 12 }} className="mt-lg items-start xl:mt-xl">
             <div className="col-span-4 md:col-span-3 xl:col-span-4">
               <p className="font-display text-display-sm font-black uppercase leading-none text-ink">
                 {kite.cities[0]?.name}
@@ -80,18 +84,6 @@ export async function Kite() {
               </div>
             </div>
           </EditorialGrid>
-        </div>
-
-        <div className="mt-2xl max-w-[52ch] xl:mt-3xl xl:max-w-[46ch]">
-          {kite.aboutCopy.map((paragraph, i) => (
-            <p key={i} className={cn("text-body-lg text-ink-soft", i > 0 && "mt-sm")}>
-              {paragraph}
-            </p>
-          ))}
-        </div>
-
-        <div className="mt-2xl border-t border-line pt-xl xl:mt-3xl xl:pt-2xl">
-          <ProcessSequence stages={kite.process} label={kite.processLabel} />
         </div>
       </SiteContainer>
 

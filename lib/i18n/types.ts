@@ -404,24 +404,20 @@ export interface SiteDictionary {
       coordinates: string;
     }>;
     microAnnotation: string;
-    processLabel: string;
-    process: Array<{ number: string; title: string }>;
     nextSectionHint: {
       number: string;
       title: string;
     };
   };
   thinking: {
+    folioNumber: string;
+    title: string;
     mainStatement: string[];
-    articles: Array<{
+    /** Topic teasers, not published articles — no dates, authors, or reading times. */
+    topics: Array<{
       number: string;
-      title: string[];
-      /** Short supporting line under the title — not every article has one. */
-      dek?: string;
       category: string;
-      readTime: string;
-      /** Reserved for a future article detail route; no page exists yet. */
-      slug: string;
+      statement: string[];
     }>;
     nextSectionHint: {
       number: string;

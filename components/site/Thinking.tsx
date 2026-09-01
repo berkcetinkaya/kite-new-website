@@ -1,12 +1,11 @@
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { SiteContainer } from "@/components/ui";
-import { ArticleIndex } from "./ArticleIndex";
+import { TopicIndex } from "./TopicIndex";
 
 /**
- * KITE's own bottom hint ("006 / THINKING") is this section's opening
- * marker — paper stays paper here (no background change), so same
- * no-repeated-intro convention as Selected Work and Capabilities: no
- * SectionLabel or folio number at the top.
+ * "013 / Thinking" — Kite's own point of view, not a blog. Three topic
+ * teasers stand in for a future insights space; deliberately no dates,
+ * authors or reading times, since nothing here is actually published yet.
  */
 export async function Thinking() {
   const dict = await getDictionary();
@@ -15,7 +14,16 @@ export async function Thinking() {
   return (
     <section id="thinking" className="relative scroll-mt-[var(--header-h)] bg-paper pt-xl xl:pt-2xl">
       <SiteContainer>
-        <h2 className="max-w-[20ch] font-display text-display-lg font-black uppercase leading-[0.97] text-ink xl:text-display-xl">
+        <div className="flex items-baseline gap-sm">
+          <span className="font-display text-display-sm font-extrabold uppercase tabular-nums leading-none text-ink-soft">
+            {thinking.folioNumber}
+          </span>
+          <span className="font-body text-label font-semibold uppercase tracking-widest text-ink-soft">
+            {thinking.title}
+          </span>
+        </div>
+
+        <h2 className="mt-md max-w-[20ch] font-display text-display-lg font-black uppercase leading-[0.97] text-ink xl:mt-lg xl:text-display-xl">
           {thinking.mainStatement.map((line, i) => (
             <span key={i} className="block">
               {line}
@@ -24,7 +32,7 @@ export async function Thinking() {
         </h2>
 
         <div className="mt-2xl xl:mt-3xl">
-          <ArticleIndex articles={thinking.articles} />
+          <TopicIndex topics={thinking.topics} />
         </div>
       </SiteContainer>
 

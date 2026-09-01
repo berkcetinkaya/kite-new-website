@@ -995,13 +995,13 @@ const tr: SiteDictionary = {
     endingNote: "Çünkü karar, tek bir dashboard'dan çıkmıyor.",
   },
   kite: {
-    folioNumber: "005",
-    microLabel: "INDEPENDENT CREATIVE GROWTH AGENCY",
-    primaryStatement: ["İKİ ŞEHİR.", "İKİ FARKLI ENERJİ.", "TEK BİR YÖN."],
+    folioNumber: "012",
+    microLabel: "KITE HAKKINDA",
+    primaryStatement: ["İSTANBUL'DAN BALI'YE.", "AYNI YÖNDE."],
     citiesLabel: "ISTANBUL × BALI",
     aboutCopy: [
-      "KITE, strateji, kreatif, medya ve teknolojiyi aynı masada buluşturan bağımsız bir growth ajansı.",
-      "Markaların yalnızca daha fazla görünmesini değil, daha doğru görünmesini, daha akıllı çalışmasını ve sürdürülebilir şekilde büyümesini hedefliyoruz.",
+      "KITE, strateji, creative, media, web ve data arasındaki boşluklarla ilgilenen bir growth ajansı.",
+      "Çünkü çoğu zaman problem parçaların kendisinde değil, birbirleriyle nasıl çalıştıklarında.",
     ],
     cities: [
       {
@@ -1016,43 +1016,30 @@ const tr: SiteDictionary = {
       },
     ],
     microAnnotation: "UTC+3 / UTC+8",
-    processLabel: "NASIL ÇALIŞIYORUZ",
-    process: [
-      { number: "01", title: "ANLA" },
-      { number: "02", title: "YÖNÜ BELİRLE" },
-      { number: "03", title: "ÜRET" },
-      { number: "04", title: "YAYINA AL" },
-      { number: "05", title: "ÖLÇ & GELİŞTİR" },
-    ],
     nextSectionHint: {
       number: "006",
       title: "THINKING",
     },
   },
   thinking: {
-    mainStatement: ["FİKİRLER DE", "BÜYÜMENİN", "BİR PARÇASI."],
-    articles: [
+    folioNumber: "013",
+    title: "THINKING",
+    mainStatement: ["BAZEN İŞ YAPMADAN ÖNCE,", "İŞ HAKKINDA DÜŞÜNÜYORUZ."],
+    topics: [
       {
         number: "01",
-        title: ["STRATEJİ KREATİFTEN ÖNCE GELİR."],
-        dek: "Çünkü iyi tasarım, yanlış yönü kurtaramaz.",
-        category: "STRATEJİ",
-        readTime: "5 MIN",
-        slug: "strateji-kreatiften-once-gelir",
+        category: "CREATIVE",
+        statement: ["GÜZEL CREATIVE İLE ÇALIŞAN CREATIVE", "AYNI ŞEY DEĞİL."],
       },
       {
         number: "02",
-        title: ["PERFORMANCE MARKETING'İN", "YENİ KURALLARI."],
         category: "PERFORMANCE",
-        readTime: "7 MIN",
-        slug: "performance-marketingin-yeni-kurallari",
+        statement: ["ROAS BAZEN CEVAPTAN", "ÇOK SORUDUR."],
       },
       {
         number: "03",
-        title: ["AI GELECEK DEĞİL.", "BUGÜNÜN ARACI."],
-        category: "AI & TECHNOLOGY",
-        readTime: "4 MIN",
-        slug: "ai-gelecek-degil-bugunun-araci",
+        category: "GROWTH",
+        statement: ["HER ŞEYİ OPTİMİZE ETMEK,", "HER ZAMAN BÜYÜMEK DEĞİLDİR."],
       },
     ],
     nextSectionHint: {

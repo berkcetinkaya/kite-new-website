@@ -994,13 +994,13 @@ const en: SiteDictionary = {
     endingNote: "Because the decision doesn't come from a single dashboard.",
   },
   kite: {
-    folioNumber: "005",
-    microLabel: "INDEPENDENT CREATIVE GROWTH AGENCY",
-    primaryStatement: ["TWO CITIES.", "TWO DIFFERENT ENERGIES.", "ONE DIRECTION."],
+    folioNumber: "012",
+    microLabel: "ABOUT KITE",
+    primaryStatement: ["FROM ISTANBUL TO BALI.", "SAME DIRECTION."],
     citiesLabel: "ISTANBUL × BALI",
     aboutCopy: [
-      "KITE is an independent growth agency that brings strategy, creative, media and technology to the same table.",
-      "We don't just want brands to be seen more — we want them to be seen right, to work smarter, and to grow sustainably.",
+      "KITE is a growth agency that cares about the gaps between strategy, creative, media, web and data.",
+      "Because the problem is rarely in the parts themselves — it's usually in how they work together.",
     ],
     cities: [
       {
@@ -1015,43 +1015,30 @@ const en: SiteDictionary = {
       },
     ],
     microAnnotation: "UTC+3 / UTC+8",
-    processLabel: "HOW WE WORK",
-    process: [
-      { number: "01", title: "UNDERSTAND" },
-      { number: "02", title: "SET DIRECTION" },
-      { number: "03", title: "PRODUCE" },
-      { number: "04", title: "PUBLISH" },
-      { number: "05", title: "MEASURE & IMPROVE" },
-    ],
     nextSectionHint: {
       number: "006",
       title: "THINKING",
     },
   },
   thinking: {
-    mainStatement: ["IDEAS ARE PART", "OF GROWTH", "TOO."],
-    articles: [
+    folioNumber: "013",
+    title: "THINKING",
+    mainStatement: ["SOMETIMES, BEFORE WE DO THE WORK,", "WE THINK ABOUT THE WORK."],
+    topics: [
       {
         number: "01",
-        title: ["STRATEGY COMES BEFORE CREATIVE."],
-        dek: "Because good design can't save the wrong direction.",
-        category: "STRATEGY",
-        readTime: "5 MIN",
-        slug: "strategy-comes-before-creative",
+        category: "CREATIVE",
+        statement: ["GOOD CREATIVE AND CREATIVE THAT WORKS", "ARE NOT THE SAME THING."],
       },
       {
         number: "02",
-        title: ["THE NEW RULES OF", "PERFORMANCE MARKETING."],
         category: "PERFORMANCE",
-        readTime: "7 MIN",
-        slug: "the-new-rules-of-performance-marketing",
+        statement: ["ROAS IS SOMETIMES MORE OF A QUESTION", "THAN AN ANSWER."],
       },
       {
         number: "03",
-        title: ["AI ISN'T THE FUTURE.", "IT'S TODAY'S TOOL."],
-        category: "AI & TECHNOLOGY",
-        readTime: "4 MIN",
-        slug: "ai-isnt-the-future-its-todays-tool",
+        category: "GROWTH",
+        statement: ["OPTIMIZING EVERYTHING DOESN'T ALWAYS", "MEAN GROWING."],
       },
     ],
     nextSectionHint: {
