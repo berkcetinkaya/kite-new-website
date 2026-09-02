@@ -239,15 +239,20 @@ export function InvestigationBoard({
             </ul>
           </div>
 
-          {/* Closing frame: statement and note stay in their own left column (both
-              anchored to xl:col-span-7 via explicit row placement) while the agent
-              artwork occupies a tall right column that's free to bleed toward the
-              section's true edge — reads as one asymmetric composition rather than
-              a portrait dropped beside text. Explicit col/row placement (not DOM
-              order) is what lets mobile stack as statement → artwork → note while
-              desktop keeps the note directly under the statement. */}
-          <div className="mt-2xl border-t border-[rgba(242,238,228,0.15)] pt-xl xl:mt-3xl">
-            <div className="grid grid-cols-1 gap-y-lg xl:grid-cols-12 xl:gap-x-lg">
+          {/* Closing frame: statement and note stay in their own left column
+              (explicit row placement, not DOM order, is what lets mobile stack
+              as statement → artwork → note while desktop keeps the note under
+              the statement) while the agent artwork occupies the right column,
+              anchored top-left so the figure appears immediately beside the
+              headline instead of down in a distant bottom-right corner — the
+              two read as one compact composition, not text-plus-portrait. The
+              container is still wide enough to bleed toward the section's true
+              edge (keeps the figure large), it's just no longer tall: height
+              only needs to clear the figure's own contained size, so the
+              surrounding empty space that used to pad out a much taller box
+              is gone. */}
+          <div className="mt-xl border-t border-[rgba(242,238,228,0.15)] pt-lg xl:mt-2xl">
+            <div className="grid grid-cols-1 gap-y-md xl:grid-cols-12 xl:gap-x-md">
               <p className="font-display text-display-md font-black uppercase leading-[0.95] text-paper xl:col-span-6 xl:col-start-1 xl:row-start-1 xl:text-display-lg">
                 {ending.map((segment, i) => (
                   <span key={i} className={cn("block", segment.accent && "text-kite")}>
@@ -258,12 +263,12 @@ export function InvestigationBoard({
 
               <div
                 ref={artworkRef}
-                className="relative -mr-[calc(var(--space-gutter)+22vw)] h-[485px] sm:h-[595px] xl:col-span-6 xl:col-start-7 xl:row-span-2 xl:row-start-1 xl:h-full xl:min-h-[755px] xl:-mb-xl xl:-mr-[calc(var(--space-gutter)+16vw)] xl:-mt-lg"
+                className="relative ml-auto h-[320px] w-[78vw] xl:col-span-6 xl:col-start-7 xl:row-span-2 xl:row-start-1 xl:h-full xl:min-h-[580px] xl:w-[40vw]"
               >
                 {investigationDetails[2] && (
                   <span
                     aria-hidden
-                    className="absolute left-0 top-0 font-body text-[9px] uppercase tracking-widest text-[rgba(242,238,228,0.25)]"
+                    className="absolute right-0 top-0 font-body text-[9px] uppercase tracking-widest text-[rgba(242,238,228,0.25)]"
                   >
                     {investigationDetails[2]}
                   </span>
@@ -280,8 +285,8 @@ export function InvestigationBoard({
                     src="/brand/ajan.png"
                     alt=""
                     fill
-                    sizes="(min-width: 1280px) 64vw, 100vw"
-                    className="object-contain object-right-bottom mix-blend-screen"
+                    sizes="(min-width: 1280px) 40vw, 78vw"
+                    className="object-cover object-right-top mix-blend-screen"
                   />
                 </div>
 
@@ -289,8 +294,8 @@ export function InvestigationBoard({
                     crosshair floating in the empty dark space beside the figure
                     (not on the face or coat), so it reads as a marker in the
                     scene rather than decoration on the illustration itself. */}
-                <span aria-hidden className="absolute left-[8%] top-[16%] h-3 w-px bg-kite" />
-                <span aria-hidden className="absolute left-[calc(8%-5px)] top-[calc(16%+5px)] h-px w-3 bg-kite" />
+                <span aria-hidden className="absolute bottom-[10%] right-[6%] h-3 w-px bg-kite" />
+                <span aria-hidden className="absolute bottom-[calc(10%-5px)] right-[calc(6%-5px)] h-px w-3 bg-kite" />
               </div>
 
               <p className="font-body text-[10px] uppercase tracking-widest text-[rgba(242,238,228,0.5)] xl:col-span-6 xl:col-start-1 xl:row-start-2">

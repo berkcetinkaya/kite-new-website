@@ -86,17 +86,6 @@ export async function Kite() {
           </EditorialGrid>
         </div>
       </SiteContainer>
-
-      <div className="mt-2xl border-t border-line xl:mt-3xl">
-        <SiteContainer className="flex items-center justify-between py-xs">
-          <span className="font-display text-display-sm font-extrabold uppercase tabular-nums leading-none text-ink-soft">
-            {kite.nextSectionHint.number} / {kite.nextSectionHint.title}
-          </span>
-          <span aria-hidden className="text-ink-soft">
-            ↓
-          </span>
-        </SiteContainer>
-      </div>
     </section>
   );
 }
