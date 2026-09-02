@@ -1,6 +1,5 @@
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { SiteContainer } from "@/components/ui";
-import { CapabilityRow, type CapabilityRowVariant } from "./CapabilityRow";
 import { InvestigationBoard } from "./InvestigationBoard";
 
 /**
@@ -8,22 +7,22 @@ import { InvestigationBoard } from "./InvestigationBoard";
  * section's opening marker — see SelectedWork.tsx. Same reasoning as
  * Phase 4: no repeated SectionLabel here.
  *
- * The capability index itself is five editorial chapters (CapabilityRow),
- * not a grid of cards — see that component for the row structure and its
- * variants. Row 03 (index 2, Creative & Content) is the section's one
- * deliberate black interruption; the others rotate through three layout
- * variants so the index reads as one system with rhythm rather than five
- * repeats of one template. This file owns the transition in from Selected
- * Work (intro + system index bar) and out into "004 / Soruşturma" — the
- * interactive interrogation board (InvestigationBoard), which is now the
- * page's one and only Section 004: it replaced the old closing manifesto
- * statement + system diagram, and the standalone Manifesto section that
- * used to follow it is gone from the homepage entirely. Soruşturma is the
- * true close of this section, so there's no bottom hint bar here — the
- * section after it picks up its own numbering in a later phase.
+ * The capability index is a quick scan, not five editorial chapters
+ * anymore: each discipline gets its number, its title, and the one
+ * sentence it already had as its `statement` — no service-list grid, no
+ * secondary "what we measure" layer, no per-row layout variants or dark
+ * interruption. That fuller detail (`groups`, `secondary`, `supportingCopy`)
+ * stays intact in the content dictionary and in CapabilityRow.tsx, just
+ * unused by this lighter homepage view — nothing was deleted, only
+ * un-rendered. This file owns the transition in from Selected Work (intro
+ * + system index bar) and out into "004 / Soruşturma" — the interactive
+ * interrogation board (InvestigationBoard), which is now the page's one
+ * and only Section 004: it replaced the old closing manifesto statement +
+ * system diagram, and the standalone Manifesto section that used to follow
+ * it is gone from the homepage entirely. Soruşturma is the true close of
+ * this section, so there's no bottom hint bar here — the section after it
+ * picks up its own numbering in a later phase.
  */
-const DARK_ROW_INDEX = 2;
-const ROW_VARIANTS: CapabilityRowVariant[] = ["standard", "technical", "standard", "statement-forward", "data-grid"];
 
 export async function Capabilities() {
   const dict = await getDictionary();
@@ -66,16 +65,29 @@ export async function Capabilities() {
         </div>
       </SiteContainer>
 
-      <div className="mt-md xl:mt-lg">
-        {capabilities.items.map((item, i) => (
-          <CapabilityRow
-            key={item.number}
-            item={item}
-            index={i}
-            total={capabilities.items.length}
-            dark={i === DARK_ROW_INDEX}
-            variant={ROW_VARIANTS[i]}
-          />
+      <div className="mt-md border-t border-line xl:mt-lg">
+        {capabilities.items.map((item) => (
+          <div key={item.number} className="border-b border-line">
+            <SiteContainer>
+              <div className="flex flex-col gap-2xs py-md xl:flex-row xl:items-baseline xl:gap-x-lg xl:py-lg">
+                <div className="flex items-baseline gap-sm xl:w-[32%] xl:shrink-0">
+                  <span className="font-display text-display-sm font-extrabold uppercase tabular-nums leading-none text-kite-dark">
+                    {item.number}
+                  </span>
+                  <h3 className="font-display text-display-sm font-black uppercase leading-none text-ink">
+                    {item.title}
+                  </h3>
+                </div>
+                <p className="font-body text-body-md text-ink-soft xl:max-w-[56ch]">
+                  {item.statement.map((segment, i) => (
+                    <span key={i} className={segment.accent ? "text-kite-dark" : undefined}>
+                      {segment.text}
+                    </span>
+                  ))}
+                </p>
+              </div>
+            </SiteContainer>
+          </div>
         ))}
       </div>
 

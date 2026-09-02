@@ -54,7 +54,6 @@ export async function Header() {
             <NavLink href="#work">{dict.header.nav.work}</NavLink>
             <NavLink href="#services">{dict.header.nav.services}</NavLink>
             <NavLink href="#about">{dict.header.nav.about}</NavLink>
-            <NavLink href="#thinking">{dict.header.nav.thinking}</NavLink>
             <NavLink href="#contact">{dict.header.nav.contact}</NavLink>
           </nav>
 

@@ -17,6 +17,7 @@ const tr: SiteDictionary = {
     skipToContent: "İçeriğe geç",
     languageSwitcherLabel: "Dili değiştir",
     back: "Geri",
+    closeLabel: "Kapat",
   },
   header: {
     locationShort: "ISTANBUL & BALI",
@@ -993,6 +994,15 @@ const tr: SiteDictionary = {
     ],
     ending: [{ text: "Rakamları toplamıyoruz." }, { text: "Aralarındaki ilişkiyi arıyoruz.", accent: true }],
     endingNote: "Çünkü karar, tek bir dashboard'dan çıkmıyor.",
+  },
+  approach: {
+    label: "YAKLAŞIMIMIZI İNCELE",
+    topics: [
+      { number: "01", label: "TEŞHİS" },
+      { number: "02", label: "SİSTEM" },
+      { number: "03", label: "İLK 30 GÜN" },
+      { number: "04", label: "NEYE BAKIYORUZ?" },
+    ],
   },
   kite: {
     folioNumber: "012",

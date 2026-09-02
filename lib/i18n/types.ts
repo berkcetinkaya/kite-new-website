@@ -19,6 +19,8 @@ export interface SiteDictionary {
     skipToContent: string;
     languageSwitcherLabel: string;
     back: string;
+    /** Generic close action, shared by every full-screen overlay (Approach, Selected Work deep-dive). */
+    closeLabel: string;
   };
   header: {
     locationShort: string;
@@ -391,6 +393,19 @@ export interface SiteDictionary {
     /** Two lines; only the second is typically accented. */
     ending: Array<{ text: string; accent?: boolean }>;
     endingNote: string;
+  };
+  /**
+   * The homepage's single entry point into the second editorial layer —
+   * the full-screen overlay that houses Diagnosis, System, First 30 Days
+   * and Measurement once they stop appearing as sequential homepage
+   * sections. `label` is reused as both the trigger text and the overlay's
+   * own aria-label/header kicker; `topics` is the overlay's own internal
+   * 01–04 navigation, deliberately separate from each section's own
+   * folio number since the section content itself is unchanged.
+   */
+  approach: {
+    label: string;
+    topics: Array<{ number: string; label: string }>;
   };
   kite: {
     folioNumber: string;

@@ -3,6 +3,8 @@ import path from "node:path";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { SiteContainer } from "@/components/ui";
 import { WorkGrid } from "./WorkGrid";
+import { EditorialOverlay } from "./EditorialOverlay";
+import { CaseStudies } from "./CaseStudies";
 
 const IMAGE_EXTENSIONS = ["jpg", "jpeg", "png", "webp"];
 
@@ -32,7 +34,7 @@ function resolveWorkImage(name: string): string | undefined {
  */
 export async function SelectedWork() {
   const dict = await getDictionary();
-  const { work } = dict;
+  const { work, ui, caseStudies } = dict;
 
   const projects = work.projects.map((project) => ({
     ...project,
@@ -43,6 +45,21 @@ export async function SelectedWork() {
     <section id="work" className="relative scroll-mt-[var(--header-h)] bg-paper pt-[48px] xl:pt-[65px]">
       <SiteContainer>
         <WorkGrid projects={projects} featuredLabel={work.featuredLabel} statusOngoing={work.statusOngoing} />
+      </SiteContainer>
+
+      {/* Deep-dive access, not another homepage section: the same three real
+          engagements (CaseStudies, unchanged) that used to run as a full
+          sequential section now open only on request — overview here,
+          detail only if asked for. */}
+      <SiteContainer className="mt-md xl:mt-lg">
+        <EditorialOverlay
+          label={caseStudies.title}
+          closeLabel={ui.closeLabel}
+          topics={[]}
+          panels={[<CaseStudies key="caseStudies" />]}
+          triggerClassName="font-body text-label font-semibold uppercase tracking-wide text-ink transition-editorial hover:text-kite-dark"
+          arrowClassName="text-kite-dark"
+        />
       </SiteContainer>
 
       <div className="mt-[24px] border-t border-line xl:mt-[26px]">

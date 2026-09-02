@@ -29,7 +29,6 @@ export async function Footer() {
     { label: header.nav.work, href: "#work" },
     { label: header.nav.services, href: "#services" },
     { label: header.nav.about, href: "#about" },
-    { label: header.nav.thinking, href: "#thinking" },
     { label: header.mobileMenu.nav.contact, href: "#contact" },
   ];
 

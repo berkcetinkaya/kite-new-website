@@ -95,8 +95,7 @@ export function MobileNav({
     { num: "01", label: nav.work, href: "#work" },
     { num: "02", label: nav.services, href: "#services" },
     { num: "03", label: nav.about, href: "#about" },
-    { num: "04", label: nav.thinking, href: "#thinking" },
-    { num: "05", label: nav.contact, href: "#contact" },
+    { num: "04", label: nav.contact, href: "#contact" },
   ];
 
   const lineBase = "absolute left-1/2 top-1/2 h-px w-5 -translate-x-1/2 bg-paper transition-editorial";

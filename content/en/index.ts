@@ -17,6 +17,7 @@ const en: SiteDictionary = {
     skipToContent: "Skip to content",
     languageSwitcherLabel: "Switch language",
     back: "Back",
+    closeLabel: "Close",
   },
   header: {
     locationShort: "ISTANBUL & BALI",
@@ -992,6 +993,15 @@ const en: SiteDictionary = {
     ],
     ending: [{ text: "We don't add up numbers." }, { text: "We look for the relationship between them.", accent: true }],
     endingNote: "Because the decision doesn't come from a single dashboard.",
+  },
+  approach: {
+    label: "EXPLORE OUR APPROACH",
+    topics: [
+      { number: "01", label: "DIAGNOSIS" },
+      { number: "02", label: "SYSTEM" },
+      { number: "03", label: "THE FIRST 30 DAYS" },
+      { number: "04", label: "WHAT WE LOOK AT" },
+    ],
   },
   kite: {
     folioNumber: "012",
