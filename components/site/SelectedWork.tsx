@@ -44,7 +44,7 @@ export async function SelectedWork() {
   return (
     <section id="work" className="relative scroll-mt-[var(--header-h)] bg-paper pt-[48px] xl:pt-[65px]">
       <SiteContainer>
-        <WorkGrid projects={projects} featuredLabel={work.featuredLabel} statusOngoing={work.statusOngoing} />
+        <WorkGrid projects={projects} featuredLabel={work.featuredLabel} statusOngoing={work.statusOngoing} cta={work.cta} />
       </SiteContainer>
 
       {/* Deep-dive access, not another homepage section: the same three real

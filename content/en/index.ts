@@ -103,7 +103,6 @@ const en: SiteDictionary = {
         number: "04",
         name: "LYXASKIN",
         services: ["Social Media", "Ads"],
-        ongoing: true,
       },
       {
         number: "05",
@@ -111,6 +110,11 @@ const en: SiteDictionary = {
         services: ["Ad Management"],
       },
     ],
+    cta: {
+      number: "06",
+      headline: "ONE BRAND MISSING.",
+      label: "LET'S MEET.",
+    },
   },
   capabilities: {
     indexLabel: "WHAT WE DO",

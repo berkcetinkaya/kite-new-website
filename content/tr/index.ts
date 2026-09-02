@@ -103,7 +103,6 @@ const tr: SiteDictionary = {
         number: "04",
         name: "LYXASKIN",
         services: ["Sosyal Medya", "Reklam"],
-        ongoing: true,
       },
       {
         number: "05",
@@ -111,6 +110,11 @@ const tr: SiteDictionary = {
         services: ["Reklam Yönetimi"],
       },
     ],
+    cta: {
+      number: "06",
+      headline: "BİR MARKA EKSİK.",
+      label: "TANIŞALIM.",
+    },
   },
   capabilities: {
     indexLabel: "NELER YAPIYORUZ",

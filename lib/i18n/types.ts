@@ -90,6 +90,12 @@ export interface SiteDictionary {
       ongoing?: boolean;
       featured?: boolean;
     }>;
+    /** The grid's sixth cell — an editorial CTA, not a sixth project. */
+    cta: {
+      number: string;
+      headline: string;
+      label: string;
+    };
   };
   capabilities: {
     indexLabel: string;

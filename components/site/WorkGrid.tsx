@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/cn";
 
@@ -10,26 +11,35 @@ interface Project {
   image?: string;
 }
 
+interface WorkGridCta {
+  number: string;
+  headline: string;
+  label: string;
+}
+
 interface WorkGridProps {
   projects: Project[];
   featuredLabel: string;
   statusOngoing: string;
+  cta: WorkGridCta;
 }
 
 /**
  * An editorial contact-sheet strip: every project shares one flush image
  * panel treatment (zero radius, zero shadow) with a permanent
  * dark-to-transparent scrim for caption legibility over any future photo.
- * Five real projects don't divide evenly into one row at full card width,
- * so desktop uses a 3-column track and lets the fifth card wrap to its own
- * row rather than shrinking every card to fit five across — same
- * dimensions for all, an intentional asymmetric last row instead of
- * cramped proportions. Real artwork isn't supplied for any project yet, so
- * panels without a resolved `image` fall back to a dark textured
+ * Five real projects plus one closing CTA cell divide evenly into a 3×2
+ * desktop grid, so every cell shares the same dimensions — no shrinking to
+ * fit, no asymmetric last row. Real artwork isn't supplied for any project
+ * yet, so panels without a resolved `image` fall back to a dark textured
  * placeholder — never a grey skeleton box — and nothing about the layout
- * needs to change once real images land in /public/work.
+ * needs to change once real images land in /public/work. The sixth cell
+ * (cta) is the grid's own "there's more to talk about" — same size,
+ * position and number treatment as a project cell, but flat black and
+ * typographic (no image scrim) and linking straight to #contact, so it
+ * reads as the natural sixth item rather than a bolted-on banner.
  */
-export function WorkGrid({ projects, featuredLabel, statusOngoing }: WorkGridProps) {
+export function WorkGrid({ projects, featuredLabel, statusOngoing, cta }: WorkGridProps) {
   return (
     <div className="grid grid-cols-1 gap-px bg-line sm:grid-cols-2 xl:grid-cols-3">
       {projects.map((project) => (
@@ -89,6 +99,26 @@ export function WorkGrid({ projects, featuredLabel, statusOngoing }: WorkGridPro
           </span>
         </button>
       ))}
+
+      <Link
+        href="#contact"
+        className="group relative flex aspect-[3/2] w-full flex-col justify-end bg-ink p-sm text-left transition-editorial xl:aspect-auto xl:h-[200px]"
+      >
+        <span className="font-display text-label font-semibold uppercase tabular-nums leading-none text-kite">
+          {cta.number}
+        </span>
+
+        <span className="mt-2xs block font-display text-display-md font-black uppercase leading-[0.95] text-paper transition-editorial group-hover:translate-x-1">
+          {cta.headline}
+        </span>
+
+        <span className="mt-2xs flex items-center gap-2xs font-body text-label font-semibold uppercase tracking-wide text-kite">
+          {cta.label}
+          <span aria-hidden className="transition-editorial group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+            ↗
+          </span>
+        </span>
+      </Link>
     </div>
   );
 }
