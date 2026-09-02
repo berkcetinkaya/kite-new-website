@@ -86,7 +86,7 @@ export function InvestigationBoard({
   }, []);
 
   return (
-    <div className="relative bg-ink">
+    <div className="relative overflow-hidden bg-ink">
       {investigationDetails[0] && (
         <span
           aria-hidden
@@ -258,7 +258,7 @@ export function InvestigationBoard({
 
               <div
                 ref={artworkRef}
-                className="relative h-[360px] sm:h-[440px] xl:col-span-6 xl:col-start-7 xl:row-span-2 xl:row-start-1 xl:h-full xl:min-h-[560px] xl:-mb-xl xl:-mr-gutter xl:-mt-lg"
+                className="relative -mr-[calc(var(--space-gutter)+22vw)] h-[485px] sm:h-[595px] xl:col-span-6 xl:col-start-7 xl:row-span-2 xl:row-start-1 xl:h-full xl:min-h-[755px] xl:-mb-xl xl:-mr-[calc(var(--space-gutter)+16vw)] xl:-mt-lg"
               >
                 {investigationDetails[2] && (
                   <span
@@ -280,7 +280,7 @@ export function InvestigationBoard({
                     src="/brand/ajan.png"
                     alt=""
                     fill
-                    sizes="(min-width: 1280px) 48vw, 90vw"
+                    sizes="(min-width: 1280px) 64vw, 100vw"
                     className="object-contain object-right-bottom mix-blend-screen"
                   />
                 </div>

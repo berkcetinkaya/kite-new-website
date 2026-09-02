@@ -16,20 +16,12 @@ function FooterNavLink({ href, children }: { href: string; children: ReactNode }
 
 /**
  * Closing black surface — editorial, not a corporate multi-column
- * sitemap: one brand block, one flat nav row, one metadata row (location /
- * social / language), one bottom line. No addresses, phone numbers or
- * fabricated stats.
- *
- * The oversized "KITE" wordmark is a background layer, not extra content:
- * it's a direct child of <footer> (not SiteContainer), absolutely
- * positioned and z-stacked behind the real content, so it costs zero
- * additional footer height and can run edge-to-edge — cropping at the true
- * viewport edge rather than the content gutter is what makes it read as
- * architecture instead of decoration. Sized in vw so mobile and desktop
- * get deliberately different relationships to the word (mobile crops it
- * hard; desktop mostly clears it) rather than one composition scaled down.
- * Outlined, not filled, and at very low contrast against the near-black
- * surface, so it stays behind the paper-colored nav in visual weight.
+ * sitemap, and not a decorative one either: one brand block, one flat nav
+ * row, then a single dense bottom bar carrying everything else (location,
+ * social, language, copyright, legal) instead of three stacked rows each
+ * with their own border and gap. That's the entire compactness strategy —
+ * alignment doing the work empty vertical space used to, no oversized
+ * wordmark standing in for content.
  */
 export async function Footer() {
   const locale = await getLocale();
@@ -44,14 +36,14 @@ export async function Footer() {
   ];
 
   return (
-    <footer className="paper-texture-dark relative overflow-hidden bg-ink pt-lg pb-md xl:pt-xl xl:pb-lg">
-      <SiteContainer className="relative z-10">
-        <div className="flex flex-col gap-md xl:flex-row xl:items-start xl:justify-between">
+    <footer className="paper-texture-dark relative bg-ink pt-md pb-sm xl:pt-lg xl:pb-md">
+      <SiteContainer>
+        <div className="flex flex-col gap-sm xl:flex-row xl:items-baseline xl:justify-between">
           <p className="font-display text-display-md font-black uppercase leading-none text-paper xl:text-display-lg">
             {brand.name} {brand.agencyType}
           </p>
 
-          <nav aria-label="Footer" className="flex flex-col gap-xs xl:items-end">
+          <nav aria-label="Footer" className="flex flex-wrap gap-x-md gap-y-2xs xl:items-baseline">
             {navItems.map((item) => (
               <FooterNavLink key={item.label} href={item.href}>
                 {item.label}
@@ -60,37 +52,27 @@ export async function Footer() {
           </nav>
         </div>
 
-        <div className="mt-lg flex flex-col gap-sm border-t border-line-inverse pt-md xl:mt-xl xl:flex-row xl:items-center xl:justify-between xl:pt-lg">
-          <div className="flex items-center gap-2xs font-body text-label font-semibold uppercase tracking-wide text-paper-soft">
-            <span>{header.locationShort}</span>
-            <span aria-hidden className="h-1.5 w-1.5 shrink-0 rounded-full bg-kite" />
-            <span>{brand.globalNote}</span>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-x-sm gap-y-2xs font-body text-label font-semibold uppercase tracking-wide text-paper-soft">
+        <div className="mt-md flex flex-col gap-xs border-t border-line-inverse pt-sm font-body text-label font-semibold uppercase tracking-wide text-paper-soft xl:mt-lg xl:flex-row xl:flex-wrap xl:items-center xl:justify-between xl:pt-sm">
+          <div className="flex flex-wrap items-center gap-x-sm gap-y-2xs">
+            <span className="flex items-center gap-2xs">
+              <span>{header.locationShort}</span>
+              <span aria-hidden className="h-1.5 w-1.5 shrink-0 rounded-full bg-kite" />
+              <span>{brand.globalNote}</span>
+            </span>
+            <span aria-hidden className="hidden h-3 w-px bg-line-inverse xl:block" />
             <span lang="en">{header.mobileMenu.social.instagram}</span>
             <span lang="en">{header.mobileMenu.social.linkedin}</span>
             <span lang="en">{header.mobileMenu.social.behance}</span>
           </div>
 
-          <LanguageSwitcher currentLocale={locale} variant="dark" />
-        </div>
-
-        <div className="mt-md flex flex-col gap-xs border-t border-line-inverse pt-sm font-body text-label font-semibold uppercase tracking-wide text-paper-soft xl:mt-lg xl:flex-row xl:items-center xl:justify-between">
-          <span>{footer.copyright}</span>
-          <div className="flex items-center gap-sm">
+          <div className="flex flex-wrap items-center gap-x-sm gap-y-2xs">
+            <span>{footer.copyright}</span>
             <span lang="en">{footer.privacy}</span>
             <span lang="en">{footer.terms}</span>
+            <LanguageSwitcher currentLocale={locale} variant="dark" />
           </div>
         </div>
       </SiteContainer>
-
-      <span
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-[-0.12em] z-0 select-none whitespace-nowrap text-center font-display font-black uppercase leading-none text-transparent [-webkit-text-stroke:1px_rgba(242,238,228,0.16)] text-[64vw] xl:text-[15vw]"
-      >
-        {brand.name}
-      </span>
     </footer>
   );
 }

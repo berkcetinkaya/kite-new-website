@@ -4,19 +4,20 @@ import { SiteContainer } from "@/components/ui";
 import { WindPath } from "./WindPath";
 
 /**
- * Thinking's own bottom hint ("007 / LET'S WORK TOGETHER") is this
- * section's opening marker. A quiet folio number still appears at the top
- * — same reasoning as Manifesto and Kite: paper → yellow is a genuine
- * surface change, so a small page-folio reads as a new spread rather than
- * a duplicated intro. This is the closing chapter of the page, so there is
- * no bottom "next section" hint here — the Footer follows directly.
+ * The page's closing chapter: About Kite's own bottom hint ("007 / LET'S
+ * WORK TOGETHER") is this section's opening marker, and the Footer follows
+ * directly with no buffer section between them — a strong CTA transitioning
+ * straight into a compact footer, not another full-height section. Sized
+ * down from the site's largest display step on purpose: this still reads
+ * as the boldest statement on the page (nothing else sits on kite yellow),
+ * it just no longer needs to out-shout every other headline to do it.
  */
 export async function FinalCta() {
   const dict = await getDictionary();
   const { finalCta } = dict;
 
   return (
-    <section id="contact" className="relative scroll-mt-[var(--header-h)] overflow-hidden bg-kite py-2xl xl:py-4xl">
+    <section id="contact" className="relative scroll-mt-[var(--header-h)] overflow-hidden bg-kite py-xl xl:py-2xl">
       <WindPath
         variant="desktop"
         className="pointer-events-none absolute inset-0 hidden opacity-30 xl:block"
@@ -27,7 +28,7 @@ export async function FinalCta() {
           {finalCta.folioNumber}
         </span>
 
-        <h2 className="mt-lg max-w-[16ch] font-display text-display-2xl font-black uppercase leading-[0.92] text-ink xl:mt-xl">
+        <h2 className="mt-md max-w-[16ch] font-display text-display-xl font-black uppercase leading-[0.92] text-ink xl:mt-lg">
           {finalCta.mainStatement.map((line, i) => (
             <span key={i} className="block">
               {line}
@@ -35,7 +36,7 @@ export async function FinalCta() {
           ))}
         </h2>
 
-        <p className="mt-lg max-w-[36ch] font-body text-body-lg text-ink-soft xl:mt-xl">
+        <p className="mt-sm max-w-[36ch] font-body text-body-lg text-ink-soft xl:mt-md">
           {finalCta.secondaryLine.map((line, i) => (
             <span key={i} className="block">
               {line}
@@ -43,7 +44,7 @@ export async function FinalCta() {
           ))}
         </p>
 
-        <div className="mt-xl xl:mt-2xl">
+        <div className="mt-lg xl:mt-xl">
           <Link
             href="#contact"
             className="group inline-flex items-center gap-sm border border-ink bg-ink px-xl py-md font-body text-label font-semibold uppercase tracking-wide text-paper transition-editorial hover:bg-paper hover:text-ink"

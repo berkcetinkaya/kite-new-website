@@ -1030,8 +1030,8 @@ const en: SiteDictionary = {
     ],
     microAnnotation: "UTC+3 / UTC+8",
     nextSectionHint: {
-      number: "006",
-      title: "THINKING",
+      number: "007",
+      title: "LET'S WORK TOGETHER",
     },
   },
   thinking: {
