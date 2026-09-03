@@ -508,7 +508,7 @@ const en: SiteDictionary = {
         outcome: "We turn the result into the next decision.",
       },
     ],
-    loopNote: "↳ Loops back to 01.",
+    loopNote: "Loops back to 01.",
     closing: [
       { text: "Every campaign," },
       { text: "should teach the next one" },
@@ -988,7 +988,7 @@ const en: SiteDictionary = {
         variant: "lifecycle",
       },
     ],
-    loopNote: "↺ Feeds back into the next media decision.",
+    loopNote: "Feeds back into the next media decision.",
     keyStatement: [
       { text: "We don't optimise" },
       { text: "the ad." },
@@ -1080,8 +1080,10 @@ const en: SiteDictionary = {
       ],
       messageLabel: "Tell us briefly about your project",
       submitLabel: "SEND PROJECT",
+      submittingLabel: "SENDING...",
       note: "We usually reply within 1 business day.",
       successMessage: "Message received. We'll be in touch shortly.",
+      errorMessage: "Something went wrong. Please try again.",
     },
   },
   footer: {

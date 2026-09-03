@@ -1,4 +1,4 @@
-import { SiteContainer } from "@/components/ui";
+import { SiteContainer, ArrowIcon } from "@/components/ui";
 import { cn } from "@/lib/cn";
 
 interface Segment {
@@ -161,7 +161,7 @@ export function DiagnosisRow({ problem, variant }: { problem: Problem; variant: 
                   <span key={stage} className="flex items-baseline gap-2xs">
                     {i > 0 && (
                       <span aria-hidden className="text-body-md text-ink-soft">
-                        →
+                        <ArrowIcon direction="right" />
                       </span>
                     )}
                     <span className={i === arr.length - 1 ? "border-b-2 border-kite pb-[2px]" : undefined}>

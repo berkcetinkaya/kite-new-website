@@ -5,6 +5,8 @@ export { EditorialGrid } from "./EditorialGrid";
 export { EditorialFrame } from "./EditorialFrame";
 export { PrimaryButton } from "./PrimaryButton";
 export { TextLink } from "./TextLink";
+export { ArrowIcon } from "./ArrowIcon";
+export { LoopIcon } from "./LoopIcon";
 export { Divider } from "./Divider";
 export { LanguageSwitcher } from "./LanguageSwitcher";
 export { Logo } from "./Logo";

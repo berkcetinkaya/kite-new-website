@@ -1,15 +1,16 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { cn } from "@/lib/cn";
+import { ArrowIcon } from "./ArrowIcon";
 
 interface TextLinkProps {
   children: ReactNode;
   href: string;
   className?: string;
   arrow?: boolean;
-  /** Defaults to "↗". Override for directional variants, e.g. "↓" for a scroll-hint link. */
-  arrowGlyph?: string;
-  /** Hover drift direction for the arrow — should match arrowGlyph's direction. */
+  /** Defaults to up-right. Override for directional variants, e.g. "down" for a scroll-hint link. */
+  arrowDirection?: "up-right" | "right" | "down";
+  /** Hover drift direction for the arrow — should match arrowDirection. */
   arrowHoverClassName?: string;
   target?: string;
   rel?: string;
@@ -17,14 +18,14 @@ interface TextLinkProps {
 
 /**
  * Secondary CTA: transparent, text-based, restrained underline that draws
- * in on hover plus the ↗ arrow drift. No pill, no fill.
+ * in on hover plus the arrow drift. No pill, no fill.
  */
 export function TextLink({
   children,
   href,
   className,
   arrow = true,
-  arrowGlyph = "↗",
+  arrowDirection = "up-right",
   arrowHoverClassName = "group-hover:translate-x-0.5 group-hover:-translate-y-0.5",
   target,
   rel,
@@ -48,7 +49,7 @@ export function TextLink({
       </span>
       {arrow && (
         <span aria-hidden className={cn("inline-block transition-editorial", arrowHoverClassName)}>
-          {arrowGlyph}
+          <ArrowIcon direction={arrowDirection} />
         </span>
       )}
     </Link>

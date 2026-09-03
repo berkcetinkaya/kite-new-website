@@ -1,5 +1,5 @@
 import { getDictionary } from "@/lib/i18n/get-dictionary";
-import { SiteContainer, PrimaryButton, TextLink } from "@/components/ui";
+import { SiteContainer, PrimaryButton, TextLink, ArrowIcon } from "@/components/ui";
 import { cn } from "@/lib/cn";
 import { HeroArtwork } from "./HeroArtwork";
 
@@ -88,7 +88,7 @@ export async function Hero() {
             </span>
             <span aria-hidden className="my-2xs w-px flex-1 bg-line" />
             <span aria-hidden className="text-ink-soft">
-              ↓
+              <ArrowIcon direction="down" />
             </span>
           </div>
         </div>

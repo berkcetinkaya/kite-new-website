@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
-import { SiteContainer } from "@/components/ui";
+import { SiteContainer, ArrowIcon } from "@/components/ui";
 import { WorkGrid } from "./WorkGrid";
 import { EditorialOverlay } from "./EditorialOverlay";
 import { CaseStudies } from "./CaseStudies";
@@ -68,7 +68,7 @@ export async function SelectedWork() {
             {work.nextSectionHint.number} / {work.nextSectionHint.title}
           </span>
           <span aria-hidden className="text-ink-soft">
-            ↓
+            <ArrowIcon direction="down" />
           </span>
         </SiteContainer>
       </div>

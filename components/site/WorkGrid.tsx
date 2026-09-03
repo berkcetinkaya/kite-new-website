@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { ArrowIcon } from "@/components/ui";
 import { cn } from "@/lib/cn";
 
 interface Project {
@@ -95,7 +96,7 @@ export function WorkGrid({ projects, featuredLabel, statusOngoing, cta }: WorkGr
             aria-hidden
             className="absolute bottom-sm right-sm flex h-6 w-6 shrink-0 items-center justify-center bg-kite text-ink transition-editorial group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
           >
-            ↗
+            <ArrowIcon className="h-3.5 w-3.5" />
           </span>
         </button>
       ))}
@@ -115,7 +116,7 @@ export function WorkGrid({ projects, featuredLabel, statusOngoing, cta }: WorkGr
         <span className="mt-2xs flex items-center gap-2xs font-body text-label font-semibold uppercase tracking-wide text-kite">
           {cta.label}
           <span aria-hidden className="transition-editorial group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-            ↗
+            <ArrowIcon />
           </span>
         </span>
       </Link>

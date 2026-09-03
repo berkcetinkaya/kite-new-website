@@ -1,5 +1,5 @@
 import { getDictionary } from "@/lib/i18n/get-dictionary";
-import { SiteContainer } from "@/components/ui";
+import { SiteContainer, ArrowIcon, LoopIcon } from "@/components/ui";
 import { FirstMonthPhase } from "./FirstMonthPhase";
 import { cn } from "@/lib/cn";
 
@@ -98,14 +98,14 @@ export async function FirstMonth() {
                         <span key={step} className="flex items-baseline gap-2xs">
                           {i > 0 && (
                             <span aria-hidden className="text-body-md text-[rgba(242,238,228,0.4)]">
-                              →
+                              <ArrowIcon direction="right" />
                             </span>
                           )}
                           <span className={i === arr.length - 1 ? "text-kite" : undefined}>{step}</span>
                         </span>
                       ))}
                       <span aria-hidden className="ml-2xs text-display-sm text-kite xl:text-display-md">
-                        ↺
+                        <LoopIcon />
                       </span>
                     </div>
                   )}

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { getDictionary, getLocale } from "@/lib/i18n/get-dictionary";
-import { Logo, LanguageSwitcher } from "@/components/ui";
+import { Logo, LanguageSwitcher, ArrowIcon } from "@/components/ui";
 import { MobileNav } from "./MobileNav";
 
 /**
@@ -79,7 +79,7 @@ export async function Header() {
                 aria-hidden
                 className="text-kite transition-editorial group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-ink"
               >
-                ↗
+                <ArrowIcon />
               </span>
             </Link>
           </div>

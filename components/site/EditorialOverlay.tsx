@@ -2,6 +2,7 @@
 
 import { createPortal } from "react-dom";
 import { useEffect, useRef, useState, type ReactNode } from "react";
+import { ArrowIcon } from "@/components/ui";
 import { cn } from "@/lib/cn";
 
 interface OverlayTopic {
@@ -104,7 +105,7 @@ export function EditorialOverlay({
           aria-hidden
           className={cn("inline-block transition-editorial group-hover:translate-x-1 group-hover:-translate-y-1", arrowClassName)}
         >
-          ↗
+          <ArrowIcon />
         </span>
       </button>
 

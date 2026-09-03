@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { SiteContainer } from "@/components/ui";
+import { SiteContainer, ArrowIcon, LoopIcon } from "@/components/ui";
 import { cn } from "@/lib/cn";
 
 interface Segment {
@@ -178,7 +178,7 @@ export function CaseStudyFeature({
                   <span key={step} className="flex items-baseline gap-2xs">
                     {i > 0 && (
                       <span aria-hidden className={dark ? "text-[rgba(242,238,228,0.4)]" : "text-ink-soft"}>
-                        {study.systemJoiner === "plus" ? "+" : "→"}
+                        {study.systemJoiner === "plus" ? "+" : <ArrowIcon direction="right" />}
                       </span>
                     )}
                     <span>{step}</span>
@@ -186,7 +186,7 @@ export function CaseStudyFeature({
                 ))}
                 {study.systemLoop && (
                   <span aria-hidden className="text-kite">
-                    ↺
+                    <LoopIcon />
                   </span>
                 )}
               </div>

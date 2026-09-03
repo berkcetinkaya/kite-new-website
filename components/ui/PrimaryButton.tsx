@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { MouseEventHandler, ReactNode } from "react";
 import { cn } from "@/lib/cn";
+import { ArrowIcon } from "./ArrowIcon";
 
 interface PrimaryButtonProps {
   children: ReactNode;
@@ -11,18 +12,20 @@ interface PrimaryButtonProps {
   arrow?: boolean;
   target?: string;
   rel?: string;
+  /** Button variant only — href-based (Link) usage ignores this. */
+  disabled?: boolean;
 }
 
 const baseClass =
-  "group inline-flex items-center gap-2xs border border-line bg-kite px-md py-xs font-body text-label font-semibold uppercase tracking-wide text-ink transition-editorial hover:bg-ink hover:text-paper";
+  "group inline-flex items-center gap-2xs border border-line bg-kite px-md py-xs font-body text-label font-semibold uppercase tracking-wide text-ink transition-editorial hover:bg-ink hover:text-paper disabled:pointer-events-none disabled:opacity-50";
 
 const arrowClass =
   "inline-block transition-editorial group-hover:translate-x-0.5 group-hover:-translate-y-0.5";
 
 /**
- * Primary CTA: kite-yellow fill, sharp corners, ↗ arrow. Use for the single
- * most important action in a given context — it should not appear more
- * than once or twice per section.
+ * Primary CTA: kite-yellow fill, sharp corners, up-right arrow. Use for the
+ * single most important action in a given context — it should not appear
+ * more than once or twice per section.
  */
 export function PrimaryButton({
   children,
@@ -33,13 +36,14 @@ export function PrimaryButton({
   arrow = true,
   target,
   rel,
+  disabled,
 }: PrimaryButtonProps) {
   const content = (
     <>
       <span>{children}</span>
       {arrow && (
         <span aria-hidden className={arrowClass}>
-          ↗
+          <ArrowIcon />
         </span>
       )}
     </>
@@ -54,7 +58,7 @@ export function PrimaryButton({
   }
 
   return (
-    <button type={type} onClick={onClick} className={cn(baseClass, className)}>
+    <button type={type} onClick={onClick} disabled={disabled} className={cn(baseClass, className)}>
       {content}
     </button>
   );

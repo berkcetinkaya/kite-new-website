@@ -1,5 +1,5 @@
 import { getDictionary } from "@/lib/i18n/get-dictionary";
-import { SiteContainer } from "@/components/ui";
+import { SiteContainer, LoopIcon } from "@/components/ui";
 import { MeasurementLayer } from "./MeasurementLayer";
 import { cn } from "@/lib/cn";
 
@@ -59,7 +59,10 @@ export async function Measurement() {
         <SiteContainer>
           <div className="relative py-md">
             <span aria-hidden className="absolute -left-[12px] top-1/2 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-kite" />
-            <p className="font-body text-[11px] font-semibold uppercase tracking-widest text-kite">{measurement.loopNote}</p>
+            <p className="flex items-center gap-2xs font-body text-[11px] font-semibold uppercase tracking-widest text-kite">
+              <LoopIcon aria-hidden />
+              {measurement.loopNote}
+            </p>
           </div>
         </SiteContainer>
       </div>

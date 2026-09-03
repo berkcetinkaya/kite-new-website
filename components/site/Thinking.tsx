@@ -1,5 +1,5 @@
 import { getDictionary } from "@/lib/i18n/get-dictionary";
-import { SiteContainer } from "@/components/ui";
+import { SiteContainer, ArrowIcon } from "@/components/ui";
 import { TopicIndex } from "./TopicIndex";
 
 /**
@@ -42,7 +42,7 @@ export async function Thinking() {
             {thinking.nextSectionHint.number} / {thinking.nextSectionHint.title}
           </span>
           <span aria-hidden className="text-ink-soft">
-            ↓
+            <ArrowIcon direction="down" />
           </span>
         </SiteContainer>
       </div>

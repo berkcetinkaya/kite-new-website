@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { SiteContainer } from "@/components/ui";
+import { SiteContainer, LoopIcon } from "@/components/ui";
 import { cn } from "@/lib/cn";
 
 interface Stage {
@@ -155,7 +155,7 @@ export function SystemCanvas({ canvasDetails, stages, loopNote }: SystemCanvasPr
               )}
               style={{ left: "71%", top: "69%" }}
             >
-              ↺
+              <LoopIcon />
             </span>
 
             {NODES.map((node, i) => {
@@ -257,7 +257,10 @@ export function SystemCanvas({ canvasDetails, stages, loopNote }: SystemCanvasPr
             </div>
             <div className="relative mt-lg">
               <span aria-hidden className="absolute -left-lg top-[6px] h-2.5 w-2.5 -translate-x-1/2 rounded-full border-2 border-kite bg-kite" />
-              <p className="font-body text-[11px] font-semibold uppercase tracking-widest text-kite">{loopNote}</p>
+              <p className="flex items-center gap-2xs font-body text-[11px] font-semibold uppercase tracking-widest text-kite">
+                <LoopIcon aria-hidden />
+                {loopNote}
+              </p>
             </div>
           </div>
         </SiteContainer>

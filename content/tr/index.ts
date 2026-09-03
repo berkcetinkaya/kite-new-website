@@ -504,7 +504,7 @@ const tr: SiteDictionary = {
         outcome: "Sonucu yeni karara çeviriyoruz.",
       },
     ],
-    loopNote: "↳ 01'e döner.",
+    loopNote: "01'e döner.",
     closing: [
       { text: "Her kampanya," },
       { text: "bir sonrakine" },
@@ -989,7 +989,7 @@ const tr: SiteDictionary = {
         variant: "lifecycle",
       },
     ],
-    loopNote: "↺ Bir sonraki media kararına döner.",
+    loopNote: "Bir sonraki media kararına döner.",
     keyStatement: [
       { text: "Biz reklamı" },
       { text: "optimize etmiyoruz." },
@@ -1081,8 +1081,10 @@ const tr: SiteDictionary = {
       ],
       messageLabel: "Projenizi kısaca anlatın",
       submitLabel: "PROJEYİ GÖNDER",
+      submittingLabel: "GÖNDERİLİYOR...",
       note: "Genelde 1 iş günü içinde dönüş yapıyoruz.",
       successMessage: "Mesajınız alındı. En kısa sürede dönüş yapacağız.",
+      errorMessage: "Bir şeyler ters gitti. Lütfen tekrar deneyin.",
     },
   },
   footer: {

@@ -1,4 +1,4 @@
-import { SiteContainer } from "@/components/ui";
+import { SiteContainer, ArrowIcon, LoopIcon } from "@/components/ui";
 import { cn } from "@/lib/cn";
 
 interface Segment {
@@ -67,13 +67,13 @@ function SignalDisplay({ signals, variant, dark }: { signals: string[]; variant:
           <span key={signal} className="flex items-baseline gap-2xs">
             {i > 0 && (
               <span aria-hidden className={soft}>
-                →
+                <ArrowIcon direction="right" />
               </span>
             )}
             <span className={soft}>{signal}</span>
             {i === arr.length - 1 && (
               <span aria-hidden className="text-kite">
-                ↺
+                <LoopIcon />
               </span>
             )}
           </span>
