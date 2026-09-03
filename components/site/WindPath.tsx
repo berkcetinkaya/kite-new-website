@@ -98,15 +98,15 @@ export function WindPath({ variant, className }: { variant: "desktop" | "mobile"
           <path
             ref={pathRef}
             d={buildPath(start, c1, c2, end)}
-            stroke="var(--color-ink)"
+            stroke="var(--color-paper)"
             strokeWidth={1.5}
             strokeLinecap="round"
             opacity={0.5}
           />
           <g transform={`translate(${end.x} ${end.y}) rotate(18)`} opacity={0.75}>
-            <rect x={-12} y={-12} width={24} height={24} stroke="var(--color-ink)" strokeWidth={1.25} />
-            <line x1={-12} y1={0} x2={12} y2={0} stroke="var(--color-ink)" strokeWidth={1} />
-            <line x1={0} y1={-12} x2={0} y2={12} stroke="var(--color-ink)" strokeWidth={1} />
+            <rect x={-12} y={-12} width={24} height={24} stroke="var(--color-paper)" strokeWidth={1.25} />
+            <line x1={-12} y1={0} x2={12} y2={0} stroke="var(--color-paper)" strokeWidth={1} />
+            <line x1={0} y1={-12} x2={0} y2={12} stroke="var(--color-paper)" strokeWidth={1} />
           </g>
         </g>
       </svg>

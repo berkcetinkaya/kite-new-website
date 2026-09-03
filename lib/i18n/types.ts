@@ -448,8 +448,21 @@ export interface SiteDictionary {
   finalCta: {
     folioNumber: string;
     mainStatement: string[];
-    secondaryLine: string[];
-    ctaLabel: string;
+    supportingCopy: string;
+    form: {
+      nameLabel: string;
+      emailLabel: string;
+      phoneLabel: string;
+      companyLabel: string;
+      needsLabel: string;
+      /** Multi-select — visitors can check more than one. */
+      needsOptions: string[];
+      messageLabel: string;
+      submitLabel: string;
+      note: string;
+      /** Shown in place of the form once submitted (no backend wired up yet). */
+      successMessage: string;
+    };
   };
   footer: {
     copyright: string;
