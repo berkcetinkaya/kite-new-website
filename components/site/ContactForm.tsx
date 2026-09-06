@@ -13,9 +13,13 @@ interface ContactFormContent {
   needsOptions: string[];
   messageLabel: string;
   submitLabel: string;
+  submittingLabel: string;
   note: string;
   successMessage: string;
+  errorMessage: string;
 }
+
+type Status = "idle" | "submitting" | "success" | "error";
 
 const fieldClass =
   "w-full border-0 border-b border-[rgba(242,238,228,0.25)] bg-transparent py-2xs font-body text-body-md text-paper transition-editorial focus:border-kite focus:outline-none";
@@ -71,19 +75,44 @@ function NeedOption({ option, checked, onToggle }: { option: string; checked: bo
 
 export function ContactForm({ content }: { content: ContactFormContent }) {
   const [selectedNeeds, setSelectedNeeds] = useState<string[]>([]);
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
   const messageId = useId();
 
   function toggleNeed(option: string) {
     setSelectedNeeds((prev) => (prev.includes(option) ? prev.filter((o) => o !== option) : [...prev, option]));
   }
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setSubmitted(true);
+    if (status === "submitting") return; // guards against a double Enter/click landing before re-render
+
+    const data = new FormData(event.currentTarget);
+    setStatus("submitting");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.get("name"),
+          email: data.get("email"),
+          phone: data.get("phone"),
+          company: data.get("company"),
+          needs: selectedNeeds,
+          message: data.get("message"),
+        }),
+      });
+
+      const json: { ok: boolean } = await res.json();
+      if (!res.ok || !json.ok) throw new Error("submission_failed");
+
+      setStatus("success");
+    } catch {
+      setStatus("error");
+    }
   }
 
-  if (submitted) {
+  if (status === "success") {
     return (
       <div role="status" className="border-t border-[rgba(242,238,228,0.15)] pt-lg">
         <p className="max-w-[32ch] font-display text-display-sm font-black uppercase leading-[1.1] text-paper">
@@ -127,9 +156,20 @@ export function ContactForm({ content }: { content: ContactFormContent }) {
       </div>
 
       <div className="flex flex-col items-start gap-sm pt-xs sm:flex-row sm:items-center sm:justify-between">
-        <PrimaryButton type="submit">{content.submitLabel}</PrimaryButton>
+        <PrimaryButton type="submit" disabled={status === "submitting"} arrow={status !== "submitting"}>
+          {status === "submitting" ? content.submittingLabel : content.submitLabel}
+        </PrimaryButton>
         <p className="font-body text-label text-paper-soft">{content.note}</p>
       </div>
+
+      {status === "error" && (
+        <p role="alert" className="font-body text-label text-paper">
+          <span aria-hidden className="text-kite">
+            !{" "}
+          </span>
+          {content.errorMessage}
+        </p>
+      )}
     </form>
   );
 }
