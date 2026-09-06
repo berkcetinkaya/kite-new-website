@@ -462,8 +462,10 @@ export interface SiteDictionary {
       /** Submit button label while the request is in flight. */
       submittingLabel: string;
       note: string;
-      /** Shown in place of the form once the API confirms the lead was sent. */
-      successMessage: string;
+      /** Two-line confirmation shown in place of the form once the API confirms the lead was sent. */
+      successMessage: string[];
+      /** Small secondary line under successMessage. */
+      successNote: string;
       /** Shown alongside the form (not replacing it) when the request fails, so the visitor can retry. */
       errorMessage: string;
     };

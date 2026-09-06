@@ -15,7 +15,8 @@ interface ContactFormContent {
   submitLabel: string;
   submittingLabel: string;
   note: string;
-  successMessage: string;
+  successMessage: string[];
+  successNote: string;
   errorMessage: string;
 }
 
@@ -114,10 +115,18 @@ export function ContactForm({ content }: { content: ContactFormContent }) {
 
   if (status === "success") {
     return (
-      <div role="status" className="border-t border-[rgba(242,238,228,0.15)] pt-lg">
+      // min-h keeps this section from collapsing to a fraction of the form's
+      // height, which otherwise yanks the scroll position down to whatever
+      // now sits at that offset (reads as "jumping back to the homepage").
+      <div role="status" className="min-h-[360px] border-t border-[rgba(242,238,228,0.15)] pt-lg xl:min-h-[700px]">
         <p className="max-w-[32ch] font-display text-display-sm font-black uppercase leading-[1.1] text-paper">
-          {content.successMessage}
+          {content.successMessage.map((line, i) => (
+            <span key={i} className="block">
+              {line}
+            </span>
+          ))}
         </p>
+        <p className="mt-sm font-body text-label text-paper-soft">{content.successNote}</p>
       </div>
     );
   }
