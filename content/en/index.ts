@@ -1105,6 +1105,241 @@ const en: SiteDictionary = {
     privacy: "Privacy",
     terms: "Terms",
   },
+  legal: {
+    backToHome: "BACK TO HOMEPAGE",
+    lastUpdatedLabel: "Last updated",
+    privacy: {
+      title: "PRIVACY POLICY",
+      intro:
+        "At KITE Growth, we take your privacy seriously. This policy explains what information may be processed when you visit kitegrowth.com or contact us through our website and how that information may be used.",
+      sections: [
+        {
+          heading: "1. INFORMATION WE COLLECT",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "When you use our contact form, you may provide information including your name, email address, phone number, company or brand name, services you are interested in, and the message you send us.",
+            },
+            {
+              type: "paragraph",
+              text: "Technical and analytical information may also be collected, including device and browser information, pages visited, traffic sources and interactions with the website.",
+            },
+          ],
+        },
+        {
+          heading: "2. HOW WE USE INFORMATION",
+          blocks: [
+            { type: "paragraph", text: "Information may be used to:" },
+            {
+              type: "list",
+              items: [
+                "Respond to enquiries",
+                "Evaluate potential projects",
+                "Improve our services and website experience",
+                "Understand website performance and user behaviour",
+                "Measure advertising and marketing performance",
+                "Identify security or technical issues",
+              ],
+            },
+          ],
+        },
+        {
+          heading: "3. ANALYTICS AND ADVERTISING TECHNOLOGIES",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Our website may use analytics and advertising measurement technologies including Google Analytics 4 and Meta Pixel.",
+            },
+            {
+              type: "paragraph",
+              text: "These technologies help us understand how visitors interact with the website and measure the effectiveness of our marketing activities.",
+            },
+            {
+              type: "paragraph",
+              text: "These services may use cookies or similar technologies in accordance with their own privacy policies.",
+            },
+          ],
+        },
+        {
+          heading: "4. CONTACT FORM",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Information submitted through our contact form is used to evaluate your enquiry and communicate with you.",
+            },
+            {
+              type: "paragraph",
+              text: "We may use third-party technical service providers such as Resend to process and deliver form submissions.",
+            },
+          ],
+        },
+        {
+          heading: "5. SHARING OF INFORMATION",
+          blocks: [
+            { type: "paragraph", text: "We do not sell your personal information." },
+            {
+              type: "paragraph",
+              text: "Information may be processed or shared with service providers only where reasonably necessary to operate the website and provide hosting, analytics, communications and related technical services.",
+            },
+          ],
+        },
+        {
+          heading: "6. DATA RETENTION",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Information may be retained for as long as reasonably necessary for the purpose for which it was collected or as required by applicable law.",
+            },
+          ],
+        },
+        {
+          heading: "7. YOUR RIGHTS",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Depending on the data protection laws applicable to you, you may have rights relating to access, correction or deletion of your personal information and the ability to object to certain processing activities.",
+            },
+            { type: "paragraph", text: "You may contact us regarding these requests." },
+          ],
+        },
+        {
+          heading: "8. THIRD-PARTY LINKS",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Our website may contain links to third-party websites or platforms. KITE Growth is not responsible for the privacy practices of those third parties.",
+            },
+          ],
+        },
+        {
+          heading: "9. CHANGES TO THIS POLICY",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "We may update this Privacy Policy when necessary. The latest version will always be published on this page.",
+            },
+          ],
+        },
+        {
+          heading: "10. CONTACT",
+          blocks: [
+            { type: "paragraph", text: "For questions regarding privacy or your personal information:" },
+            { type: "lines", items: ["KITE Growth", "hello@kitegrowth.com", "Istanbul & Bali"] },
+          ],
+        },
+      ],
+    },
+    terms: {
+      title: "TERMS OF USE",
+      intro:
+        "By using this website, you agree to these Terms of Use. kitegrowth.com is operated to present KITE Growth's services, approach and selected work.",
+      sections: [
+        {
+          heading: "1. USE OF THE WEBSITE",
+          blocks: [
+            { type: "paragraph", text: "You may use this website only for lawful purposes." },
+            {
+              type: "paragraph",
+              text: "You must not engage in activities that could damage the website, its infrastructure or the experience of other users.",
+            },
+          ],
+        },
+        {
+          heading: "2. CONTENT AND INTELLECTUAL PROPERTY",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Unless otherwise stated, the text, design, graphics, brand elements, visual systems and other content created by KITE Growth on this website are owned by or licensed to KITE Growth.",
+            },
+            {
+              type: "paragraph",
+              text: "They may not be copied, reproduced, republished or commercially exploited without prior written permission.",
+            },
+          ],
+        },
+        {
+          heading: "3. PORTFOLIO AND CLIENT WORK",
+          blocks: [
+            { type: "paragraph", text: "The website may feature examples of past or ongoing client projects." },
+            {
+              type: "paragraph",
+              text: "Client names, trademarks, logos, imagery and other intellectual property remain the property of their respective owners.",
+            },
+            {
+              type: "paragraph",
+              text: "KITE Growth displays such material solely to present work performed and the scope of services provided.",
+            },
+          ],
+        },
+        {
+          heading: "4. ACCURACY OF INFORMATION",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "We make reasonable efforts to keep the information on this website accurate and current. However, we do not guarantee that all information will always be complete or up to date.",
+            },
+          ],
+        },
+        {
+          heading: "5. NO GUARANTEE OF RESULTS",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Strategy, advertising, creative, growth, web or data services described on this website do not guarantee any specific commercial outcome.",
+            },
+            {
+              type: "paragraph",
+              text: "Performance may be affected by market conditions, budgets, products, pricing, competition, platform changes and many other factors.",
+            },
+          ],
+        },
+        {
+          heading: "6. THIRD-PARTY SERVICES",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "The website may use third-party services and technologies such as Google, Meta, Vercel and Resend.",
+            },
+            { type: "paragraph", text: "Those services may be governed by their own terms and privacy policies." },
+          ],
+        },
+        {
+          heading: "7. EXTERNAL LINKS",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "The website may contain links to third-party websites. KITE Growth is not responsible for their content, availability or practices.",
+            },
+          ],
+        },
+        {
+          heading: "8. LIMITATION OF LIABILITY",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "To the extent permitted by applicable law, KITE Growth will not be liable for indirect losses arising from the use or temporary unavailability of this website.",
+            },
+          ],
+        },
+        {
+          heading: "9. CHANGES",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "We may update these Terms of Use when necessary. The current version will be published on this page.",
+            },
+          ],
+        },
+        {
+          heading: "10. CONTACT",
+          blocks: [
+            { type: "paragraph", text: "For questions regarding these terms:" },
+            { type: "lines", items: ["KITE Growth", "hello@kitegrowth.com", "Istanbul & Bali"] },
+          ],
+        },
+      ],
+    },
+  },
   designSystemPreview: {
     eyebrow: "INTERNAL PREVIEW",
     title: "Design System",

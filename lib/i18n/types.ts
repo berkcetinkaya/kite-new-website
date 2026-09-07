@@ -1,3 +1,21 @@
+/** One numbered legal-document section — a heading plus an ordered mix of prose and lists. */
+export interface LegalSection {
+  heading: string;
+  blocks: Array<
+    | { type: "paragraph"; text: string }
+    /** Rendered with bullet markers — enumerated items like "what we use data for". */
+    | { type: "list"; items: string[] }
+    /** Rendered as plain stacked lines, no bullets — e.g. a name/email/location block. */
+    | { type: "lines"; items: string[] }
+  >;
+}
+
+export interface LegalDocument {
+  title: string;
+  intro: string;
+  sections: LegalSection[];
+}
+
 /**
  * Shape of the per-locale content dictionary. Every locale under /content
  * must satisfy this type, so the compiler catches missing translations
@@ -489,6 +507,12 @@ export interface SiteDictionary {
     copyright: string;
     privacy: string;
     terms: string;
+  };
+  legal: {
+    backToHome: string;
+    lastUpdatedLabel: string;
+    privacy: LegalDocument;
+    terms: LegalDocument;
   };
   designSystemPreview: {
     eyebrow: string;

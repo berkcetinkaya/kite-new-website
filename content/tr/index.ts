@@ -1106,6 +1106,242 @@ const tr: SiteDictionary = {
     privacy: "Privacy",
     terms: "Terms",
   },
+  legal: {
+    backToHome: "ANA SAYFAYA DÖN",
+    lastUpdatedLabel: "Son güncelleme",
+    privacy: {
+      title: "GİZLİLİK POLİTİKASI",
+      intro:
+        "KITE Growth olarak gizliliğinize önem veriyoruz. Bu politika, kitegrowth.com'u ziyaret ettiğinizde veya web sitemiz üzerinden bizimle iletişime geçtiğinizde hangi bilgilerin işlendiğini ve bu bilgileri nasıl kullandığımızı açıklar.",
+      sections: [
+        {
+          heading: "1. TOPLADIĞIMIZ BİLGİLER",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Web sitemizdeki iletişim formunu kullandığınızda adınız, e-posta adresiniz, telefon numaranız, şirket veya marka adınız, ilgilendiğiniz hizmetler ve bize ilettiğiniz mesaj gibi bilgileri paylaşabilirsiniz.",
+            },
+            {
+              type: "paragraph",
+              text: "Ayrıca web sitesinin kullanımı sırasında cihaz, tarayıcı, ziyaret edilen sayfalar, trafik kaynağı ve site üzerindeki etkileşimler gibi teknik ve analitik bilgiler toplanabilir.",
+            },
+          ],
+        },
+        {
+          heading: "2. BİLGİLERİ NASIL KULLANIYORUZ?",
+          blocks: [
+            { type: "paragraph", text: "Toplanan bilgiler:" },
+            {
+              type: "list",
+              items: [
+                "İletişim taleplerine yanıt vermek",
+                "Potansiyel projeleri değerlendirmek",
+                "Hizmetlerimizi ve web sitesi deneyimini geliştirmek",
+                "Site performansını ve kullanıcı davranışlarını analiz etmek",
+                "Reklam ve pazarlama çalışmalarımızın performansını ölçmek",
+                "Güvenlik ve teknik sorunları tespit etmek",
+              ],
+            },
+            { type: "paragraph", text: "amacıyla kullanılabilir." },
+          ],
+        },
+        {
+          heading: "3. ANALİTİK VE REKLAM TEKNOLOJİLERİ",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Web sitemizde Google Analytics 4 ve Meta Pixel gibi analiz ve reklam ölçüm teknolojileri kullanılabilir.",
+            },
+            {
+              type: "paragraph",
+              text: "Bu araçlar, ziyaretçilerin web sitesiyle nasıl etkileşim kurduğunu anlamamıza ve pazarlama faaliyetlerimizin performansını ölçmemize yardımcı olur.",
+            },
+            {
+              type: "paragraph",
+              text: "Bu hizmetler kendi gizlilik politikaları doğrultusunda çerezler veya benzer teknolojiler kullanabilir.",
+            },
+          ],
+        },
+        {
+          heading: "4. İLETİŞİM FORMU",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "İletişim formu üzerinden gönderilen bilgiler yalnızca talebinizi değerlendirmek ve sizinle iletişim kurmak amacıyla kullanılır.",
+            },
+            {
+              type: "paragraph",
+              text: "Form iletim altyapısında Resend gibi üçüncü taraf teknik hizmet sağlayıcılarından yararlanabiliriz.",
+            },
+          ],
+        },
+        {
+          heading: "5. VERİLERİN PAYLAŞILMASI",
+          blocks: [
+            { type: "paragraph", text: "Kişisel bilgilerinizi satmayız." },
+            {
+              type: "paragraph",
+              text: "Veriler, yalnızca web sitesinin işletilmesi, analitik, iletişim, hosting ve benzeri teknik hizmetlerin sağlanması için gerekli olduğu ölçüde hizmet sağlayıcılarımızla işlenebilir veya paylaşılabilir.",
+            },
+          ],
+        },
+        {
+          heading: "6. VERİLERİN SAKLANMASI",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Bilgiler, toplandıkları amaç için gerekli olduğu sürece veya geçerli yasal yükümlülüklerin gerektirdiği süre boyunca saklanabilir.",
+            },
+          ],
+        },
+        {
+          heading: "7. HAKLARINIZ",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Geçerli veri koruma mevzuatı kapsamında kişisel verilerinize erişme, bunların düzeltilmesini veya silinmesini talep etme ve belirli veri işleme faaliyetlerine itiraz etme hakkına sahip olabilirsiniz.",
+            },
+            { type: "paragraph", text: "Bu tür talepler için bizimle iletişime geçebilirsiniz." },
+          ],
+        },
+        {
+          heading: "8. ÜÇÜNCÜ TARAF BAĞLANTILARI",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Web sitemiz üçüncü taraf web sitelerine veya platformlara bağlantılar içerebilir. Bu platformların gizlilik uygulamalarından KITE Growth sorumlu değildir.",
+            },
+          ],
+        },
+        {
+          heading: "9. POLİTİKA DEĞİŞİKLİKLERİ",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Bu Gizlilik Politikası gerektiğinde güncellenebilir. Güncel sürüm her zaman bu sayfada yayınlanır.",
+            },
+          ],
+        },
+        {
+          heading: "10. İLETİŞİM",
+          blocks: [
+            { type: "paragraph", text: "Gizlilik veya kişisel verilerinizle ilgili sorularınız için:" },
+            { type: "lines", items: ["KITE Growth", "hello@kitegrowth.com", "Istanbul & Bali"] },
+          ],
+        },
+      ],
+    },
+    terms: {
+      title: "KULLANIM KOŞULLARI",
+      intro:
+        "Bu web sitesini kullanarak aşağıdaki kullanım koşullarını kabul etmiş sayılırsınız. kitegrowth.com, KITE Growth'un hizmetlerini, yaklaşımını ve çalışmalarını tanıtmak amacıyla yayınlanmaktadır.",
+      sections: [
+        {
+          heading: "1. WEB SİTESİNİN KULLANIMI",
+          blocks: [
+            { type: "paragraph", text: "Web sitesini yalnızca hukuka uygun amaçlarla kullanabilirsiniz." },
+            {
+              type: "paragraph",
+              text: "Siteye, altyapısına veya diğer kullanıcıların deneyimine zarar verebilecek faaliyetlerde bulunulmamalıdır.",
+            },
+          ],
+        },
+        {
+          heading: "2. İÇERİK VE FİKRİ MÜLKİYET",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Aksi belirtilmedikçe bu web sitesindeki metinler, tasarımlar, grafikler, marka unsurları, görsel sistemler ve KITE Growth tarafından üretilen diğer içerikler KITE Growth'a aittir veya kullanım hakkına sahiptir.",
+            },
+            {
+              type: "paragraph",
+              text: "Bu içerikler yazılı izin olmadan ticari amaçlarla kopyalanamaz, çoğaltılamaz veya yeniden yayınlanamaz.",
+            },
+          ],
+        },
+        {
+          heading: "3. PORTFÖY VE MÜŞTERİ ÇALIŞMALARI",
+          blocks: [
+            { type: "paragraph", text: "Web sitesinde geçmiş veya devam eden projelerden örnekler gösterilebilir." },
+            {
+              type: "paragraph",
+              text: "Müşterilere ait marka adları, logoları, görselleri ve diğer fikri mülkiyet unsurları ilgili hak sahiplerine aittir.",
+            },
+            {
+              type: "paragraph",
+              text: "KITE Growth bu materyalleri yalnızca gerçekleştirdiği çalışmaların ve hizmet kapsamının sunulması amacıyla kullanır.",
+            },
+          ],
+        },
+        {
+          heading: "4. BİLGİLERİN DOĞRULUĞU",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Web sitesindeki içeriklerin güncel ve doğru tutulması için makul çaba gösteririz. Bununla birlikte tüm bilgilerin her zaman eksiksiz veya güncel olacağını garanti etmeyiz.",
+            },
+          ],
+        },
+        {
+          heading: "5. SONUÇ GARANTİSİ",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Web sitesinde açıklanan strateji, reklam, creative, growth, web veya data hizmetleri belirli bir ticari sonucu garanti etmez.",
+            },
+            {
+              type: "paragraph",
+              text: "Performans; pazar koşulları, bütçe, ürün, fiyatlandırma, rekabet, platform değişiklikleri ve diğer birçok faktörden etkilenebilir.",
+            },
+          ],
+        },
+        {
+          heading: "6. ÜÇÜNCÜ TARAF HİZMETLER",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Web sitesi Google, Meta, Vercel, Resend ve benzeri üçüncü taraf hizmet veya teknolojilerden yararlanabilir.",
+            },
+            { type: "paragraph", text: "Bu hizmetlerin kendi kullanım koşulları ve gizlilik politikaları geçerli olabilir." },
+          ],
+        },
+        {
+          heading: "7. HARİCİ BAĞLANTILAR",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Web sitesinde üçüncü taraf sitelere bağlantılar bulunabilir. Bu sitelerin içeriklerinden veya uygulamalarından KITE Growth sorumlu değildir.",
+            },
+          ],
+        },
+        {
+          heading: "8. SORUMLULUĞUN SINIRLANDIRILMASI",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Yürürlükteki mevzuatın izin verdiği ölçüde, web sitesinin kullanımından veya geçici olarak kullanılamamasından kaynaklanan dolaylı kayıplardan KITE Growth sorumlu tutulamaz.",
+            },
+          ],
+        },
+        {
+          heading: "9. DEĞİŞİKLİKLER",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Bu Kullanım Koşulları gerektiğinde güncellenebilir. Güncel sürüm bu sayfada yayınlanır.",
+            },
+          ],
+        },
+        {
+          heading: "10. İLETİŞİM",
+          blocks: [
+            { type: "paragraph", text: "Bu koşullarla ilgili sorularınız için:" },
+            { type: "lines", items: ["KITE Growth", "hello@kitegrowth.com", "Istanbul & Bali"] },
+          ],
+        },
+      ],
+    },
+  },
   designSystemPreview: {
     eyebrow: "DAHİLİ ÖNİZLEME",
     title: "Tasarım Sistemi",
