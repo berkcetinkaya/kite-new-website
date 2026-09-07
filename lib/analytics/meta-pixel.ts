@@ -1,5 +1,5 @@
 /** Public by design — Meta Pixel IDs ship in client-side script, not a secret. */
-export const META_PIXEL_ID = "864891373258429";
+export const META_PIXEL_ID = "2521875191676740";
 
 declare global {
   interface Window {
