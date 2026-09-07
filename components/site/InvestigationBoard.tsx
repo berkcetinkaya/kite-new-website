@@ -66,6 +66,22 @@ export function InvestigationBoard({
   const total = questions.length;
   const progress = total > 1 ? active / (total - 1) : 0;
 
+  // Desktop panel follow: the panel is sticky at a fixed base offset, then
+  // nudged down by however far the active question sits below the first
+  // one — so it travels alongside the list instead of staying pinned near
+  // the top while later questions activate further down.
+  const listRef = useRef<HTMLUListElement>(null);
+  const itemRefs = useRef<Array<HTMLLIElement | null>>([]);
+  const [panelOffset, setPanelOffset] = useState(0);
+
+  useEffect(() => {
+    const listEl = listRef.current;
+    const activeEl = itemRefs.current[active];
+    if (!listEl || !activeEl) return;
+    const offset = activeEl.getBoundingClientRect().top - listEl.getBoundingClientRect().top;
+    setPanelOffset(Math.max(0, offset));
+  }, [active]);
+
   const [artworkRevealed, setArtworkRevealed] = useState(false);
   const artworkRef = useRef<HTMLDivElement>(null);
 
@@ -112,14 +128,20 @@ export function InvestigationBoard({
             ))}
           </h2>
 
-          {/* Desktop: question list + a panel that stays put while the active question changes. */}
+          {/* Desktop: question list + a panel that travels with the active question (see panelOffset above) instead of staying pinned near the top. */}
           <div className="mt-lg hidden xl:grid xl:grid-cols-12 xl:gap-x-lg">
             <div className="xl:col-span-7" onMouseLeave={() => setHovered(null)}>
-              <ul className="border-b border-[rgba(242,238,228,0.15)]">
+              <ul ref={listRef} className="border-b border-[rgba(242,238,228,0.15)]">
                 {questions.map((q, i) => {
                   const isActive = i === active;
                   return (
-                    <li key={q.number} className="border-t border-[rgba(242,238,228,0.15)]">
+                    <li
+                      key={q.number}
+                      ref={(el) => {
+                        itemRefs.current[i] = el;
+                      }}
+                      className="border-t border-[rgba(242,238,228,0.15)]"
+                    >
                       <button
                         type="button"
                         onMouseEnter={() => setHovered(i)}
@@ -156,7 +178,10 @@ export function InvestigationBoard({
             </div>
 
             <div className="xl:col-span-5">
-              <div className="sticky top-[calc(var(--header-h)+24px)]">
+              <div
+                className="sticky top-[calc(var(--header-h)+24px)] transition-editorial"
+                style={{ transform: `translateY(${panelOffset}px)` }}
+              >
                 <div key={activeQuestion.number} className="answer-reveal">
                   <span className="font-body text-[11px] font-semibold tabular-nums text-kite">
                     {activeQuestion.number} / {String(total).padStart(2, "0")}
