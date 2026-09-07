@@ -1,8 +1,11 @@
 "use client";
 
 import { useId, useState, type FormEvent } from "react";
+import { usePathname } from "next/navigation";
 import { PrimaryButton } from "@/components/ui";
-import { trackLead } from "@/lib/analytics/meta-pixel";
+import { trackLead as trackMetaLead } from "@/lib/analytics/meta-pixel";
+import { trackLead as trackGa4Lead } from "@/lib/analytics/ga4";
+import { defaultLocale, isLocale } from "@/lib/i18n/locales";
 import { cn } from "@/lib/cn";
 
 interface ContactFormContent {
@@ -79,6 +82,9 @@ export function ContactForm({ content }: { content: ContactFormContent }) {
   const [selectedNeeds, setSelectedNeeds] = useState<string[]>([]);
   const [status, setStatus] = useState<Status>("idle");
   const messageId = useId();
+  const pathname = usePathname();
+  const localeSegment = pathname.split("/")[1] ?? "";
+  const locale = isLocale(localeSegment) ? localeSegment : defaultLocale;
 
   function toggleNeed(option: string) {
     setSelectedNeeds((prev) => (prev.includes(option) ? prev.filter((o) => o !== option) : [...prev, option]));
@@ -108,7 +114,8 @@ export function ContactForm({ content }: { content: ContactFormContent }) {
       const json: { ok: boolean } = await res.json();
       if (!res.ok || !json.ok) throw new Error("submission_failed");
 
-      trackLead();
+      trackMetaLead();
+      trackGa4Lead({ language: locale, services: selectedNeeds });
       setStatus("success");
     } catch {
       setStatus("error");

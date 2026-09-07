@@ -4,6 +4,7 @@ import "../globals.css";
 import { locales } from "@/lib/i18n/locales";
 import { getDictionary, getLocale } from "@/lib/i18n/get-dictionary";
 import { MetaPixel } from "@/components/analytics/MetaPixel";
+import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 
 const displayFont = Big_Shoulders({
   subsets: ["latin"],
@@ -47,6 +48,7 @@ export default async function LocaleLayout({
     <html lang={locale} className={`${displayFont.variable} ${bodyFont.variable}`}>
       <body className="paper-texture">
         <MetaPixel />
+        <GoogleAnalytics />
         {children}
       </body>
     </html>
