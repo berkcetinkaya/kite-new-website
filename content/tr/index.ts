@@ -1012,24 +1012,39 @@ const tr: SiteDictionary = {
     folioNumber: "012",
     microLabel: "KITE HAKKINDA",
     primaryStatement: ["İSTANBUL'DAN BALI'YE.", "AYNI YÖNDE."],
-    citiesLabel: "ISTANBUL × BALI",
     aboutCopy: [
-      "KITE, strateji, creative, media, web ve data arasındaki boşluklarla ilgilenen bir growth ajansı.",
+      "KITE, İstanbul ve Bali'deki ekipleriyle çalışan bağımsız bir growth ajansı.",
+      "Strateji, creative, media, web ve data'yı birbirinden ayrı işler olarak değil, aynı büyüme sisteminin parçaları olarak görüyoruz.",
       "Çünkü çoğu zaman problem parçaların kendisinde değil, birbirleriyle nasıl çalıştıklarında.",
     ],
-    cities: [
-      {
-        name: "ISTANBUL",
-        descriptors: ["Strateji.", "Tempo.", "Kültür.", "Hareket."],
-        coordinates: "41.0082° N / 28.9784° E",
-      },
-      {
-        name: "BALI",
-        descriptors: ["Perspektif.", "Yaratıcılık.", "Alan.", "Özgürlük."],
-        coordinates: "8.3405° S / 115.0920° E",
-      },
+    timezoneLabel: "İKİ ŞEHİR. İKİ ZAMAN DİLİMİ. TEK EKİP.",
+    timezoneStatement: "İstanbul güne başlarken Bali çoktan işin içinde.",
+    timezoneCopy: [
+      "Aramızdaki 5 saatlik zaman farkı, çalışma günümüzü doğal olarak uzatıyor. Bir ekip günü devralırken diğeri çoktan ilerletmiş oluyor.",
+      "Bu da markalarımız için daha geniş bir takip ve müdahale alanı demek.",
     ],
-    microAnnotation: "UTC+3 / UTC+8",
+    timezoneList: [
+      "Kampanyalar durmuyor.",
+      "Data akmaya devam ediyor.",
+      "Bir creative yorulabiliyor.",
+      "Bir landing page sorun çıkarabiliyor.",
+      "Bir fırsat birkaç saat içinde ortaya çıkıp kaybolabiliyor.",
+    ],
+    advantageStatement: [
+      { text: "Bizim için saat farkı bir mesafe değil." },
+      { text: "Operasyonel bir avantaj.", accent: true },
+    ],
+    sunLabel: "FOLLOW THE SUN.",
+    sunCopy: [
+      "İstanbul ve Bali arasındaki yapı sayesinde işler tek bir ofisin çalışma saatlerine sıkışmıyor.",
+      "Stratejiden creative'e, kampanya takibinden optimizasyona kadar sistem günün daha büyük bir bölümünde hareket halinde kalıyor.",
+    ],
+    closingStatement: ["BİR ŞEHİR GÜNE BAŞLARKEN,", "DİĞERİ ÇOKTAN İŞİN BAŞINDA."],
+    cities: [
+      { name: "ISTANBUL", coordinates: "41.0082° N / 28.9784° E", coordinate: "41.0082° N" },
+      { name: "BALI", coordinates: "8.3405° S / 115.0920° E", coordinate: "8.3405° S" },
+    ],
+    microAnnotation: "5 HOURS / ONE TEAM",
     nextSectionHint: {
       number: "007",
       title: "LET'S WORK TOGETHER",

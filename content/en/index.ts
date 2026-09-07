@@ -1010,25 +1010,40 @@ const en: SiteDictionary = {
   kite: {
     folioNumber: "012",
     microLabel: "ABOUT KITE",
-    primaryStatement: ["FROM ISTANBUL TO BALI.", "SAME DIRECTION."],
-    citiesLabel: "ISTANBUL × BALI",
+    primaryStatement: ["FROM ISTANBUL TO BALI.", "MOVING IN THE SAME DIRECTION."],
     aboutCopy: [
-      "KITE is a growth agency that cares about the gaps between strategy, creative, media, web and data.",
-      "Because the problem is rarely in the parts themselves — it's usually in how they work together.",
+      "KITE is an independent growth agency operating with teams in Istanbul and Bali.",
+      "We see strategy, creative, media, web and data not as separate disciplines, but as parts of the same growth system.",
+      "Because most of the time, the problem is not the individual pieces. It is how they work together.",
     ],
+    timezoneLabel: "TWO CITIES. TWO TIME ZONES. ONE TEAM.",
+    timezoneStatement: "When Istanbul starts its day, Bali is already well into it.",
+    timezoneCopy: [
+      "The five-hour time difference naturally extends our working day. While one team picks things up, the other has already moved them forward.",
+      "For our clients, that means a wider window for monitoring, responding and taking action.",
+    ],
+    timezoneList: [
+      "Campaigns keep running.",
+      "Data keeps moving.",
+      "Creative can fatigue.",
+      "A landing page can break.",
+      "An opportunity can appear and disappear within hours.",
+    ],
+    advantageStatement: [
+      { text: "For us, the time difference is not distance." },
+      { text: "It is an operational advantage.", accent: true },
+    ],
+    sunLabel: "FOLLOW THE SUN.",
+    sunCopy: [
+      "With teams across Istanbul and Bali, the work is not limited to the hours of a single office.",
+      "From strategy and creative to campaign monitoring and optimisation, the system stays active across a larger part of the day.",
+    ],
+    closingStatement: ["WHEN ONE CITY STARTS ITS DAY,", "THE OTHER IS ALREADY AT WORK."],
     cities: [
-      {
-        name: "ISTANBUL",
-        descriptors: ["Strategy.", "Tempo.", "Culture.", "Momentum."],
-        coordinates: "41.0082° N / 28.9784° E",
-      },
-      {
-        name: "BALI",
-        descriptors: ["Perspective.", "Creativity.", "Space.", "Freedom."],
-        coordinates: "8.3405° S / 115.0920° E",
-      },
+      { name: "ISTANBUL", coordinates: "41.0082° N / 28.9784° E", coordinate: "41.0082° N" },
+      { name: "BALI", coordinates: "8.3405° S / 115.0920° E", coordinate: "8.3405° S" },
     ],
-    microAnnotation: "UTC+3 / UTC+8",
+    microAnnotation: "5 HOURS / ONE TEAM",
     nextSectionHint: {
       number: "007",
       title: "LET'S WORK TOGETHER",

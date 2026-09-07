@@ -417,12 +417,28 @@ export interface SiteDictionary {
     folioNumber: string;
     microLabel: string;
     primaryStatement: string[];
-    citiesLabel: string;
+    /** Three-sentence intro: what KITE is, how it sees the discipline, why the split matters. */
     aboutCopy: string[];
+    /** Eyebrow for the follow-the-sun moment: "TWO CITIES. TWO TIME ZONES. ONE TEAM." */
+    timezoneLabel: string;
+    /** Short standalone statement, not a paragraph — same weight as a subheading. */
+    timezoneStatement: string;
+    timezoneCopy: string[];
+    /** Short staccato lines — what keeps moving across the handoff. No connecting words. */
+    timezoneList: string[];
+    /** Two lines; only the second ("...an operational advantage.") is typically accented. */
+    advantageStatement: Array<{ text: string; accent?: boolean }>;
+    /** Kept as "FOLLOW THE SUN." in both locales — a brand phrase, not translated copy. */
+    sunLabel: string;
+    sunCopy: string[];
+    /** Two-line closing display statement. */
+    closingStatement: string[];
     cities: Array<{
       name: string;
-      descriptors: string[];
+      /** Full "lat / long" pair — read by Hero's artwork overlay, not this section. */
       coordinates: string;
+      /** Single value (latitude only) for this section's own footer marker. */
+      coordinate: string;
     }>;
     microAnnotation: string;
     nextSectionHint: {
