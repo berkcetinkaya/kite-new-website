@@ -76,8 +76,8 @@ function MoveBrandsStamp({ lines, className }: { lines: [string, string]; classN
  * source asset's own 4:3 aspect so the whole photo is always visible
  * (object-contain — no cropping of the tower's roof or body). The asset
  * already carries its own yellow sun and screenprinted light-ray, so only
- * the technical label, the kite + string kept clear of the tower, and the
- * "move brands forward" stamp are added on top.
+ * a compact technical label and the "move brands forward" stamp are added
+ * on top — small enough that the tower stays the actual focal point.
  */
 export function HeroArtwork({ agencyLine, locationLine, coordinates, stampLines }: HeroArtworkProps) {
   return (
@@ -92,41 +92,9 @@ export function HeroArtwork({ agencyLine, locationLine, coordinates, stampLines 
           className="object-contain"
         />
 
-        {/* String only — a non-uniformly-scaled (preserveAspectRatio="none")
-            overlay is fine for a loose curved line, but would warp the
-            kite's straight diamond edges into a parallelogram, so the kite
-            itself lives in its own true-aspect square svg below. */}
-        <svg
-          aria-hidden
-          viewBox="0 0 100 100"
-          preserveAspectRatio="none"
-          className="pointer-events-none absolute inset-0 h-full w-full opacity-85"
-        >
-          <path
-            d="M 68 26 C 60 34, 52 40, 45 45 C 38 50, 33 53, 28 56"
-            fill="none"
-            stroke="var(--color-ink)"
-            strokeWidth={0.4}
-            vectorEffect="non-scaling-stroke"
-          />
-        </svg>
-
-        {/* Positioned by CSS percentage (matching the string's endpoint
-            above, expressed in the same 0–100 → 0–100% terms) rather than
-            sharing that svg's viewBox, so this box can stay a true square
-            regardless of the 4:3 frame and the diamond never skews. */}
         <div
           aria-hidden
-          className="pointer-events-none absolute left-[68%] top-[26%] h-14 w-14 -translate-x-1/2 -translate-y-1/2 opacity-85 sm:h-20 sm:w-20"
-        >
-          <svg viewBox="0 0 100 100" className="h-full w-full">
-            <KiteMark cx={50} cy={50} r={30} rotate={24} />
-          </svg>
-        </div>
-
-        <div
-          aria-hidden
-          className="absolute left-[4%] top-[4%] max-w-[46%] border border-ink bg-paper/90 px-2xs py-3xs font-body text-eyebrow font-semibold uppercase leading-snug tracking-wide text-ink sm:max-w-[42%]"
+          className="absolute left-[4%] top-[4%] w-fit whitespace-nowrap border border-ink bg-paper/90 px-[6px] py-[5px] font-body text-[9px] font-semibold uppercase leading-tight tracking-normal text-ink sm:text-[10px]"
         >
           <p>{agencyLine}</p>
           <p>{locationLine}</p>
