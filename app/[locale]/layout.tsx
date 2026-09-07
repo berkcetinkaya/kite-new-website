@@ -3,6 +3,7 @@ import { Big_Shoulders, Inter } from "next/font/google";
 import "../globals.css";
 import { locales } from "@/lib/i18n/locales";
 import { getDictionary, getLocale } from "@/lib/i18n/get-dictionary";
+import { MetaPixel } from "@/components/analytics/MetaPixel";
 
 const displayFont = Big_Shoulders({
   subsets: ["latin"],
@@ -44,7 +45,10 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} className={`${displayFont.variable} ${bodyFont.variable}`}>
-      <body className="paper-texture">{children}</body>
+      <body className="paper-texture">
+        <MetaPixel />
+        {children}
+      </body>
     </html>
   );
 }

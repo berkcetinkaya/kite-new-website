@@ -2,6 +2,7 @@
 
 import { useId, useState, type FormEvent } from "react";
 import { PrimaryButton } from "@/components/ui";
+import { trackLead } from "@/lib/analytics/meta-pixel";
 import { cn } from "@/lib/cn";
 
 interface ContactFormContent {
@@ -107,6 +108,7 @@ export function ContactForm({ content }: { content: ContactFormContent }) {
       const json: { ok: boolean } = await res.json();
       if (!res.ok || !json.ok) throw new Error("submission_failed");
 
+      trackLead();
       setStatus("success");
     } catch {
       setStatus("error");
