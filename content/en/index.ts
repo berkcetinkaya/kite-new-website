@@ -21,6 +21,7 @@ const en: SiteDictionary = {
   },
   header: {
     locationShort: "ISTANBUL & BALI",
+    tagline: "IDEA. MOTION. IMPACT.",
     nav: {
       work: "WORK",
       services: "SERVICES",

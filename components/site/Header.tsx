@@ -91,7 +91,7 @@ export async function Header() {
             homeHref={homeHref}
             brandName={dict.brand.name}
             brandType={dict.brand.agencyType}
-            locationShort={dict.header.locationShort}
+            tagline={dict.header.tagline}
             locationFull={dict.brand.location}
             globalNote={dict.brand.globalNote}
             statement={dict.brand.statement}

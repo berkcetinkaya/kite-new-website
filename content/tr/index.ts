@@ -21,6 +21,7 @@ const tr: SiteDictionary = {
   },
   header: {
     locationShort: "ISTANBUL & BALI",
+    tagline: "FİKİR. HAREKET. SONUÇ.",
     nav: {
       work: "İŞLER",
       services: "HİZMETLER",

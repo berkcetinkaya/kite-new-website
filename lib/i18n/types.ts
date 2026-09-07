@@ -24,6 +24,8 @@ export interface SiteDictionary {
   };
   header: {
     locationShort: string;
+    /** Short brand tagline shown in place of locationShort in the mobile header's collapsed top bar only. */
+    tagline: string;
     nav: {
       work: string;
       services: string;

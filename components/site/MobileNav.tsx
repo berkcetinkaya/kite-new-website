@@ -24,7 +24,7 @@ interface MobileNavProps {
   homeHref: string;
   brandName: string;
   brandType: string;
-  locationShort: string;
+  tagline: string;
   locationFull: string;
   globalNote: string;
   statement: string;
@@ -43,7 +43,7 @@ export function MobileNav({
   homeHref,
   brandName,
   brandType,
-  locationShort,
+  tagline,
   locationFull,
   globalNote,
   statement,
@@ -102,17 +102,20 @@ export function MobileNav({
 
   return (
     <>
-      <div className="flex items-center justify-between py-sm">
-        <span inert={open}>
-          <Logo href={homeHref} size={40} alt={`${brandName} ${brandType}`} />
+      <div className="flex items-center justify-between gap-2xs py-sm">
+        <span inert={open} className="shrink-0">
+          <Logo href={homeHref} size={52} alt={`${brandName} ${brandType}`} />
         </span>
 
         <span
           inert={open}
-          className="flex items-center gap-2xs font-body text-eyebrow font-semibold uppercase tracking-widest text-ink-soft"
+          className="flex min-w-0 flex-1 items-center justify-center truncate font-body text-eyebrow font-semibold uppercase tracking-widest text-ink-soft"
         >
-          <span>{locationShort}</span>
-          <span aria-hidden className="h-1.5 w-1.5 shrink-0 rounded-full bg-kite" />
+          <span className="truncate">{tagline}</span>
+        </span>
+
+        <span inert={open} className="shrink-0">
+          <LanguageSwitcher currentLocale={currentLocale} />
         </span>
 
         <button
