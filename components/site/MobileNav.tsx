@@ -15,9 +15,6 @@ interface NavLabels {
 
 interface SocialLabels {
   instagram: string;
-  linkedin: string;
-  behance: string;
-  email: string;
 }
 
 interface MobileNavProps {
@@ -148,12 +145,14 @@ export function MobileNav({
           transition: "clip-path 420ms cubic-bezier(0.22, 1, 0.36, 1)",
         }}
       >
-        <div className="flex items-center justify-between">
-          <Logo href={homeHref} size={40} alt={`${brandName} ${brandType}`} />
+        <div className="flex items-start justify-between gap-sm">
+          <p lang="en" className="max-w-[26ch] font-display text-display-sm leading-tight text-ink">
+            {statement}
+          </p>
           <span className="h-11 w-11 shrink-0" aria-hidden />
         </div>
 
-        <div className="mt-md border-t border-line pt-2xs">
+        <div className="mt-lg border-t border-line pt-2xs">
           <span className="font-body text-eyebrow font-semibold uppercase tracking-widest text-ink">
             {menuEyebrow}
           </span>
@@ -198,18 +197,19 @@ export function MobileNav({
             {globalNote}
           </p>
 
-          <p lang="en" className="mt-sm max-w-[26ch] font-display text-display-sm leading-tight text-ink">
-            {statement}
-          </p>
-
           <div className="mt-sm border-t border-line pt-2xs">
             <LanguageSwitcher currentLocale={currentLocale} />
           </div>
-          <div className="mt-2xs flex flex-wrap items-center gap-x-sm gap-y-3xs pb-2xs font-body text-eyebrow font-semibold uppercase tracking-widest text-ink">
-            <span lang="en">{social.instagram}</span>
-            <span lang="en">{social.linkedin}</span>
-            <span lang="en">{social.behance}</span>
-            <span>{social.email}</span>
+          <div className="mt-2xs pb-2xs font-body text-eyebrow font-semibold uppercase tracking-widest text-ink">
+            <a
+              href="https://www.instagram.com/kitegrowth"
+              target="_blank"
+              rel="noopener noreferrer"
+              lang="en"
+              className="transition-editorial hover:text-paper focus-visible:text-paper"
+            >
+              {social.instagram}
+            </a>
           </div>
         </div>
       </div>

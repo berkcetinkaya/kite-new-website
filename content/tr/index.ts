@@ -44,9 +44,6 @@ const tr: SiteDictionary = {
       },
       social: {
         instagram: "Instagram",
-        linkedin: "LinkedIn",
-        behance: "Behance",
-        email: "E-posta",
       },
     },
   },

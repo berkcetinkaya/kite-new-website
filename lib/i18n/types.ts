@@ -48,9 +48,6 @@ export interface SiteDictionary {
       };
       social: {
         instagram: string;
-        linkedin: string;
-        behance: string;
-        email: string;
       };
     };
   };
