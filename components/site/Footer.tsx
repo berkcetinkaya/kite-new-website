@@ -60,9 +60,15 @@ export async function Footer() {
               <span>{brand.globalNote}</span>
             </span>
             <span aria-hidden className="hidden h-3 w-px bg-line-inverse xl:block" />
-            <span lang="en">{header.mobileMenu.social.instagram}</span>
-            <span lang="en">{header.mobileMenu.social.linkedin}</span>
-            <span lang="en">{header.mobileMenu.social.behance}</span>
+            <a
+              href="https://www.instagram.com/kitegrowth"
+              target="_blank"
+              rel="noopener noreferrer"
+              lang="en"
+              className="transition-editorial hover:text-paper"
+            >
+              {header.mobileMenu.social.instagram}
+            </a>
           </div>
 
           <div className="flex flex-wrap items-center gap-x-sm gap-y-2xs">
