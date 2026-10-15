@@ -1,5 +1,5 @@
-import { getDictionary } from "@/lib/i18n/get-dictionary";
-import { SiteContainer } from "@/components/ui";
+import { getDictionary, getLocale } from "@/lib/i18n/get-dictionary";
+import { SiteContainer, TextLink } from "@/components/ui";
 import { InvestigationBoard } from "./InvestigationBoard";
 
 /**
@@ -27,6 +27,7 @@ import { InvestigationBoard } from "./InvestigationBoard";
 export async function Capabilities() {
   const dict = await getDictionary();
   const { capabilities, investigation } = dict;
+  const locale = await getLocale();
 
   return (
     <section id="services" className="relative scroll-mt-[var(--header-h)] bg-paper pt-lg xl:pt-xl">
@@ -85,6 +86,11 @@ export async function Capabilities() {
                     </span>
                   ))}
                 </p>
+                {item.exploreLabel && (
+                  <TextLink href={`/${locale}/technology`} className="shrink-0 xl:ml-auto">
+                    {item.exploreLabel}
+                  </TextLink>
+                )}
               </div>
             </SiteContainer>
           </div>

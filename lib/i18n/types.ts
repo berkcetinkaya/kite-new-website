@@ -17,6 +17,24 @@ export interface LegalDocument {
 }
 
 /**
+ * One capability on the /technology page (CRM & Sales Automation, AI Sales
+ * Representative) — a title, a body-scale lead paragraph with at most one
+ * inline accent, and a short plain-language points list. Deliberately
+ * smaller than capabilities.items[i]'s shape: no `groups`/`secondary`
+ * technical grid, because this page explains what the capability does for
+ * a business, not what's in its stack.
+ */
+export interface TechnologySectionContent {
+  number: string;
+  title: string;
+  lead: Array<{ text: string; accent?: boolean }>;
+  pointsLabel: string;
+  points: string[];
+  /** Short italic qualifier — e.g. "scope varies per client" or the human-review note. */
+  note: string;
+}
+
+/**
  * Shape of the per-locale content dictionary. Every locale under /content
  * must satisfy this type, so the compiler catches missing translations
  * as soon as a new key is introduced anywhere in the UI.
@@ -137,7 +155,66 @@ export interface SiteDictionary {
       supportingCopy?: string;
       groups: Array<{ label?: string; items: string[] }>;
       secondary?: { label: string; items: string[]; note?: string };
+      /**
+       * AI Sales Representative (06) only — a quiet in-list link to the
+       * dedicated /technology page. Omitted everywhere else; this index
+       * stays a flat scan, not a set of linked cards.
+       */
+      exploreLabel?: string;
     }>;
+  };
+  /**
+   * Compact homepage "Technology Spotlight" — a single editorial statement
+   * between Capabilities and ApproachEntry, not a feature section. Approved
+   * copy; see TechnologySpotlight.tsx for the off-white/black/kite-yellow
+   * treatment (no dark inversion, per brief).
+   */
+  techSpotlight: {
+    eyebrow: string;
+    /** Two lines — approved headline, not to be altered. */
+    headline: string[];
+    supportingCopy: string;
+    /** Middot-joined in the UI, same device as capabilities.systemLine. */
+    keywords: string[];
+    ctaLabel: string;
+  };
+  /**
+   * Dedicated /technology page — the deep-dive the homepage spotlight
+   * points to. Deliberately NOT rendered through CapabilityRow or
+   * CollaborationModel: both components' column/grid proportions were
+   * built for the homepage's denser disciplines and collapsed under
+   * longer, business-language copy. `sections.crm`/`sections.aiSalesRep`
+   * and `managedGrowth` are read by page-specific components
+   * (TechnologySection.tsx / ManagedGrowthBlock.tsx) instead — a body-size
+   * lead paragraph carries the explanation, a short plain-language points
+   * list carries scope, never a technical feature grid. CRM's `points`
+   * deliberately excludes measurement/lifecycle/reporting items (GA4, GTM,
+   * Meta Pixel, email flows, dashboards, …) — those stay exactly where
+   * they already were, in capabilities.items[4].groups, unrendered here.
+   */
+  technology: {
+    meta: { title: string; description: string };
+    eyebrow: string;
+    /** Two lines — deliberately distinct wording from the homepage spotlight headline. */
+    heroStatement: string[];
+    heroSupport: string;
+    sections: {
+      crm: TechnologySectionContent;
+      aiSalesRep: TechnologySectionContent;
+    };
+    managedGrowth: {
+      /** "+" by design — an add-on layer, not a numbered discipline. */
+      number: string;
+      title: string;
+      /** Segmented like capabilities.items[i].statement — one inline accent fragment at body scale, never a display-size paragraph. The approved copy already states scope in prose, so there's no separate points list here. */
+      lead: Array<{ text: string; accent?: boolean }>;
+      workingModelLabel: string;
+      workingModel: string;
+    };
+    /** Replaces the old `connector` line — the new closing CTA headline, two lines. */
+    closingHeadline: string[];
+    closingSupport: string;
+    ctaLabel: string;
   };
   /**
    * "004 / SORUŞTURMA" — the interrogation board replacing the old closing
@@ -507,6 +584,7 @@ export interface SiteDictionary {
     copyright: string;
     privacy: string;
     terms: string;
+    technology: string;
   };
   legal: {
     backToHome: string;

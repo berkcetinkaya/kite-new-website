@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { SiteContainer } from "@/components/ui";
 import { WindPath } from "./WindPath";
@@ -44,7 +45,9 @@ export async function FinalCta() {
           </div>
 
           <div className="xl:col-span-7">
-            <ContactForm content={finalCta.form} />
+            <Suspense fallback={null}>
+              <ContactForm content={finalCta.form} />
+            </Suspense>
           </div>
         </div>
       </SiteContainer>

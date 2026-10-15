@@ -4,6 +4,7 @@ import { Header } from "@/components/site/Header";
 import { Hero } from "@/components/site/Hero";
 import { SelectedWork } from "@/components/site/SelectedWork";
 import { Capabilities } from "@/components/site/Capabilities";
+import { TechnologySpotlight } from "@/components/site/TechnologySpotlight";
 import { ApproachEntry } from "@/components/site/ApproachEntry";
 import { Kite } from "@/components/site/Kite";
 import { FinalCta } from "@/components/site/FinalCta";
@@ -32,6 +33,7 @@ export default async function HomePage() {
         <Hero />
         <SelectedWork />
         <Capabilities />
+        <TechnologySpotlight />
         <ApproachEntry />
         <Kite />
         <FinalCta />

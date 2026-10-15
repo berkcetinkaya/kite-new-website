@@ -43,15 +43,19 @@ function RailLabel({ children, dark = false }: { children: string; dark?: boolea
 const LEFT_SPAN: Record<CapabilityRowVariant, string> = {
   standard: "xl:col-span-3",
   technical: "xl:col-span-3",
-  "statement-forward": "xl:col-span-3",
-  "data-grid": "xl:col-span-3",
+  // Both widened by one column over "standard" — titles rendered through
+  // this component ("CRM & SALES AUTOMATION", "AI SALES REPRESENTATIVE")
+  // run longer than the four originally designed for and were clipping
+  // into the middle column's text at col-span-3.
+  "statement-forward": "xl:col-span-4",
+  "data-grid": "xl:col-span-4",
 };
 
 const MIDDLE_SPAN: Record<CapabilityRowVariant, string> = {
   standard: "xl:col-span-4",
   technical: "xl:col-span-4",
-  "statement-forward": "xl:col-span-6",
-  "data-grid": "xl:col-span-9",
+  "statement-forward": "xl:col-span-5",
+  "data-grid": "xl:col-span-8",
 };
 
 const RIGHT_SPAN: Record<CapabilityRowVariant, string> = {
@@ -128,7 +132,7 @@ export function CapabilityRow({
             </div>
             <h3
               className={cn(
-                "mt-sm font-display text-display-md font-black uppercase leading-[0.92] xl:text-display-lg",
+                "mt-sm break-words font-display text-display-md font-black uppercase leading-[0.92]",
                 dark ? "text-paper" : "text-ink",
               )}
             >

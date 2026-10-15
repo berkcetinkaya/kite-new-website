@@ -73,6 +73,9 @@ export async function Footer() {
 
           <div className="flex flex-wrap items-center gap-x-sm gap-y-2xs">
             <span>{footer.copyright}</span>
+            <Link href={`/${locale}/technology`} className="transition-editorial hover:text-paper">
+              {footer.technology}
+            </Link>
             <Link href={`/${locale}/privacy`} lang="en" className="transition-editorial hover:text-paper">
               {footer.privacy}
             </Link>

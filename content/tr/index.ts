@@ -251,22 +251,133 @@ const tr: SiteDictionary = {
       },
       {
         number: "05",
-        title: "DATA, CRM & LIFECYCLE",
+        title: "CRM & SATIŞ OTOMASYONU",
         statement: [
-          { text: "Tıklamanın sonrasında ne olduğunu göremiyorsak, öncesini " },
-          { text: "sağlıklı şekilde büyütemeyiz.", accent: true },
+          { text: "Bir fırsatı unutmak, onu kaybetmekle aynı şey. " },
+          { text: "CRM, markanızın hafızasıdır.", accent: true },
         ],
+        supportingCopy: "Satış ekibinizin sürecine göre kurulur — hazır bir şablon değil.",
         groups: [
           { label: "MEASUREMENT", items: ["GA4", "Google Tag Manager", "Meta Pixel", "Conversions API", "Event Tracking"] },
-          { label: "CRM", items: ["CRM Setup", "Lead Routing", "Customer Segmentation", "CRM Integrations"] },
+          {
+            label: "CRM",
+            items: [
+              "Müşteri Kayıtları",
+              "Fırsat Takibi",
+              "Teklif Yönetimi",
+              "Görev & Hatırlatıcılar",
+              "Kullanıcı & Yetki Atamaları",
+              "Takım Performans Raporlama",
+            ],
+          },
           { label: "LIFECYCLE", items: ["Email Flows", "Retargeting Audiences", "Lead Nurturing", "Customer Reactivation"] },
           {
             label: "REPORTING",
             items: ["Performance Dashboards", "Channel Reporting", "Funnel Visibility", "Campaign Learning"],
           },
         ],
+        secondary: {
+          label: "KAPSAM MÜŞTERİYE ÖZEL",
+          items: ["Kurulum", "Entegrasyon", "Sürekli Destek"],
+          note: "Kapsam, işinize göre şekillenir.",
+        },
+      },
+      {
+        number: "06",
+        title: "AI SATIŞ TEMSİLCİSİ",
+        statement: [
+          { text: "Karar vericiyi bulmak başlangıç. " },
+          { text: "Doğru mesajla ona ulaşmak asıl iş.", accent: true },
+        ],
+        supportingCopy: "Araştırma ve ilk taslak hazır; satış ekibiniz oradan devam eder.",
+        groups: [
+          {
+            label: "ARAŞTIRMA",
+            items: ["İlgili Şirketler", "Karar Verici Rolü", "Ticari Fırsat Değerlendirmesi", "İletişim Kaynağı Araştırması"],
+          },
+          { label: "HAZIRLIK", items: ["Kişiselleştirilmiş Taslak", "CRM Kaydı", "Satış Ekibine Teslim"] },
+        ],
+        secondary: {
+          label: "İNSAN KONTROLÜ",
+          items: ["Onay", "Düzenleme", "Gönderim Kararı"],
+          note: "Gönderim kararı her zaman sizde.",
+        },
+        exploreLabel: "TEKNOLOJİYİ İNCELE",
       },
     ],
+  },
+  techSpotlight: {
+    eyebrow: "KITE / TECHNOLOGY",
+    headline: ["REKLAMDAN ÖTESİ.", "BÜYÜMENİN ALTYAPISI."],
+    supportingCopy:
+      "Markanız için yalnızca kampanyalar değil, müşteri ilişkilerini yöneten CRM sistemleri, satış otomasyonları ve yapay zekâ destekli satış çözümleri de geliştiriyoruz.",
+    keywords: ["CRM", "AI SALES", "AUTOMATION", "MANAGED GROWTH"],
+    ctaLabel: "TEKNOLOJİ ÇÖZÜMLERİMİZİ KEŞFET",
+  },
+  technology: {
+    meta: {
+      title: "CRM, AI Satış Temsilcisi ve Managed Growth | KITE Growth",
+      description:
+        "KITE'ın özel CRM, satış otomasyonu ve AI destekli satış araştırması çözümlerini inceleyin. Ayrı ayrı ya da birlikte, işletmenizin sürecine göre kurulur.",
+    },
+    eyebrow: "TEKNOLOJİ",
+    heroStatement: ["KAMPANYA BİTTİĞİNDE,", "İŞ BİTMİYOR."],
+    heroSupport:
+      "Gelen ilgiyi takip eden, hatırlayan ve ileri taşıyan bir sisteme ihtiyaç var. Bunu da biz kuruyoruz.",
+    sections: {
+      crm: {
+        number: "05",
+        title: "CRM & SATIŞ OTOMASYONU",
+        lead: [
+          {
+            text: "Satış fırsatlarını, görüşmeleri, teklifleri ve görevleri tek merkezde topluyoruz. CRM sisteminizi hazır bir şablona değil, ",
+          },
+          { text: "işletmenizin gerçek iş akışına göre geliştiriyoruz.", accent: true },
+        ],
+        pointsLabel: "NELER YAPIYORUZ",
+        points: [
+          "Müşteri ve fırsat kayıtları",
+          "Teklif ve satış süreci takibi",
+          "Görev, hatırlatıcı ve ekip atamaları",
+          "Takım performans görünürlüğü",
+        ],
+        note: "Kapsam, işinize göre şekillenir.",
+      },
+      aiSalesRep: {
+        number: "06",
+        title: "AI SATIŞ TEMSİLCİSİ",
+        lead: [
+          {
+            text: "Potansiyel şirketleri araştıran, ticari iş birliği fırsatlarını değerlendiren, ilgili karar vericileri belirlemeye yardımcı olan ve kişiselleştirilmiş ilk iletişim taslakları hazırlayan AI destekli satış sistemleri geliştiriyoruz. Araştırma sonuçları CRM'e aktarılır, ",
+          },
+          { text: "iletişim kararları ekibinizin kontrolünde kalır.", accent: true },
+        ],
+        pointsLabel: "NELER YAPIYORUZ",
+        points: [
+          "İlgili şirket ve karar verici araştırması",
+          "Ticari fırsat değerlendirmesi",
+          "Kişiselleştirilmiş ilk iletişim taslağı",
+          "CRM'e kayıt ve satış ekibine teslim",
+        ],
+        note: "Garanti bir satış değil — hazırlıklı başlamanızı sağlayan bir araştırma katmanı.",
+      },
+    },
+    managedGrowth: {
+      number: "+",
+      title: "KITE MANAGED GROWTH",
+      lead: [
+        {
+          text: "Sistemi geliştirmekle kalmıyoruz. Tercih eden işletmeler için şirket araştırmalarını, CRM güncellemelerini, satış fırsatlarının takibini ve düzenli raporlamayı ",
+        },
+        { text: "belirlenen kapsamda koordine ediyoruz.", accent: true },
+      ],
+      workingModelLabel: "ÇALIŞMA MODELİ",
+      workingModel: "OPSİYONEL OPERASYON YÖNETİMİ",
+    },
+    closingHeadline: ["İHTİYACINIZI ANLAYALIM.", "ÇÖZÜMÜ ONA GÖRE TASARLAYALIM."],
+    closingSupport:
+      "Her işletmenin süreçleri farklı. CRM, otomasyon ve AI destekli satış çözümlerimizi sizin çalışma modelinize göre planlıyoruz.",
+    ctaLabel: "PROJENİZİ KONUŞALIM",
   },
   investigation: {
     folioNumber: "004",
@@ -1089,7 +1200,8 @@ const tr: SiteDictionary = {
         "PERFORMANCE MEDIA",
         "CREATIVE & CONTENT",
         "WEB & CONVERSION",
-        "DATA / CRM",
+        "CRM & SALES AUTOMATION",
+        "AI SALES REPRESENTATIVE",
         "EMİN DEĞİLİM",
       ],
       messageLabel: "Projenizi kısaca anlatın",
@@ -1105,6 +1217,7 @@ const tr: SiteDictionary = {
     copyright: "© KITE GROWTH AGENCY",
     privacy: "Privacy",
     terms: "Terms",
+    technology: "Teknoloji",
   },
   legal: {
     backToHome: "ANA SAYFAYA DÖN",

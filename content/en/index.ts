@@ -249,22 +249,132 @@ const en: SiteDictionary = {
       },
       {
         number: "05",
-        title: "DATA, CRM & LIFECYCLE",
+        title: "CRM & SALES AUTOMATION",
         statement: [
-          { text: "If we can't see what happens after the click, we can't " },
-          { text: "grow what happens before it in a healthy way.", accent: true },
+          { text: "Forgetting an opportunity is the same as losing it. " },
+          { text: "Your CRM is your memory.", accent: true },
         ],
+        supportingCopy: "Built around how your sales team actually works — not a template.",
         groups: [
           { label: "MEASUREMENT", items: ["GA4", "Google Tag Manager", "Meta Pixel", "Conversions API", "Event Tracking"] },
-          { label: "CRM", items: ["CRM Setup", "Lead Routing", "Customer Segmentation", "CRM Integrations"] },
+          {
+            label: "CRM",
+            items: [
+              "Customer Records",
+              "Opportunity Tracking",
+              "Quote Management",
+              "Task & Reminder Workflows",
+              "User Roles & Permissions",
+              "Team Performance Reporting",
+            ],
+          },
           { label: "LIFECYCLE", items: ["Email Flows", "Retargeting Audiences", "Lead Nurturing", "Customer Reactivation"] },
           {
             label: "REPORTING",
             items: ["Performance Dashboards", "Channel Reporting", "Funnel Visibility", "Campaign Learning"],
           },
         ],
+        secondary: {
+          label: "SCOPE IS CLIENT-SPECIFIC",
+          items: ["Setup", "Integration", "Ongoing Support"],
+          note: "Scope is shaped around your business.",
+        },
+      },
+      {
+        number: "06",
+        title: "AI SALES REPRESENTATIVE",
+        statement: [
+          { text: "Finding the decision-maker is the start. " },
+          { text: "Reaching them with the right message is the work.", accent: true },
+        ],
+        supportingCopy: "Research and the first draft are ready — your sales team picks it up from there.",
+        groups: [
+          {
+            label: "RESEARCH",
+            items: ["Relevant Companies", "Decision-Maker Role", "Commercial Opportunity Review", "Contact Source Research"],
+          },
+          { label: "PREPARATION", items: ["Personalised Draft", "CRM Record", "Handoff to Sales"] },
+        ],
+        secondary: {
+          label: "HUMAN REVIEW",
+          items: ["Approval", "Editing", "Send Decision"],
+          note: "The send decision is always yours.",
+        },
+        exploreLabel: "EXPLORE THE TECHNOLOGY",
       },
     ],
+  },
+  techSpotlight: {
+    eyebrow: "KITE / TECHNOLOGY",
+    headline: ["BEYOND THE CAMPAIGN.", "GROWTH'S BACKBONE."],
+    supportingCopy:
+      "For your brand, we build more than campaigns — the CRM systems that manage customer relationships, the sales automation, and the AI-assisted sales tools behind them.",
+    keywords: ["CRM", "AI SALES", "AUTOMATION", "MANAGED GROWTH"],
+    ctaLabel: "EXPLORE OUR TECHNOLOGY SOLUTIONS",
+  },
+  technology: {
+    meta: {
+      title: "CRM, AI Sales Representative & Managed Growth | KITE Growth",
+      description:
+        "Explore KITE's custom CRM, sales automation and AI-assisted sales research — built around your business process, usable separately or together.",
+    },
+    eyebrow: "TECHNOLOGY",
+    heroStatement: ["THE WORK DOESN'T END", "WHEN THE CAMPAIGN DOES."],
+    heroSupport: "What comes next needs a system that follows up, remembers, and moves things forward. We build that too.",
+    sections: {
+      crm: {
+        number: "05",
+        title: "CRM & SALES AUTOMATION",
+        lead: [
+          {
+            text: "We bring sales opportunities, conversations, quotes and tasks together in one place. We build your CRM around ",
+          },
+          { text: "your business's actual workflow, not a ready-made template.", accent: true },
+        ],
+        pointsLabel: "WHAT WE DO",
+        points: [
+          "Customer & opportunity records",
+          "Quote and sales-process tracking",
+          "Task, reminder & team assignments",
+          "Team performance visibility",
+        ],
+        note: "Scope is shaped around your business.",
+      },
+      aiSalesRep: {
+        number: "06",
+        title: "AI SALES REPRESENTATIVE",
+        lead: [
+          {
+            text: "We build AI-assisted sales systems that research potential companies, evaluate commercial opportunities, help identify the right decision-makers, and prepare personalised first-contact drafts. Research results feed into your CRM, and ",
+          },
+          { text: "outreach decisions stay with your team.", accent: true },
+        ],
+        pointsLabel: "WHAT WE DO",
+        points: [
+          "Relevant company & decision-maker research",
+          "Commercial opportunity review",
+          "Personalised first-contact draft",
+          "CRM record and handoff to sales",
+        ],
+        note: "Not a guaranteed sale — a research layer that lets you start prepared.",
+      },
+    },
+    managedGrowth: {
+      number: "+",
+      title: "KITE MANAGED GROWTH",
+      lead: [
+        {
+          text: "We don't just build the system. For businesses who prefer it, we coordinate company research, CRM updates, sales-opportunity follow-up and regular reporting ",
+        },
+        { text: "within an agreed scope.", accent: true },
+      ],
+      workingModelLabel: "WORKING MODEL",
+      workingModel: "OPTIONAL OPERATIONS MANAGEMENT",
+    },
+    closingHeadline: ["LET'S UNDERSTAND WHAT YOU NEED.", "THEN DESIGN THE SOLUTION AROUND IT."],
+    closingSupport:
+      "Every business runs differently. We plan our CRM, automation and AI-assisted sales solutions around how you actually work.",
+    ctaLabel: "LET'S TALK ABOUT YOUR PROJECT",
   },
   investigation: {
     folioNumber: "004",
@@ -1088,7 +1198,8 @@ const en: SiteDictionary = {
         "PERFORMANCE MEDIA",
         "CREATIVE & CONTENT",
         "WEB & CONVERSION",
-        "DATA / CRM",
+        "CRM & SALES AUTOMATION",
+        "AI SALES REPRESENTATIVE",
         "NOT SURE YET",
       ],
       messageLabel: "Tell us briefly about your project",
@@ -1104,6 +1215,7 @@ const en: SiteDictionary = {
     copyright: "© KITE GROWTH AGENCY",
     privacy: "Privacy",
     terms: "Terms",
+    technology: "Technology",
   },
   legal: {
     backToHome: "BACK TO HOMEPAGE",

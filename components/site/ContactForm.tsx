@@ -1,12 +1,20 @@
 "use client";
 
 import { useId, useState, type FormEvent } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { PrimaryButton } from "@/components/ui";
 import { trackLead as trackMetaLead } from "@/lib/analytics/meta-pixel";
 import { trackLead as trackGa4Lead } from "@/lib/analytics/ga4";
 import { defaultLocale, isLocale } from "@/lib/i18n/locales";
 import { cn } from "@/lib/cn";
+
+/**
+ * Stable, language-independent keys for the `?needs=` query param, in the
+ * same order as every locale's `needsOptions` array. Lets a page like
+ * /technology preselect a need (`?needs=crm,ai-sales`) without the URL
+ * carrying locale-specific label text.
+ */
+const NEEDS_KEYS = ["strategy", "performance", "creative", "web", "crm", "ai-sales", "unsure"] as const;
 
 interface ContactFormContent {
   nameLabel: string;
@@ -79,7 +87,16 @@ function NeedOption({ option, checked, onToggle }: { option: string; checked: bo
 }
 
 export function ContactForm({ content }: { content: ContactFormContent }) {
-  const [selectedNeeds, setSelectedNeeds] = useState<string[]>([]);
+  const searchParams = useSearchParams();
+  // Preselects needs from `?needs=crm,ai-sales` (e.g. arriving from the
+  // Technology page) — read once as the field's initial value, so visitors
+  // can still freely change their selection afterward.
+  const [selectedNeeds, setSelectedNeeds] = useState<string[]>(() => {
+    const param = searchParams.get("needs");
+    if (!param) return [];
+    const requestedKeys = param.split(",");
+    return content.needsOptions.filter((_, i) => requestedKeys.includes(NEEDS_KEYS[i] ?? ""));
+  });
   const [status, setStatus] = useState<Status>("idle");
   const messageId = useId();
   const pathname = usePathname();
