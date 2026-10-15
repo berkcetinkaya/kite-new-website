@@ -18,6 +18,13 @@ interface EditorialOverlayProps {
   topics: OverlayTopic[];
   /** Same length as topics (or a single element when topics is empty) — pre-rendered server content, never re-fetched. */
   panels: ReactNode[];
+  /**
+   * Full layout for the trigger `<button>`, including display/flex
+   * utilities — the component itself contributes no layout classes so two
+   * very different trigger shapes (ApproachEntry's inline label+arrow,
+   * SelectedWork's full-width title+support+arrow row) can share one
+   * implementation without fighting each other's classes.
+   */
   triggerClassName?: string;
   arrowClassName?: string;
   /**
@@ -27,6 +34,8 @@ interface EditorialOverlayProps {
    * render exactly as before.
    */
   actionLabel?: string;
+  /** Optional short line under `label`, e.g. "Discover the thinking behind the projects." */
+  description?: string;
 }
 
 /**
@@ -56,6 +65,7 @@ export function EditorialOverlay({
   triggerClassName,
   arrowClassName = "text-kite",
   actionLabel,
+  description,
 }: EditorialOverlayProps) {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(0);
@@ -107,25 +117,34 @@ export function EditorialOverlay({
           setOpen(true);
         }}
         className={cn(
-          "group inline-flex items-center gap-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-kite-dark",
+          "group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-kite-dark",
           triggerClassName,
         )}
       >
-        <span>{label}</span>
-        {actionLabel && (
-          <span className="ml-auto flex items-center gap-2xs font-body text-[11px] font-semibold uppercase tracking-widest">
-            <span className="hidden h-px w-lg bg-current opacity-30 sm:block" aria-hidden />
-            {actionLabel}
-          </span>
-        )}
-        <span
-          aria-hidden
-          className={cn(
-            "inline-block transition-editorial group-hover:translate-x-1 group-hover:-translate-y-1",
-            arrowClassName,
+        <span className="flex min-w-0 flex-1 flex-col items-start gap-3xs">
+          <span>{label}</span>
+          {description && (
+            <span className="font-body text-body-sm font-normal normal-case tracking-normal text-current opacity-60">
+              {description}
+            </span>
           )}
-        >
-          <ArrowIcon />
+        </span>
+        <span className="flex shrink-0 items-center gap-sm">
+          {actionLabel && (
+            <span className="flex items-center gap-2xs font-body text-[11px] font-semibold uppercase tracking-widest">
+              <span className="hidden h-px w-lg bg-current opacity-30 sm:block" aria-hidden />
+              {actionLabel}
+            </span>
+          )}
+          <span
+            aria-hidden
+            className={cn(
+              "inline-block transition-editorial group-hover:translate-x-1 group-hover:-translate-y-1",
+              arrowClassName,
+            )}
+          >
+            <ArrowIcon />
+          </span>
         </span>
       </button>
 

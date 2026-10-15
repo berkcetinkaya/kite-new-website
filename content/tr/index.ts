@@ -725,6 +725,7 @@ const tr: SiteDictionary = {
     systemLabel: "SİSTEM",
     ongoingLabel: "DEVAM EDİYOR",
     exploreLabel: "KEŞFET",
+    exploreSupport: "Projelerin arkasındaki yaklaşımımızı keşfet.",
     cases: [
       {
         number: "01",

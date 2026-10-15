@@ -45,30 +45,29 @@ export async function SelectedWork() {
     <section id="work" className="relative scroll-mt-[var(--header-h)] bg-paper pt-[48px] xl:pt-[65px]">
       <SiteContainer>
         <WorkGrid projects={projects} featuredLabel={work.featuredLabel} statusOngoing={work.statusOngoing} cta={work.cta} />
-      </SiteContainer>
 
-      {/* Deep-dive access, not another homepage section: the same real
-          engagements (CaseStudies, unchanged) that used to run as a full
-          sequential section now open only on request — overview here,
-          detail only if asked for. Styled as a full-width bordered row
-          (not inline text) specifically so it reads as a control, not a
-          heading: a generous click/tap target, a persistent underline-style
-          border rather than a hover-only one, a short action word next to
-          the arrow, and a subtle hover wash — the same restrained "row"
-          language CapabilityRow/PrincipleRow already use elsewhere. */}
-      <div className="mt-lg border-t border-b border-line xl:mt-xl">
-        <SiteContainer>
+        {/* Deep-dive access, not another homepage section: the same real
+            engagements (CaseStudies, unchanged) that used to run as a full
+            sequential section now open only on request — overview here,
+            detail only if asked for. Sits inside the grid's own container as
+            that grid's closing row rather than a separate bordered strip: a
+            single top divider (the same restrained "row" language
+            CapabilityRow/PrincipleRow use elsewhere — never a boxed top+bottom
+            rule), a two-line title+support block, a generous click/tap
+            target, and a subtle hover wash. */}
+        <div className="mt-lg border-t border-line xl:mt-xl">
           <EditorialOverlay
             label={caseStudies.title}
             closeLabel={ui.closeLabel}
             topics={[]}
             panels={[<CaseStudies key="caseStudies" />]}
             actionLabel={caseStudies.exploreLabel}
-            triggerClassName="w-full py-sm font-display text-display-sm font-black uppercase leading-none text-ink transition-editorial hover:bg-ink/[0.02] hover:text-kite-dark xl:py-md xl:text-display-md"
+            description={caseStudies.exploreSupport}
+            triggerClassName="flex w-full items-center justify-between gap-md py-md text-left font-display text-display-sm font-black uppercase leading-none text-ink transition-editorial hover:bg-ink/[0.02] hover:text-kite-dark xl:py-lg xl:text-display-md"
             arrowClassName="text-kite-dark"
           />
-        </SiteContainer>
-      </div>
+        </div>
+      </SiteContainer>
 
       <div className="mt-[24px] border-t border-line xl:mt-[26px]">
         <SiteContainer className="flex items-center justify-between py-xs">

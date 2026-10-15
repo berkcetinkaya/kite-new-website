@@ -364,6 +364,8 @@ export interface SiteDictionary {
     ongoingLabel: string;
     /** Short action word shown in the homepage trigger that opens this section, e.g. "KEŞFET" / "EXPLORE". */
     exploreLabel: string;
+    /** One short line under the trigger's title, e.g. "Projelerin arkasındaki yaklaşımımızı keşfet." */
+    exploreSupport: string;
     cases: Array<{
       number: string;
       client: string;

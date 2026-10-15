@@ -726,6 +726,7 @@ const en: SiteDictionary = {
     systemLabel: "SYSTEM",
     ongoingLabel: "ONGOING",
     exploreLabel: "EXPLORE",
+    exploreSupport: "Discover the thinking behind the projects.",
     cases: [
       {
         number: "01",

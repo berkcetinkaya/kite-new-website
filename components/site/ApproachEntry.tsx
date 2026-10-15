@@ -34,7 +34,7 @@ export async function ApproachEntry() {
           closeLabel={ui.closeLabel}
           topics={approach.topics}
           panels={panels}
-          triggerClassName="font-display text-display-sm font-black uppercase leading-none text-paper transition-editorial hover:text-kite xl:text-display-md"
+          triggerClassName="inline-flex items-center gap-sm font-display text-display-sm font-black uppercase leading-none text-paper transition-editorial hover:text-kite xl:text-display-md"
         />
       </SiteContainer>
     </div>
