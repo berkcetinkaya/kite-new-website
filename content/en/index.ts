@@ -748,7 +748,7 @@ const en: SiteDictionary = {
         systemJoiner: "arrow",
         smallLine: [{ text: "From the ad to the booking." }, { text: "From the booking to the CRM." }],
         imageAlign: "left",
-        image: "/case-studies/desetour.jpg",
+        photo: { src: "/brand/desetour.png", alt: "DeseTour's curated-experience folio, a camera, and a cup of coffee on a balcony overlooking Istanbul." },
       },
       {
         number: "02",
@@ -772,16 +772,14 @@ const en: SiteDictionary = {
         smallLine: [{ text: "Brand and performance" }, { text: "meet in the same creative.", accent: true }],
         dark: true,
         imageAlign: "right",
-        image: "/case-studies/ecru-atelier.jpg",
+        photo: { src: "/brand/ecruatelier.png", alt: "An editorial composition for Ecru Atelier: a model wearing the brand's pearl jewelry, styled with a pearl-trimmed stand and flowers." },
       },
     ],
-    closing: [
-      { text: "Every project's scope is different." },
-      { text: "The logic is the same.", accent: true },
-      { text: "Find the problem." },
-      { text: "Connect the right pieces." },
-      { text: "Learn." },
-    ],
+    closing: {
+      statement: [{ text: "Every project's scope is different." }, { text: "The logic is the same.", accent: true }],
+      support: "We find the problem. We connect the right pieces. We learn.",
+      keywords: ["PROBLEM", "SYSTEM", "LEARNING"],
+    },
   },
   collaboration: {
     folioNumber: "009",

@@ -747,7 +747,7 @@ const tr: SiteDictionary = {
         systemJoiner: "arrow",
         smallLine: [{ text: "Reklamdan booking'e." }, { text: "Booking'den CRM'e." }],
         imageAlign: "left",
-        image: "/case-studies/desetour.jpg",
+        photo: { src: "/brand/desetour.png", alt: "İstanbul manzarasına bakan bir balkonda Dese Tour'un kürasyonlu deneyim föyü, bir kamera ve bir fincan kahve." },
       },
       {
         number: "02",
@@ -771,16 +771,14 @@ const tr: SiteDictionary = {
         smallLine: [{ text: "Brand ile performance" }, { text: "aynı creative'de buluşuyor.", accent: true }],
         dark: true,
         imageAlign: "right",
-        image: "/case-studies/ecru-atelier.jpg",
+        photo: { src: "/brand/ecruatelier.png", alt: "Ecru Atelier'in inci mücevherlerini takan bir model, inci işlemeli bir sehpa ve çiçeklerle kurgulanmış bir editoryal kompozisyon." },
       },
     ],
-    closing: [
-      { text: "Her işin kapsamı farklı." },
-      { text: "Mantığı aynı.", accent: true },
-      { text: "Problemi bul." },
-      { text: "Doğru parçaları bağla." },
-      { text: "Öğren." },
-    ],
+    closing: {
+      statement: [{ text: "Her işin kapsamı farklı." }, { text: "Mantığı aynı.", accent: true }],
+      support: "Problemi buluyoruz. Doğru parçaları bağlıyoruz. Öğreniyoruz.",
+      keywords: ["PROBLEM", "SİSTEM", "ÖĞRENME"],
+    },
   },
   collaboration: {
     folioNumber: "009",

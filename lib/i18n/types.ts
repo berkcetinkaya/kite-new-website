@@ -342,9 +342,10 @@ export interface SiteDictionary {
   };
   /**
    * "008 / İşin Arkasındaki İş" — not another portfolio grid (Selected Work
-   * already shows the work visually); three real client engagements shown
-   * as full editorial features, one per case, alternating image side and
-   * with Ecru Atelier as the section's one dark interruption. Shared field
+   * already shows the work visually); two real client engagements shown
+   * as full editorial features, one per case, each led by its own real
+   * campaign photography, with Ecru Atelier as the section's one dark
+   * interruption. Shared field
    * labels (`scopeLabel` etc.) live once at the section level since the
    * same word heads that field on every case. No case carries invented
    * performance numbers — where hard data isn't available the content
@@ -384,12 +385,26 @@ export interface SiteDictionary {
       ongoing?: boolean;
       /** Ecru only — the section's one dark case. */
       dark?: boolean;
+      /** Which text column (statement+context vs. the detail columns) leads below the photo. */
       imageAlign: "left" | "right";
-      /** Real project screenshot, served from /public. Falls back to CaseStudyFeature's dark gradient placeholder when omitted. */
-      image?: string;
+      /**
+       * Real campaign photography for this case (e.g. "/brand/desetour.png")
+       * — never a diagram, screenshot, or stock image. Falls back to
+       * CaseStudyFeature's dark gradient placeholder when omitted.
+       */
+      photo?: { src: string; alt: string };
     }>;
-    /** Five lines across two statements; one fragment carries the kite accent. */
-    closing: Array<{ text: string; accent?: boolean }>;
+    /**
+     * The section's close, as one balanced two-column block (not a
+     * stacked poster): a short statement, a short supporting sentence,
+     * and optional small directional keywords.
+     */
+    closing: {
+      /** Two lines max, segmented so one fragment can carry the kite accent. */
+      statement: Array<{ text: string; accent?: boolean }>;
+      support: string;
+      keywords: string[];
+    };
   };
   /**
    * "009 / Bizimle Nasıl Çalışabilirsiniz?" — four collaboration models, not

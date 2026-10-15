@@ -57,14 +57,30 @@ export async function CaseStudies() {
         ))}
       </div>
 
+      {/* Chapter-ending signal — the same device Capabilities uses to close
+          its own system, repurposed here to double as the closing block's
+          "small system keywords" instead of repeating them twice. Bridges
+          Ecru's dark panel back to paper with one confident beat instead of
+          an abrupt light/dark/light cut. */}
+      <div className="bg-kite py-[3px]">
+        <SiteContainer>
+          <p className="text-center font-body text-[8px] font-bold uppercase leading-none tracking-[0.35em] text-ink">
+            {caseStudies.closing.keywords.join(" · ")}
+          </p>
+        </SiteContainer>
+      </div>
+
       <SiteContainer>
-        <div className={cn("max-w-[30ch] border-t border-line py-2xl xl:py-3xl")}>
-          <p className="font-display text-display-md font-black uppercase leading-[1.05] text-ink xl:text-display-lg">
-            {caseStudies.closing.map((segment, i) => (
-              <span key={i} className={cn("block", segment.accent && "text-kite")}>
+        <div className="grid grid-cols-1 gap-y-md py-2xl xl:grid-cols-12 xl:gap-x-xl xl:py-3xl">
+          <h3 className="max-w-[18ch] font-display text-display-md font-black uppercase leading-[1.05] text-ink xl:col-span-7 xl:text-display-lg">
+            {caseStudies.closing.statement.map((segment, i) => (
+              <span key={i} className={cn("block", segment.accent && "text-kite-dark")}>
                 {segment.text}
               </span>
             ))}
+          </h3>
+          <p className="max-w-[36ch] font-body text-body-md text-ink-soft xl:col-span-4 xl:col-start-9 xl:self-end xl:border-l xl:border-line-soft xl:pl-lg">
+            {caseStudies.closing.support}
           </p>
         </div>
       </SiteContainer>

@@ -23,7 +23,7 @@ interface CaseStudy {
   ongoing?: boolean;
   dark?: boolean;
   imageAlign: "left" | "right";
-  image?: string;
+  photo?: { src: string; alt: string };
 }
 
 /** Small L-shaped crop-guide marks at an image's four corners — a technical index signal, not a frame. */
@@ -40,14 +40,17 @@ function CropGuides() {
 }
 
 /**
- * One case as a full editorial feature — never a card. Image side alternates
- * per `imageAlign`; Ecru renders `dark` (the section's one black case), so
- * every text color below branches as a whole class string rather than an
- * appended override, same discipline as CapabilityRow's `dark` prop.
- * `image` is a real screenshot of the client's live site when supplied;
- * the zone falls back to the same dark gradient placeholder WorkGrid.tsx
- * uses when a case doesn't have one yet, so adding a photo later needs no
- * layout change here either.
+ * One case as a full editorial feature — never a card. Ecru renders `dark`
+ * (the section's one black case), so every text color below branches as a
+ * whole class string rather than an appended override, same discipline as
+ * CapabilityRow's `dark` prop. `study.photo` is real campaign photography
+ * for that client — never a diagram, screenshot, or stock image — shown
+ * full-width at its native 1672:941 ratio (both current photos share that
+ * ratio) so nothing gets cropped into a portrait box it wasn't shot for.
+ * Falls back to the same dark gradient placeholder WorkGrid.tsx uses when a
+ * case doesn't have a photo yet. The two text columns below it swap order
+ * per `imageAlign` ("left" leads with the statement/context column) purely
+ * to keep some rhythm between cases now that the photo itself is full width.
  */
 export function CaseStudyFeature({
   labels,
@@ -59,7 +62,7 @@ export function CaseStudyFeature({
   total: number;
 }) {
   const { dark } = study;
-  const imageFirst = study.imageAlign === "left";
+  const leadFirst = study.imageAlign === "left";
 
   return (
     <div className={cn("group relative border-t border-line", dark && "bg-ink")}>
@@ -93,44 +96,52 @@ export function CaseStudyFeature({
           </span>
         </div>
 
-        <div className="grid grid-cols-1 gap-y-lg py-xl xl:grid-cols-12 xl:items-start xl:gap-x-xl xl:py-2xl">
-          <div className={cn("xl:col-span-7", imageFirst ? "xl:order-1" : "xl:order-2")}>
-            <div className="relative aspect-[4/3] w-full overflow-hidden">
-              {study.image ? (
-                <Image src={study.image} alt="" fill sizes="(min-width: 1280px) 54vw, 100vw" className="object-cover transition-editorial group-hover:scale-[1.02]" />
-              ) : (
-                <div className="paper-texture-dark absolute inset-0 bg-gradient-to-br from-[#232323] via-ink to-black transition-editorial group-hover:scale-[1.02]" />
-              )}
-              <CropGuides />
-              {study.ongoing && (
-                <span className="absolute bottom-2xs left-2 flex items-center gap-2xs bg-ink px-2xs py-3xs font-body text-[9px] font-semibold uppercase tracking-widest text-paper">
-                  <span aria-hidden className="h-1.5 w-1.5 shrink-0 rounded-full bg-kite" />
-                  {labels.ongoing}
-                </span>
-              )}
-            </div>
+        <div className="py-xl xl:py-2xl">
+          <div className="relative w-full overflow-hidden" style={{ aspectRatio: "1672 / 941" }}>
+            {study.photo ? (
+              <Image
+                src={study.photo.src}
+                alt={study.photo.alt}
+                fill
+                sizes="(min-width: 1536px) 1520px, 100vw"
+                className="object-cover"
+                priority={false}
+              />
+            ) : (
+              <div className="paper-texture-dark absolute inset-0 bg-gradient-to-br from-[#232323] via-ink to-black" />
+            )}
+            <CropGuides />
+            {study.ongoing && (
+              <span className="absolute bottom-2xs left-2 flex items-center gap-2xs bg-ink px-2xs py-3xs font-body text-[9px] font-semibold uppercase tracking-widest text-paper">
+                <span aria-hidden className="h-1.5 w-1.5 shrink-0 rounded-full bg-kite" />
+                {labels.ongoing}
+              </span>
+            )}
           </div>
 
-          <div className={cn("xl:col-span-5", imageFirst ? "xl:order-2" : "xl:order-1")}>
-            <p
-              className={cn(
-                "font-display text-display-sm font-black uppercase leading-[1.08] xl:text-display-md",
-                dark ? "text-paper" : "text-ink",
-              )}
-            >
-              {study.statement.map((segment, i) => (
-                <span key={i} className={cn("block", segment.accent && "text-kite")}>
-                  {segment.text}
-                </span>
-              ))}
-            </p>
+          <div className="mt-lg grid grid-cols-1 gap-y-lg xl:mt-xl xl:grid-cols-12 xl:gap-x-xl">
+            <div className={cn("xl:col-span-5", leadFirst ? "xl:order-1" : "xl:order-2")}>
+              <p
+                className={cn(
+                  "font-display text-display-sm font-black uppercase leading-[1.08] xl:text-display-md",
+                  dark ? "text-paper" : "text-ink",
+                )}
+              >
+                {study.statement.map((segment, i) => (
+                  <span key={i} className={cn("block", segment.accent && "text-kite")}>
+                    {segment.text}
+                  </span>
+                ))}
+              </p>
 
-            <div className={cn("mt-lg border-t pt-sm", dark ? "border-[rgba(242,238,228,0.16)]" : "border-line-soft")}>
-              <span className="font-body text-[10px] font-semibold uppercase tracking-widest text-kite">{labels.context}</span>
-              <p className={cn("mt-2xs font-body text-body-md", dark ? "text-paper-soft" : "text-ink-soft")}>{study.context}</p>
+              <div className={cn("mt-lg border-t pt-sm", dark ? "border-[rgba(242,238,228,0.16)]" : "border-line-soft")}>
+                <span className="font-body text-[10px] font-semibold uppercase tracking-widest text-kite">{labels.context}</span>
+                <p className={cn("mt-2xs font-body text-body-md", dark ? "text-paper-soft" : "text-ink-soft")}>{study.context}</p>
+              </div>
             </div>
 
-            <div className={cn("mt-md border-t pt-sm", dark ? "border-[rgba(242,238,228,0.16)]" : "border-line-soft")}>
+            <div className={cn("xl:col-span-7", leadFirst ? "xl:order-2" : "xl:order-1")}>
+            <div className={cn("mt-lg border-t pt-sm xl:mt-0", dark ? "border-[rgba(242,238,228,0.16)]" : "border-line-soft")}>
               <span className="font-body text-[10px] font-semibold uppercase tracking-widest text-kite">{labels.scope}</span>
               <ul
                 className={cn(
@@ -223,6 +234,7 @@ export function CaseStudyFeature({
                 ))}
               </p>
             )}
+            </div>
           </div>
         </div>
       </SiteContainer>
