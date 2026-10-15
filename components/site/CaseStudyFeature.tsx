@@ -44,17 +44,19 @@ function CropGuides() {
  * per `imageAlign`; Ecru renders `dark` (the section's one black case), so
  * every text color below branches as a whole class string rather than an
  * appended override, same discipline as CapabilityRow's `dark` prop.
- * No real project photography exists yet (Selected Work's own WorkGrid.tsx
- * is in the same position) — the image zone falls back to that exact same
- * dark gradient placeholder, so a real photo dropped into `image` later
- * needs no layout change here either.
+ * `image` is a real screenshot of the client's live site when supplied;
+ * the zone falls back to the same dark gradient placeholder WorkGrid.tsx
+ * uses when a case doesn't have one yet, so adding a photo later needs no
+ * layout change here either.
  */
 export function CaseStudyFeature({
   labels,
   study,
+  total,
 }: {
   labels: { scope: string; context: string; work: string; system: string; ongoing: string };
   study: CaseStudy;
+  total: number;
 }) {
   const { dark } = study;
   const imageFirst = study.imageAlign === "left";
@@ -70,7 +72,7 @@ export function CaseStudyFeature({
         >
           <div className="flex items-baseline gap-sm">
             <span className="font-body text-[11px] font-semibold uppercase tabular-nums tracking-widest text-kite">
-              {study.number} / 03
+              {study.number} / {String(total).padStart(2, "0")}
             </span>
             <h3
               className={cn(

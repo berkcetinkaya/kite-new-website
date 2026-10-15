@@ -361,6 +361,8 @@ export interface SiteDictionary {
     workLabel: string;
     systemLabel: string;
     ongoingLabel: string;
+    /** Short action word shown in the homepage trigger that opens this section, e.g. "KEŞFET" / "EXPLORE". */
+    exploreLabel: string;
     cases: Array<{
       number: string;
       client: string;
@@ -373,16 +375,18 @@ export interface SiteDictionary {
       systemSequence: string[];
       /** "arrow" for a linear/looping flow, "plus" for parts that combine rather than proceed in sequence (Ecru). */
       systemJoiner: "arrow" | "plus";
-      /** Loops the sequence's last step back to its first (Lyxaskin). */
+      /** Loops the sequence's last step back to its first — unused by either current case, kept for a future looping sequence. */
       systemLoop?: boolean;
       /** Short editorial punch line — Desetour and Ecru only. */
       smallLine?: Array<{ text: string; accent?: boolean }>;
-      /** Two-line close — Lyxaskin only. */
+      /** Two-line close — unused by either current case, kept for a future ongoing-partnership case. */
       closingLine?: Array<{ text: string; accent?: boolean }>;
       ongoing?: boolean;
       /** Ecru only — the section's one dark case. */
       dark?: boolean;
       imageAlign: "left" | "right";
+      /** Real project screenshot, served from /public. Falls back to CaseStudyFeature's dark gradient placeholder when omitted. */
+      image?: string;
     }>;
     /** Five lines across two statements; one fragment carries the kite accent. */
     closing: Array<{ text: string; accent?: boolean }>;

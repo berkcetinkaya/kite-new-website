@@ -724,6 +724,7 @@ const tr: SiteDictionary = {
     workLabel: "KITE NEYE DOKUNDU?",
     systemLabel: "SİSTEM",
     ongoingLabel: "DEVAM EDİYOR",
+    exploreLabel: "KEŞFET",
     cases: [
       {
         number: "01",
@@ -746,6 +747,7 @@ const tr: SiteDictionary = {
         systemJoiner: "arrow",
         smallLine: [{ text: "Reklamdan booking'e." }, { text: "Booking'den CRM'e." }],
         imageAlign: "left",
+        image: "/case-studies/desetour.jpg",
       },
       {
         number: "02",
@@ -769,28 +771,7 @@ const tr: SiteDictionary = {
         smallLine: [{ text: "Brand ile performance" }, { text: "aynı creative'de buluşuyor.", accent: true }],
         dark: true,
         imageAlign: "right",
-      },
-      {
-        number: "03",
-        client: "LYXASKIN",
-        category: "SKINCARE",
-        statement: [{ text: "Content üretiyoruz." }, { text: "Sonra ne yaptığına bakıyoruz.", accent: true }],
-        context: "Lyxa Skin, devam eden bir sosyal medya ve performans ortaklığı.",
-        scope: ["Social Media Management", "Creative", "Paid Media"],
-        workItems: [
-          "Product communication",
-          "Social content",
-          "Creative direction",
-          "Performance creative",
-          "Paid campaigns",
-          "Creative iteration",
-        ],
-        systemSequence: ["ÜRET", "YAYINLA", "ÖLÇ", "ÖĞREN", "YENİDEN ÜRET"],
-        systemJoiner: "arrow",
-        systemLoop: true,
-        closingLine: [{ text: "Creative bir teslim değil." }, { text: "Döngü.", accent: true }],
-        ongoing: true,
-        imageAlign: "left",
+        image: "/case-studies/ecru-atelier.jpg",
       },
     ],
     closing: [

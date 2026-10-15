@@ -20,6 +20,13 @@ interface EditorialOverlayProps {
   panels: ReactNode[];
   triggerClassName?: string;
   arrowClassName?: string;
+  /**
+   * Optional short action word (e.g. "KEŞFET") rendered inside the trigger
+   * next to the arrow — part of the same clickable button, never a
+   * separate element. Omitted by default so existing callers (ApproachEntry)
+   * render exactly as before.
+   */
+  actionLabel?: string;
 }
 
 /**
@@ -48,6 +55,7 @@ export function EditorialOverlay({
   panels,
   triggerClassName,
   arrowClassName = "text-kite",
+  actionLabel,
 }: EditorialOverlayProps) {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(0);
@@ -98,12 +106,24 @@ export function EditorialOverlay({
           setActive(0);
           setOpen(true);
         }}
-        className={cn("group inline-flex items-center gap-sm", triggerClassName)}
+        className={cn(
+          "group inline-flex items-center gap-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-kite-dark",
+          triggerClassName,
+        )}
       >
         <span>{label}</span>
+        {actionLabel && (
+          <span className="ml-auto flex items-center gap-2xs font-body text-[11px] font-semibold uppercase tracking-widest">
+            <span className="hidden h-px w-lg bg-current opacity-30 sm:block" aria-hidden />
+            {actionLabel}
+          </span>
+        )}
         <span
           aria-hidden
-          className={cn("inline-block transition-editorial group-hover:translate-x-1 group-hover:-translate-y-1", arrowClassName)}
+          className={cn(
+            "inline-block transition-editorial group-hover:translate-x-1 group-hover:-translate-y-1",
+            arrowClassName,
+          )}
         >
           <ArrowIcon />
         </span>

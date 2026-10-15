@@ -5,7 +5,7 @@ import { cn } from "@/lib/cn";
 
 /**
  * "008 / İşin Arkasındaki İş" — Selected Work already shows the projects
- * visually; this section shows what actually happened behind three of
+ * visually; this section shows what actually happened behind two of
  * them, as full editorial features rather than another portfolio grid.
  * Ecru Atelier (case 02) carries the section's one dark interruption — see
  * CaseStudyFeature's `dark` branch. There's no hint bar left over from 007
@@ -53,7 +53,7 @@ export async function CaseStudies() {
 
       <div className="mt-xl xl:mt-2xl">
         {caseStudies.cases.map((study) => (
-          <CaseStudyFeature key={study.number} labels={labels} study={study} />
+          <CaseStudyFeature key={study.number} labels={labels} study={study} total={caseStudies.cases.length} />
         ))}
       </div>
 

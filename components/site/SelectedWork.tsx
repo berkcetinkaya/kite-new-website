@@ -47,20 +47,28 @@ export async function SelectedWork() {
         <WorkGrid projects={projects} featuredLabel={work.featuredLabel} statusOngoing={work.statusOngoing} cta={work.cta} />
       </SiteContainer>
 
-      {/* Deep-dive access, not another homepage section: the same three real
+      {/* Deep-dive access, not another homepage section: the same real
           engagements (CaseStudies, unchanged) that used to run as a full
           sequential section now open only on request — overview here,
-          detail only if asked for. */}
-      <SiteContainer className="mt-md xl:mt-lg">
-        <EditorialOverlay
-          label={caseStudies.title}
-          closeLabel={ui.closeLabel}
-          topics={[]}
-          panels={[<CaseStudies key="caseStudies" />]}
-          triggerClassName="font-body text-label font-semibold uppercase tracking-wide text-ink transition-editorial hover:text-kite-dark"
-          arrowClassName="text-kite-dark"
-        />
-      </SiteContainer>
+          detail only if asked for. Styled as a full-width bordered row
+          (not inline text) specifically so it reads as a control, not a
+          heading: a generous click/tap target, a persistent underline-style
+          border rather than a hover-only one, a short action word next to
+          the arrow, and a subtle hover wash — the same restrained "row"
+          language CapabilityRow/PrincipleRow already use elsewhere. */}
+      <div className="mt-lg border-t border-b border-line xl:mt-xl">
+        <SiteContainer>
+          <EditorialOverlay
+            label={caseStudies.title}
+            closeLabel={ui.closeLabel}
+            topics={[]}
+            panels={[<CaseStudies key="caseStudies" />]}
+            actionLabel={caseStudies.exploreLabel}
+            triggerClassName="w-full py-sm font-display text-display-sm font-black uppercase leading-none text-ink transition-editorial hover:bg-ink/[0.02] hover:text-kite-dark xl:py-md xl:text-display-md"
+            arrowClassName="text-kite-dark"
+          />
+        </SiteContainer>
+      </div>
 
       <div className="mt-[24px] border-t border-line xl:mt-[26px]">
         <SiteContainer className="flex items-center justify-between py-xs">

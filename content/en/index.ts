@@ -725,6 +725,7 @@ const en: SiteDictionary = {
     workLabel: "WHAT KITE TOUCHED",
     systemLabel: "SYSTEM",
     ongoingLabel: "ONGOING",
+    exploreLabel: "EXPLORE",
     cases: [
       {
         number: "01",
@@ -747,6 +748,7 @@ const en: SiteDictionary = {
         systemJoiner: "arrow",
         smallLine: [{ text: "From the ad to the booking." }, { text: "From the booking to the CRM." }],
         imageAlign: "left",
+        image: "/case-studies/desetour.jpg",
       },
       {
         number: "02",
@@ -770,28 +772,7 @@ const en: SiteDictionary = {
         smallLine: [{ text: "Brand and performance" }, { text: "meet in the same creative.", accent: true }],
         dark: true,
         imageAlign: "right",
-      },
-      {
-        number: "03",
-        client: "LYXASKIN",
-        category: "SKINCARE",
-        statement: [{ text: "We produce content." }, { text: "Then we look at what it does.", accent: true }],
-        context: "Lyxa Skin is an ongoing social and performance partnership.",
-        scope: ["Social Media Management", "Creative", "Paid Media"],
-        workItems: [
-          "Product communication",
-          "Social content",
-          "Creative direction",
-          "Performance creative",
-          "Paid campaigns",
-          "Creative iteration",
-        ],
-        systemSequence: ["CREATE", "PUBLISH", "MEASURE", "LEARN", "CREATE AGAIN"],
-        systemJoiner: "arrow",
-        systemLoop: true,
-        closingLine: [{ text: "Creative isn't a deliverable." }, { text: "It's a loop.", accent: true }],
-        ongoing: true,
-        imageAlign: "left",
+        image: "/case-studies/ecru-atelier.jpg",
       },
     ],
     closing: [
