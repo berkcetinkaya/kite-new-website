@@ -28,11 +28,13 @@ export async function Footer() {
   const dict = await getDictionary();
   const { brand, header, footer } = dict;
 
+  const homeHref = `/${locale}`;
+
   const navItems = [
-    { label: header.nav.work, href: "#work" },
-    { label: header.nav.services, href: "#services" },
-    { label: header.nav.about, href: "#about" },
-    { label: header.mobileMenu.nav.contact, href: "#contact" },
+    { label: header.nav.work, href: `${homeHref}#work` },
+    { label: header.nav.services, href: `${homeHref}#services` },
+    { label: header.nav.about, href: `${homeHref}#about` },
+    { label: header.mobileMenu.nav.contact, href: `${homeHref}#contact` },
   ];
 
   return (

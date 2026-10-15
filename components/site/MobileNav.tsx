@@ -89,10 +89,10 @@ export function MobileNav({
   }, [open]);
 
   const navItems: Array<{ num: string; label: string; href: string }> = [
-    { num: "01", label: nav.work, href: "#work" },
-    { num: "02", label: nav.services, href: "#services" },
-    { num: "03", label: nav.about, href: "#about" },
-    { num: "04", label: nav.contact, href: "#contact" },
+    { num: "01", label: nav.work, href: `${homeHref}#work` },
+    { num: "02", label: nav.services, href: `${homeHref}#services` },
+    { num: "03", label: nav.about, href: `${homeHref}#about` },
+    { num: "04", label: nav.contact, href: `${homeHref}#contact` },
   ];
 
   const lineBase = "absolute left-1/2 top-1/2 h-px w-5 -translate-x-1/2 bg-paper transition-editorial";

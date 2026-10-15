@@ -51,10 +51,10 @@ export async function Header() {
           </div>
 
           <nav aria-label="Main" className="flex items-center justify-center gap-lg py-[20px]">
-            <NavLink href="#work">{dict.header.nav.work}</NavLink>
-            <NavLink href="#services">{dict.header.nav.services}</NavLink>
-            <NavLink href="#about">{dict.header.nav.about}</NavLink>
-            <NavLink href="#contact">{dict.header.nav.contact}</NavLink>
+            <NavLink href={`${homeHref}#work`}>{dict.header.nav.work}</NavLink>
+            <NavLink href={`${homeHref}#services`}>{dict.header.nav.services}</NavLink>
+            <NavLink href={`${homeHref}#about`}>{dict.header.nav.about}</NavLink>
+            <NavLink href={`${homeHref}#contact`}>{dict.header.nav.contact}</NavLink>
           </nav>
 
           <div className="flex items-stretch gap-lg">
@@ -71,7 +71,7 @@ export async function Header() {
             </div>
 
             <Link
-              href="#contact"
+              href={`${homeHref}#contact`}
               className="group relative -my-[20px] -mr-gutter flex shrink-0 items-center justify-center gap-2xs self-stretch bg-ink px-lg font-body text-label font-semibold uppercase tracking-wide text-paper transition-editorial hover:bg-kite hover:text-ink xl:min-w-[15vw]"
             >
               <span>{dict.header.cta}</span>
