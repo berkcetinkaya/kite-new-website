@@ -6,6 +6,11 @@ const tr: SiteDictionary = {
     description:
       "KITE Growth Agency için geliştirilen editoryal tasarım sisteminin dahili önizlemesi.",
   },
+  homeMeta: {
+    title: "KITE Growth | Performans Pazarlama, Kreatif ve Teknoloji Ajansı",
+    description:
+      "Performans pazarlama, kreatif prodüksiyon, web geliştirme, özel CRM ve AI destekli satış teknolojisi — KITE Growth, marka büyümesini tek bir sistemde yönetir. İstanbul & Bali merkezli.",
+  },
   brand: {
     name: "KITE",
     agencyType: "GROWTH AGENCY",

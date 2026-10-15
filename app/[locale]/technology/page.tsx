@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getDictionary, getLocale } from "@/lib/i18n/get-dictionary";
+import { localizedAlternates } from "@/lib/seo/site";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { TechnologySection } from "@/components/site/TechnologySection";
@@ -8,10 +9,28 @@ import { SiteContainer, PrimaryButton } from "@/components/ui";
 
 export async function generateMetadata(): Promise<Metadata> {
   const { technology } = await getDictionary();
+  const locale = await getLocale();
+  const alternates = localizedAlternates(locale, "/technology");
 
   return {
     title: technology.meta.title,
     description: technology.meta.description,
+    alternates,
+    openGraph: {
+      title: technology.meta.title,
+      description: technology.meta.description,
+      url: alternates.canonical,
+      siteName: "KITE Growth Agency",
+      images: [{ url: "/brand/kite-logo.png", width: 1024, height: 1024, alt: "KITE Growth Agency" }],
+      locale: locale === "tr" ? "tr_TR" : "en_US",
+      type: "website",
+    },
+    twitter: {
+      card: "summary",
+      title: technology.meta.title,
+      description: technology.meta.description,
+      images: ["/brand/kite-logo.png"],
+    },
   };
 }
 

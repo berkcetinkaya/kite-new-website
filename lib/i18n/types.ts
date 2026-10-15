@@ -40,7 +40,13 @@ export interface TechnologySectionContent {
  * as soon as a new key is introduced anywhere in the UI.
  */
 export interface SiteDictionary {
+  /** Used only as the design-system/header-preview dev routes' fallback title — never served on a real public page. */
   meta: {
+    title: string;
+    description: string;
+  };
+  /** The homepage's actual SEO title/description — covers the five capability areas, not just the brand tagline. */
+  homeMeta: {
     title: string;
     description: string;
   };

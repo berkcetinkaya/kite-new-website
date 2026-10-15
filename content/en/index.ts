@@ -6,6 +6,11 @@ const en: SiteDictionary = {
     description:
       "Internal preview of the editorial design system built for KITE Growth Agency.",
   },
+  homeMeta: {
+    title: "KITE Growth | Creative, Performance & Technology Agency",
+    description:
+      "Performance marketing, creative production, web development, custom CRM and AI-powered sales technology — KITE Growth runs brand growth as one connected system. Based in Istanbul & Bali.",
+  },
   brand: {
     name: "KITE",
     agencyType: "GROWTH AGENCY",

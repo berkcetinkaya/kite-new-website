@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import { Header } from "@/components/site/Header";
 import { Hero } from "@/components/site/Hero";
 import { SelectedWork } from "@/components/site/SelectedWork";
@@ -17,9 +18,14 @@ import { Footer } from "@/components/site/Footer";
 /**
  * Internal QA harness for Phase 2 (Header) through Phase 9 (Final CTA +
  * Footer). Not the homepage — sections below this are built and approved
- * separately.
+ * separately. Removed from anything built with `next build` (production
+ * and every Vercel preview deployment alike both set NODE_ENV=production),
+ * so it 404s instead of being crawlable/indexable, and instead of risking
+ * duplicate-content against the real homepage; `next dev` is untouched.
  */
 export default async function HeaderPreviewPage() {
+  if (process.env.NODE_ENV !== "development") notFound();
+
   return (
     <>
       <Header />

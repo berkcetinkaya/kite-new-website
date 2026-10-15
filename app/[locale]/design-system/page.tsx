@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import { getDictionary, getLocale } from "@/lib/i18n/get-dictionary";
 import {
   SiteContainer,
@@ -54,7 +55,16 @@ const spacingWidthClass: Record<string, string> = {
   "4xl": "w-4xl",
 };
 
+/**
+ * Internal component-library preview — never meant to be a public page.
+ * Removed from anything built with `next build` (production and every
+ * Vercel preview deployment alike both set NODE_ENV=production), so it
+ * 404s instead of being crawlable/indexable; `next dev` is untouched, so
+ * the team can still use it locally for QA.
+ */
 export default async function DesignSystemPreviewPage() {
+  if (process.env.NODE_ENV !== "development") notFound();
+
   const locale = await getLocale();
   const dict = await getDictionary();
   const p = dict.designSystemPreview;

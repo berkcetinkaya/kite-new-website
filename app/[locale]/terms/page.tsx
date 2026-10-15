@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
 import { getDictionary, getLocale } from "@/lib/i18n/get-dictionary";
+import { localizedAlternates } from "@/lib/seo/site";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { LegalPage } from "@/components/site/LegalPage";
 
 export async function generateMetadata(): Promise<Metadata> {
   const { legal, brand } = await getDictionary();
+  const locale = await getLocale();
 
   return {
     title: `${legal.terms.title} — ${brand.name} ${brand.agencyType}`,
     description: legal.terms.intro,
+    alternates: localizedAlternates(locale, "/terms"),
   };
 }
 

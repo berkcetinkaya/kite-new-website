@@ -5,6 +5,8 @@ import { locales } from "@/lib/i18n/locales";
 import { getDictionary, getLocale } from "@/lib/i18n/get-dictionary";
 import { MetaPixel } from "@/components/analytics/MetaPixel";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
+import { SITE_URL } from "@/lib/seo/site";
+import { siteJsonLdGraph } from "@/lib/seo/structured-data";
 
 const displayFont = Big_Shoulders({
   subsets: ["latin"],
@@ -29,6 +31,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const dict = await getDictionary();
 
   return {
+    metadataBase: new URL(SITE_URL),
     title: dict.meta.title,
     description: dict.meta.description,
     icons: {
@@ -47,6 +50,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={`${displayFont.variable} ${bodyFont.variable}`}>
       <body className="paper-texture">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLdGraph()) }} />
         <MetaPixel />
         <GoogleAnalytics />
         {children}
