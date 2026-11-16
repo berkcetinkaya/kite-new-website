@@ -5,7 +5,6 @@ import { Header } from "@/components/site/Header";
 import { Hero } from "@/components/site/Hero";
 import { SelectedWork } from "@/components/site/SelectedWork";
 import { Capabilities } from "@/components/site/Capabilities";
-import { TechnologySpotlight } from "@/components/site/TechnologySpotlight";
 import { ApproachEntry } from "@/components/site/ApproachEntry";
 import { Kite } from "@/components/site/Kite";
 import { FinalCta } from "@/components/site/FinalCta";
@@ -13,13 +12,13 @@ import { Footer } from "@/components/site/Footer";
 
 /**
  * Overrides the layout's default metadata (still the design-system preview's
- * title/description) with the real homepage's — `homeMeta` covers the five
- * capability areas (performance marketing, creative, web, CRM, AI sales
- * tech) rather than just the brand tagline, since the bare brand name alone
- * can't compete for anything beyond a branded search. OG/Twitter reuse the
- * same title/description and the existing logo asset — see the SEO audit
- * for why a dedicated 1200×630 social card is recommended but not invented
- * here.
+ * title/description) with the real homepage's — `homeMeta` covers the
+ * advertising-and-creative capability areas (performance marketing,
+ * creative production, web development) rather than just the brand
+ * tagline, since the bare brand name alone can't compete for anything
+ * beyond a branded search. OG/Twitter reuse the same title/description and
+ * the existing logo asset — see the SEO audit for why a dedicated 1200×630
+ * social card is recommended but not invented here.
  */
 export async function generateMetadata(): Promise<Metadata> {
   const { homeMeta } = await getDictionary();
@@ -56,7 +55,6 @@ export default async function HomePage() {
         <Hero />
         <SelectedWork />
         <Capabilities />
-        <TechnologySpotlight />
         <ApproachEntry />
         <Kite />
         <FinalCta />

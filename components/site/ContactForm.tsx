@@ -10,11 +10,11 @@ import { cn } from "@/lib/cn";
 
 /**
  * Stable, language-independent keys for the `?needs=` query param, in the
- * same order as every locale's `needsOptions` array. Lets a page like
- * /technology preselect a need (`?needs=crm,ai-sales`) without the URL
+ * same order as every locale's `needsOptions` array. Lets a direct link
+ * preselect a need (e.g. `?needs=performance,web`) without the URL
  * carrying locale-specific label text.
  */
-const NEEDS_KEYS = ["strategy", "performance", "creative", "web", "crm", "ai-sales", "unsure"] as const;
+const NEEDS_KEYS = ["strategy", "performance", "creative", "web", "unsure"] as const;
 
 interface ContactFormContent {
   nameLabel: string;
@@ -88,9 +88,9 @@ function NeedOption({ option, checked, onToggle }: { option: string; checked: bo
 
 export function ContactForm({ content }: { content: ContactFormContent }) {
   const searchParams = useSearchParams();
-  // Preselects needs from `?needs=crm,ai-sales` (e.g. arriving from the
-  // Technology page) — read once as the field's initial value, so visitors
-  // can still freely change their selection afterward.
+  // Preselects needs from `?needs=` (e.g. `?needs=performance,web`) — read
+  // once as the field's initial value, so visitors can still freely change
+  // their selection afterward.
   const [selectedNeeds, setSelectedNeeds] = useState<string[]>(() => {
     const param = searchParams.get("needs");
     if (!param) return [];

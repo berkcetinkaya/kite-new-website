@@ -8,7 +8,7 @@ import { SITE_URL } from "@/lib/seo/site";
  * deliberately not listed here (they also 404 outside `next dev` now,
  * see their own pages), so there's nothing to additionally exclude.
  */
-const PATHS = ["", "/technology", "/privacy", "/terms"];
+const PATHS = ["", "/privacy", "/terms"];
 
 /**
  * `lastModified` is deliberately omitted rather than set. There's no

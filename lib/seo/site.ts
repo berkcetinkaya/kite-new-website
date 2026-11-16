@@ -12,8 +12,8 @@ export const SITE_URL = "https://www.kitegrowth.com";
 /**
  * Self-referencing canonical plus reciprocal hreflang alternates (and an
  * `x-default` pointing at the default locale) for one localized path, e.g.
- * `localizedAlternates("tr", "/technology")`. `path` is the part after the
- * locale segment — "" for the homepage, "/technology" for that page, etc.
+ * `localizedAlternates("tr", "/privacy")`. `path` is the part after the
+ * locale segment — "" for the homepage, "/privacy" for that page, etc.
  */
 export function localizedAlternates(locale: Locale, path: string = "") {
   const languages = Object.fromEntries(locales.map((l) => [l, `${SITE_URL}/${l}${path}`])) as Record<Locale, string>;
